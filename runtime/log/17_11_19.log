@@ -1,0 +1,1857 @@
+[ 2017-11-19T13:09:53+08:00 ] 127.0.0.1 127.0.0.1 GET /api.php
+[ log ] localhost/api.php [运行时间：0.102920s][吞吐率：9.72req/s] [内存消耗：682.37kb] [文件加载：25]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ LANG ] D:\workerman\laychat-master\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => 'D:\\workerman\\laychat-master\\public/../runtime/log\\',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-19T13:10:11+08:00 ] 127.0.0.1 127.0.0.1 GET /api.php/index/index
+[ log ] localhost/api.php/index/index [运行时间：0.061126s][吞吐率：16.36req/s] [内存消耗：682.03kb] [文件加载：25]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'index',
+    2 => NULL,
+  ),
+)
+[ info ] [ LANG ] D:\workerman\laychat-master\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => 'D:\\workerman\\laychat-master\\public/../runtime/log\\',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-19T13:10:59+08:00 ] 127.0.0.1 127.0.0.1 GET /api.php/index
+[ log ] localhost/api.php/index [运行时间：0.060618s][吞吐率：16.50req/s] [内存消耗：681.97kb] [文件加载：25]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ LANG ] D:\workerman\laychat-master\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => 'D:\\workerman\\laychat-master\\public/../runtime/log\\',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-19T13:11:06+08:00 ] 127.0.0.1 127.0.0.1 GET /api.php/Index
+[ log ] localhost/api.php/Index [运行时间：0.019848s][吞吐率：50.38req/s] [内存消耗：681.97kb] [文件加载：25]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'Index',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ LANG ] D:\workerman\laychat-master\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => 'D:\\workerman\\laychat-master\\public/../runtime/log\\',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-19T13:12:29+08:00 ] 127.0.0.1 127.0.0.1 GET /api.php/Index
+[ log ] localhost/api.php/Index [运行时间：0.065623s][吞吐率：15.24req/s] [内存消耗：681.91kb] [文件加载：24]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'Index',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ LANG ] D:\workerman\laychat-master\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => 'D:\\workerman\\laychat-master\\public/../runtime/log\\',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-19T13:12:37+08:00 ] 127.0.0.1 127.0.0.1 GET /api.php
+[ log ] localhost/api.php [运行时间：0.022221s][吞吐率：45.00req/s] [内存消耗：681.91kb] [文件加载：24]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ LANG ] D:\workerman\laychat-master\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => 'D:\\workerman\\laychat-master\\public/../runtime/log\\',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-19T13:13:06+08:00 ] 127.0.0.1 127.0.0.1 GET /api.php
+[ log ] localhost/api.php [运行时间：0.049682s][吞吐率：20.13req/s] [内存消耗：681.97kb] [文件加载：25]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ LANG ] D:\workerman\laychat-master\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => 'D:\\workerman\\laychat-master\\public/../runtime/log\\',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-19T13:13:43+08:00 ] 127.0.0.1 127.0.0.1 GET /api.php/api
+[ log ] localhost/api.php/api [运行时间：0.133795s][吞吐率：7.47req/s] [内存消耗：853.28kb] [文件加载：27]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method index ] {
+  @@ D:\workerman\laychat-master\app\api\controller\Index.php 20 - 22
+}
+
+[ info ] [ LOG ] INIT File: array (
+  'path' => 'D:\\workerman\\laychat-master\\public/../runtime/log\\',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-19T13:14:04+08:00 ] 127.0.0.1 127.0.0.1 GET /api.php/api/Index
+[ log ] localhost/api.php/api/Index [运行时间：0.048480s][吞吐率：20.63req/s] [内存消耗：853.34kb] [文件加载：27]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Index',
+    2 => NULL,
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method index ] {
+  @@ D:\workerman\laychat-master\app\api\controller\Index.php 20 - 22
+}
+
+[ info ] [ LOG ] INIT File: array (
+  'path' => 'D:\\workerman\\laychat-master\\public/../runtime/log\\',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-19T13:14:09+08:00 ] 127.0.0.1 127.0.0.1 GET /api.php/api/Index/index
+[ log ] localhost/api.php/api/Index/index [运行时间：0.019474s][吞吐率：51.35req/s] [内存消耗：853.38kb] [文件加载：27]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Index',
+    2 => 'index',
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method index ] {
+  @@ D:\workerman\laychat-master\app\api\controller\Index.php 20 - 22
+}
+
+[ info ] [ LOG ] INIT File: array (
+  'path' => 'D:\\workerman\\laychat-master\\public/../runtime/log\\',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-19T14:14:04+08:00 ] 127.0.0.1 127.0.0.1 GET /api.php/api/Index/index
+[ log ] localhost/api.php/api/Index/index [运行时间：0.160890s][吞吐率：6.22req/s] [内存消耗：853.38kb] [文件加载：27]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Index',
+    2 => 'index',
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method index ] {
+  @@ D:\workerman\laychat-master\app\api\controller\Index.php 20 - 22
+}
+
+[ info ] [ LOG ] INIT File: array (
+  'path' => 'D:\\workerman\\laychat-master\\public/../runtime/log\\',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-19T14:16:48+08:00 ] 127.0.0.1 127.0.0.1 GET /api.php/api/Index/index
+[ log ] localhost/api.php/api/Index/index [运行时间：0.368895s][吞吐率：2.71req/s] [内存消耗：1,313.75kb] [文件加载：36]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Index',
+    2 => 'index',
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method index ] {
+  @@ D:\workerman\laychat-master\app\api\controller\Index.php 20 - 27
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ DB ] INIT mysql:array (
+  'type' => 'mysql',
+  'dsn' => '',
+  'hostname' => 'localhost',
+  'database' => '',
+  'username' => 'root',
+  'password' => '',
+  'hostport' => '',
+  'params' => 
+  array (
+  ),
+  'charset' => 'utf8',
+  'prefix' => '',
+  'debug' => false,
+  'deploy' => 0,
+  'rw_separate' => false,
+  'master_num' => 1,
+  'slave_no' => '',
+  'fields_strict' => true,
+  'auto_timestamp' => false,
+)
+[ info ] [ LANG ] D:\workerman\laychat-master\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\workerman\laychat-master\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => 'D:\\workerman\\laychat-master\\public/../runtime/log\\',
+  'level' => 
+  array (
+  ),
+)
+[ error ] [0]method not exist:think\db\Query->findOne[D:\workerman\laychat-master\thinkphp\library\think\db\Query.php:89]
+
+[ 2017-11-19T14:17:53+08:00 ] 127.0.0.1 127.0.0.1 GET /api.php/api/Index/index
+[ log ] localhost/api.php/api/Index/index [运行时间：0.250148s][吞吐率：4.00req/s] [内存消耗：1,418.70kb] [文件加载：38]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Index',
+    2 => 'index',
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method index ] {
+  @@ D:\workerman\laychat-master\app\api\controller\Index.php 20 - 27
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ DB ] INIT mysql:array (
+  'type' => 'mysql',
+  'dsn' => '',
+  'hostname' => 'localhost',
+  'database' => '',
+  'username' => 'root',
+  'password' => '',
+  'hostport' => '',
+  'params' => 
+  array (
+  ),
+  'charset' => 'utf8',
+  'prefix' => '',
+  'debug' => false,
+  'deploy' => 0,
+  'rw_separate' => false,
+  'master_num' => 1,
+  'slave_no' => '',
+  'fields_strict' => true,
+  'auto_timestamp' => false,
+)
+[ info ] [ LANG ] D:\workerman\laychat-master\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\workerman\laychat-master\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => 'D:\\workerman\\laychat-master\\public/../runtime/log\\',
+  'level' => 
+  array (
+  ),
+)
+[ error ] [0]SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)[D:\workerman\laychat-master\thinkphp\library\think\db\Connection.php:270]
+
+[ 2017-11-19T14:18:29+08:00 ] 127.0.0.1 127.0.0.1 GET /api.php/api/Index/index
+[ log ] localhost/api.php/api/Index/index [运行时间：0.096191s][吞吐率：10.40req/s] [内存消耗：1,446.07kb] [文件加载：34]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Index',
+    2 => 'index',
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method index ] {
+  @@ D:\workerman\laychat-master\app\api\controller\Index.php 20 - 27
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ DB ] INIT mysql:array (
+  'type' => 'mysql',
+  'dsn' => '',
+  'hostname' => '127.0.0.1',
+  'database' => 'laychat',
+  'username' => 'root',
+  'password' => 'root',
+  'hostport' => '3306',
+  'params' => 
+  array (
+  ),
+  'charset' => 'utf8',
+  'prefix' => 'lsiten_',
+  'debug' => true,
+  'deploy' => 0,
+  'rw_separate' => false,
+  'master_num' => 1,
+  'slave_no' => '',
+  'fields_strict' => true,
+  'auto_timestamp' => false,
+  'resultset_type' => 'array',
+  'sql_explain' => false,
+)
+[ info ] [ DB ] CONNECT: mysql:dbname=laychat;host=127.0.0.1;port=3306;charset=utf8
+[ info ] [ LOG ] INIT File: array (
+  'path' => 'D:\\workerman\\laychat-master\\public/../runtime/log\\',
+  'level' => 
+  array (
+  ),
+)
+[ sql ] [ SQL ] SELECT * FROM `lsiten_doguser` WHERE  `phoneNumber` = null LIMIT 1   [ RunTime:0.001144s ]
+
+[ 2017-11-19T14:18:31+08:00 ] 127.0.0.1 127.0.0.1 GET /api.php/api/Index/index
+[ log ] localhost/api.php/api/Index/index [运行时间：0.037117s][吞吐率：26.94req/s] [内存消耗：1,446.07kb] [文件加载：34]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Index',
+    2 => 'index',
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method index ] {
+  @@ D:\workerman\laychat-master\app\api\controller\Index.php 20 - 27
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ DB ] INIT mysql:array (
+  'type' => 'mysql',
+  'dsn' => '',
+  'hostname' => '127.0.0.1',
+  'database' => 'laychat',
+  'username' => 'root',
+  'password' => 'root',
+  'hostport' => '3306',
+  'params' => 
+  array (
+  ),
+  'charset' => 'utf8',
+  'prefix' => 'lsiten_',
+  'debug' => true,
+  'deploy' => 0,
+  'rw_separate' => false,
+  'master_num' => 1,
+  'slave_no' => '',
+  'fields_strict' => true,
+  'auto_timestamp' => false,
+  'resultset_type' => 'array',
+  'sql_explain' => false,
+)
+[ info ] [ DB ] CONNECT: mysql:dbname=laychat;host=127.0.0.1;port=3306;charset=utf8
+[ info ] [ LOG ] INIT File: array (
+  'path' => 'D:\\workerman\\laychat-master\\public/../runtime/log\\',
+  'level' => 
+  array (
+  ),
+)
+[ sql ] [ SQL ] SELECT * FROM `lsiten_doguser` WHERE  `phoneNumber` = null LIMIT 1   [ RunTime:0.000510s ]
+
+[ 2017-11-19T14:20:50+08:00 ] 127.0.0.1 127.0.0.1 GET /api.php/api/Index/index
+[ log ] localhost/api.php/api/Index/index [运行时间：0.075499s][吞吐率：13.25req/s] [内存消耗：1,506.48kb] [文件加载：40]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Index',
+    2 => 'index',
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method index ] {
+  @@ D:\workerman\laychat-master\app\api\controller\Index.php 20 - 34
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ DB ] INIT mysql:array (
+  'type' => 'mysql',
+  'dsn' => '',
+  'hostname' => '127.0.0.1',
+  'database' => 'laychat',
+  'username' => 'root',
+  'password' => 'root',
+  'hostport' => '3306',
+  'params' => 
+  array (
+  ),
+  'charset' => 'utf8',
+  'prefix' => 'lsiten_',
+  'debug' => true,
+  'deploy' => 0,
+  'rw_separate' => false,
+  'master_num' => 1,
+  'slave_no' => '',
+  'fields_strict' => true,
+  'auto_timestamp' => false,
+  'resultset_type' => 'array',
+  'sql_explain' => false,
+)
+[ info ] [ DB ] CONNECT: mysql:dbname=laychat;host=127.0.0.1;port=3306;charset=utf8
+[ info ] [ LANG ] D:\workerman\laychat-master\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\workerman\laychat-master\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => 'D:\\workerman\\laychat-master\\public/../runtime/log\\',
+  'level' => 
+  array (
+  ),
+)
+[ sql ] [ SQL ] SELECT * FROM `lsiten_doguser` WHERE  `phoneNumber` = null LIMIT 1   [ RunTime:0.000801s ]
+[ error ] [0]method not exist:think\db\Query->save[D:\workerman\laychat-master\thinkphp\library\think\db\Query.php:89]
+
+[ 2017-11-19T14:22:02+08:00 ] 127.0.0.1 127.0.0.1 GET /api.php/api/Index/index
+[ log ] localhost/api.php/api/Index/index [运行时间：0.065454s][吞吐率：15.28req/s] [内存消耗：1,506.51kb] [文件加载：40]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Index',
+    2 => 'index',
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method index ] {
+  @@ D:\workerman\laychat-master\app\api\controller\Index.php 20 - 36
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ DB ] INIT mysql:array (
+  'type' => 'mysql',
+  'dsn' => '',
+  'hostname' => '127.0.0.1',
+  'database' => 'laychat',
+  'username' => 'root',
+  'password' => 'root',
+  'hostport' => '3306',
+  'params' => 
+  array (
+  ),
+  'charset' => 'utf8',
+  'prefix' => 'lsiten_',
+  'debug' => true,
+  'deploy' => 0,
+  'rw_separate' => false,
+  'master_num' => 1,
+  'slave_no' => '',
+  'fields_strict' => true,
+  'auto_timestamp' => false,
+  'resultset_type' => 'array',
+  'sql_explain' => false,
+)
+[ info ] [ DB ] CONNECT: mysql:dbname=laychat;host=127.0.0.1;port=3306;charset=utf8
+[ info ] [ LANG ] D:\workerman\laychat-master\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\workerman\laychat-master\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => 'D:\\workerman\\laychat-master\\public/../runtime/log\\',
+  'level' => 
+  array (
+  ),
+)
+[ sql ] [ SQL ] SELECT * FROM `lsiten_doguser` WHERE  `phoneNumber` = null LIMIT 1   [ RunTime:0.000770s ]
+[ error ] [0]method not exist:think\db\Query->data[D:\workerman\laychat-master\thinkphp\library\think\db\Query.php:89]
+
+[ 2017-11-19T14:24:39+08:00 ] 127.0.0.1 127.0.0.1 GET /api.php/api/Index/index
+[ log ] localhost/api.php/api/Index/index [运行时间：0.052984s][吞吐率：18.87req/s] [内存消耗：1,506.51kb] [文件加载：40]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Index',
+    2 => 'index',
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method index ] {
+  @@ D:\workerman\laychat-master\app\api\controller\Index.php 20 - 36
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ DB ] INIT mysql:array (
+  'type' => 'mysql',
+  'dsn' => '',
+  'hostname' => '127.0.0.1',
+  'database' => 'laychat',
+  'username' => 'root',
+  'password' => 'root',
+  'hostport' => '3306',
+  'params' => 
+  array (
+  ),
+  'charset' => 'utf8',
+  'prefix' => 'lsiten_',
+  'debug' => true,
+  'deploy' => 0,
+  'rw_separate' => false,
+  'master_num' => 1,
+  'slave_no' => '',
+  'fields_strict' => true,
+  'auto_timestamp' => false,
+  'resultset_type' => 'array',
+  'sql_explain' => false,
+)
+[ info ] [ DB ] CONNECT: mysql:dbname=laychat;host=127.0.0.1;port=3306;charset=utf8
+[ info ] [ LANG ] D:\workerman\laychat-master\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\workerman\laychat-master\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => 'D:\\workerman\\laychat-master\\public/../runtime/log\\',
+  'level' => 
+  array (
+  ),
+)
+[ sql ] [ SQL ] SELECT * FROM `lsiten_doguser` WHERE  `phoneNumber` = null LIMIT 1   [ RunTime:0.000570s ]
+[ error ] [0]method not exist:think\db\Query->data[D:\workerman\laychat-master\thinkphp\library\think\db\Query.php:89]
+
+[ 2017-11-19T14:25:01+08:00 ] 127.0.0.1 127.0.0.1 GET /api.php/api/Index/index
+[ log ] localhost/api.php/api/Index/index [运行时间：0.058668s][吞吐率：17.05req/s] [内存消耗：1,508.00kb] [文件加载：40]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Index',
+    2 => 'index',
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method index ] {
+  @@ D:\workerman\laychat-master\app\api\controller\Index.php 20 - 37
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ DB ] INIT mysql:array (
+  'type' => 'mysql',
+  'dsn' => '',
+  'hostname' => '127.0.0.1',
+  'database' => 'laychat',
+  'username' => 'root',
+  'password' => 'root',
+  'hostport' => '3306',
+  'params' => 
+  array (
+  ),
+  'charset' => 'utf8',
+  'prefix' => 'lsiten_',
+  'debug' => true,
+  'deploy' => 0,
+  'rw_separate' => false,
+  'master_num' => 1,
+  'slave_no' => '',
+  'fields_strict' => true,
+  'auto_timestamp' => false,
+  'resultset_type' => 'array',
+  'sql_explain' => false,
+)
+[ info ] [ DB ] CONNECT: mysql:dbname=laychat;host=127.0.0.1;port=3306;charset=utf8
+[ info ] [ LANG ] D:\workerman\laychat-master\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\workerman\laychat-master\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => 'D:\\workerman\\laychat-master\\public/../runtime/log\\',
+  'level' => 
+  array (
+  ),
+)
+[ sql ] [ SQL ] SELECT * FROM `lsiten_doguser` WHERE  `phoneNumber` = null LIMIT 1   [ RunTime:0.000736s ]
+[ error ] [0]method not exist:think\db\Query->data[D:\workerman\laychat-master\thinkphp\library\think\db\Query.php:89]
+
+[ 2017-11-19T14:25:03+08:00 ] 127.0.0.1 127.0.0.1 GET /api.php/api/Index/index
+[ log ] localhost/api.php/api/Index/index [运行时间：0.045246s][吞吐率：22.10req/s] [内存消耗：1,508.00kb] [文件加载：40]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Index',
+    2 => 'index',
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method index ] {
+  @@ D:\workerman\laychat-master\app\api\controller\Index.php 20 - 37
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ DB ] INIT mysql:array (
+  'type' => 'mysql',
+  'dsn' => '',
+  'hostname' => '127.0.0.1',
+  'database' => 'laychat',
+  'username' => 'root',
+  'password' => 'root',
+  'hostport' => '3306',
+  'params' => 
+  array (
+  ),
+  'charset' => 'utf8',
+  'prefix' => 'lsiten_',
+  'debug' => true,
+  'deploy' => 0,
+  'rw_separate' => false,
+  'master_num' => 1,
+  'slave_no' => '',
+  'fields_strict' => true,
+  'auto_timestamp' => false,
+  'resultset_type' => 'array',
+  'sql_explain' => false,
+)
+[ info ] [ DB ] CONNECT: mysql:dbname=laychat;host=127.0.0.1;port=3306;charset=utf8
+[ info ] [ LANG ] D:\workerman\laychat-master\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\workerman\laychat-master\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => 'D:\\workerman\\laychat-master\\public/../runtime/log\\',
+  'level' => 
+  array (
+  ),
+)
+[ sql ] [ SQL ] SELECT * FROM `lsiten_doguser` WHERE  `phoneNumber` = null LIMIT 1   [ RunTime:0.000557s ]
+[ error ] [0]method not exist:think\db\Query->data[D:\workerman\laychat-master\thinkphp\library\think\db\Query.php:89]
+
+[ 2017-11-19T14:25:22+08:00 ] 127.0.0.1 127.0.0.1 GET /api.php/api/Index/index
+[ log ] localhost/api.php/api/Index/index [运行时间：0.061907s][吞吐率：16.15req/s] [内存消耗：1,448.05kb] [文件加载：34]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Index',
+    2 => 'index',
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method index ] {
+  @@ D:\workerman\laychat-master\app\api\controller\Index.php 20 - 38
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ DB ] INIT mysql:array (
+  'type' => 'mysql',
+  'dsn' => '',
+  'hostname' => '127.0.0.1',
+  'database' => 'laychat',
+  'username' => 'root',
+  'password' => 'root',
+  'hostport' => '3306',
+  'params' => 
+  array (
+  ),
+  'charset' => 'utf8',
+  'prefix' => 'lsiten_',
+  'debug' => true,
+  'deploy' => 0,
+  'rw_separate' => false,
+  'master_num' => 1,
+  'slave_no' => '',
+  'fields_strict' => true,
+  'auto_timestamp' => false,
+  'resultset_type' => 'array',
+  'sql_explain' => false,
+)
+[ info ] [ DB ] CONNECT: mysql:dbname=laychat;host=127.0.0.1;port=3306;charset=utf8
+[ info ] [ LOG ] INIT File: array (
+  'path' => 'D:\\workerman\\laychat-master\\public/../runtime/log\\',
+  'level' => 
+  array (
+  ),
+)
+[ sql ] [ SQL ] SELECT * FROM `lsiten_doguser` WHERE  `phoneNumber` = null LIMIT 1   [ RunTime:0.000673s ]
+
+[ 2017-11-19T14:29:51+08:00 ] 127.0.0.1 127.0.0.1 GET /api.php/api/Index/index
+[ log ] localhost/api.php/api/Index/index [运行时间：0.072373s][吞吐率：13.82req/s] [内存消耗：1,448.05kb] [文件加载：34]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Index',
+    2 => 'index',
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method index ] {
+  @@ D:\workerman\laychat-master\app\api\controller\Index.php 20 - 38
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ DB ] INIT mysql:array (
+  'type' => 'mysql',
+  'dsn' => '',
+  'hostname' => '127.0.0.1',
+  'database' => 'laychat',
+  'username' => 'root',
+  'password' => 'root',
+  'hostport' => '3306',
+  'params' => 
+  array (
+  ),
+  'charset' => 'utf8',
+  'prefix' => 'lsiten_',
+  'debug' => true,
+  'deploy' => 0,
+  'rw_separate' => false,
+  'master_num' => 1,
+  'slave_no' => '',
+  'fields_strict' => true,
+  'auto_timestamp' => false,
+  'resultset_type' => 'array',
+  'sql_explain' => false,
+)
+[ info ] [ DB ] CONNECT: mysql:dbname=laychat;host=127.0.0.1;port=3306;charset=utf8
+[ info ] [ LOG ] INIT File: array (
+  'path' => 'D:\\workerman\\laychat-master\\public/../runtime/log\\',
+  'level' => 
+  array (
+  ),
+)
+[ sql ] [ SQL ] SELECT * FROM `lsiten_doguser` WHERE  `phoneNumber` = null LIMIT 1   [ RunTime:0.000748s ]
+
+[ 2017-11-19T14:29:56+08:00 ] 127.0.0.1 127.0.0.1 GET /api.php/api/Index/index
+[ log ] localhost/api.php/api/Index/index [运行时间：0.045849s][吞吐率：21.81req/s] [内存消耗：1,448.05kb] [文件加载：34]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Index',
+    2 => 'index',
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method index ] {
+  @@ D:\workerman\laychat-master\app\api\controller\Index.php 20 - 38
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ DB ] INIT mysql:array (
+  'type' => 'mysql',
+  'dsn' => '',
+  'hostname' => '127.0.0.1',
+  'database' => 'laychat',
+  'username' => 'root',
+  'password' => 'root',
+  'hostport' => '3306',
+  'params' => 
+  array (
+  ),
+  'charset' => 'utf8',
+  'prefix' => 'lsiten_',
+  'debug' => true,
+  'deploy' => 0,
+  'rw_separate' => false,
+  'master_num' => 1,
+  'slave_no' => '',
+  'fields_strict' => true,
+  'auto_timestamp' => false,
+  'resultset_type' => 'array',
+  'sql_explain' => false,
+)
+[ info ] [ DB ] CONNECT: mysql:dbname=laychat;host=127.0.0.1;port=3306;charset=utf8
+[ info ] [ LOG ] INIT File: array (
+  'path' => 'D:\\workerman\\laychat-master\\public/../runtime/log\\',
+  'level' => 
+  array (
+  ),
+)
+[ sql ] [ SQL ] SELECT * FROM `lsiten_doguser` WHERE  `phoneNumber` = null LIMIT 1   [ RunTime:0.000696s ]
+
+[ 2017-11-19T14:31:31+08:00 ] 127.0.0.1 127.0.0.1 GET /api.php/api/Index/index
+[ log ] localhost/api.php/api/Index/index [运行时间：0.065795s][吞吐率：15.20req/s] [内存消耗：916.52kb] [文件加载：33]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Index',
+    2 => 'index',
+  ),
+)
+[ info ] [ LANG ] D:\workerman\laychat-master\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => 'D:\\workerman\\laychat-master\\public/../runtime/log\\',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-19T14:32:26+08:00 ] 127.0.0.1 127.0.0.1 GET /api.php/api/Index/index
+[ log ] localhost/api.php/api/Index/index [运行时间：0.026787s][吞吐率：37.33req/s] [内存消耗：916.53kb] [文件加载：33]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Index',
+    2 => 'index',
+  ),
+)
+[ info ] [ LANG ] D:\workerman\laychat-master\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => 'D:\\workerman\\laychat-master\\public/../runtime/log\\',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-19T14:33:28+08:00 ] 127.0.0.1 127.0.0.1 GET /api.php/api/Index/index
+[ log ] localhost/api.php/api/Index/index [运行时间：0.079395s][吞吐率：12.60req/s] [内存消耗：1,448.05kb] [文件加载：34]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Index',
+    2 => 'index',
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method index ] {
+  @@ D:\workerman\laychat-master\app\api\controller\Index.php 21 - 39
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ DB ] INIT mysql:array (
+  'type' => 'mysql',
+  'dsn' => '',
+  'hostname' => '127.0.0.1',
+  'database' => 'laychat',
+  'username' => 'root',
+  'password' => 'root',
+  'hostport' => '3306',
+  'params' => 
+  array (
+  ),
+  'charset' => 'utf8',
+  'prefix' => 'lsiten_',
+  'debug' => true,
+  'deploy' => 0,
+  'rw_separate' => false,
+  'master_num' => 1,
+  'slave_no' => '',
+  'fields_strict' => true,
+  'auto_timestamp' => false,
+  'resultset_type' => 'array',
+  'sql_explain' => false,
+)
+[ info ] [ DB ] CONNECT: mysql:dbname=laychat;host=127.0.0.1;port=3306;charset=utf8
+[ info ] [ LOG ] INIT File: array (
+  'path' => 'D:\\workerman\\laychat-master\\public/../runtime/log\\',
+  'level' => 
+  array (
+  ),
+)
+[ sql ] [ SQL ] SELECT * FROM `lsiten_doguser` WHERE  `phoneNumber` = null LIMIT 1   [ RunTime:0.000855s ]
+
+[ 2017-11-19T14:33:56+08:00 ] 127.0.0.1 127.0.0.1 GET /api.php/api/Index/index
+[ log ] localhost/api.php/api/Index/index [运行时间：0.121266s][吞吐率：8.25req/s] [内存消耗：1,592.40kb] [文件加载：36]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Index',
+    2 => 'index',
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method index ] {
+  @@ D:\workerman\laychat-master\app\api\controller\Index.php 21 - 39
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ DB ] INIT mysql:array (
+  'type' => 'mysql',
+  'dsn' => '',
+  'hostname' => '127.0.0.1',
+  'database' => 'laychat',
+  'username' => 'root',
+  'password' => 'root',
+  'hostport' => '3306',
+  'params' => 
+  array (
+  ),
+  'charset' => 'utf8',
+  'prefix' => 'lsiten_',
+  'debug' => true,
+  'deploy' => 0,
+  'rw_separate' => false,
+  'master_num' => 1,
+  'slave_no' => '',
+  'fields_strict' => true,
+  'auto_timestamp' => false,
+  'resultset_type' => 'array',
+  'sql_explain' => false,
+)
+[ info ] [ DB ] CONNECT: mysql:dbname=laychat;host=127.0.0.1;port=3306;charset=utf8
+[ info ] [ LOG ] INIT File: array (
+  'path' => 'D:\\workerman\\laychat-master\\public/../runtime/log\\',
+  'level' => 
+  array (
+  ),
+)
+[ sql ] [ SQL ] SELECT * FROM `lsiten_doguser` WHERE  `phoneNumber` = null LIMIT 1   [ RunTime:0.001216s ]
+
+[ 2017-11-19T14:34:13+08:00 ] 127.0.0.1 127.0.0.1 GET /api.php/api/Index/index
+[ log ] localhost/api.php/api/Index/index [运行时间：0.076526s][吞吐率：13.07req/s] [内存消耗：1,554.81kb] [文件加载：36]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Index',
+    2 => 'index',
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method index ] {
+  @@ D:\workerman\laychat-master\app\api\controller\Index.php 21 - 38
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ DB ] INIT mysql:array (
+  'type' => 'mysql',
+  'dsn' => '',
+  'hostname' => '127.0.0.1',
+  'database' => 'laychat',
+  'username' => 'root',
+  'password' => 'root',
+  'hostport' => '3306',
+  'params' => 
+  array (
+  ),
+  'charset' => 'utf8',
+  'prefix' => 'lsiten_',
+  'debug' => true,
+  'deploy' => 0,
+  'rw_separate' => false,
+  'master_num' => 1,
+  'slave_no' => '',
+  'fields_strict' => true,
+  'auto_timestamp' => false,
+  'resultset_type' => 'array',
+  'sql_explain' => false,
+)
+[ info ] [ DB ] CONNECT: mysql:dbname=laychat;host=127.0.0.1;port=3306;charset=utf8
+[ info ] [ LOG ] INIT File: array (
+  'path' => 'D:\\workerman\\laychat-master\\public/../runtime/log\\',
+  'level' => 
+  array (
+  ),
+)
+[ sql ] [ SQL ] SELECT * FROM `lsiten_doguser` WHERE  `phoneNumber` = null LIMIT 1   [ RunTime:0.000718s ]
+[ sql ] [ SQL ] INSERT INTO `lsiten_doguser` (`verifyCode`) VALUES ('123')   [ RunTime:0.019176s ]
+
+[ 2017-11-19T14:34:14+08:00 ] 127.0.0.1 127.0.0.1 GET /api.php/api/Index/index
+[ log ] localhost/api.php/api/Index/index [运行时间：0.049345s][吞吐率：20.27req/s] [内存消耗：1,554.81kb] [文件加载：36]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Index',
+    2 => 'index',
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method index ] {
+  @@ D:\workerman\laychat-master\app\api\controller\Index.php 21 - 38
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ DB ] INIT mysql:array (
+  'type' => 'mysql',
+  'dsn' => '',
+  'hostname' => '127.0.0.1',
+  'database' => 'laychat',
+  'username' => 'root',
+  'password' => 'root',
+  'hostport' => '3306',
+  'params' => 
+  array (
+  ),
+  'charset' => 'utf8',
+  'prefix' => 'lsiten_',
+  'debug' => true,
+  'deploy' => 0,
+  'rw_separate' => false,
+  'master_num' => 1,
+  'slave_no' => '',
+  'fields_strict' => true,
+  'auto_timestamp' => false,
+  'resultset_type' => 'array',
+  'sql_explain' => false,
+)
+[ info ] [ DB ] CONNECT: mysql:dbname=laychat;host=127.0.0.1;port=3306;charset=utf8
+[ info ] [ LOG ] INIT File: array (
+  'path' => 'D:\\workerman\\laychat-master\\public/../runtime/log\\',
+  'level' => 
+  array (
+  ),
+)
+[ sql ] [ SQL ] SELECT * FROM `lsiten_doguser` WHERE  `phoneNumber` = null LIMIT 1   [ RunTime:0.000429s ]
+[ sql ] [ SQL ] INSERT INTO `lsiten_doguser` (`verifyCode`) VALUES ('123')   [ RunTime:0.010514s ]
+
+[ 2017-11-19T14:34:15+08:00 ] 127.0.0.1 127.0.0.1 GET /api.php/api/Index/index
+[ log ] localhost/api.php/api/Index/index [运行时间：0.049819s][吞吐率：20.07req/s] [内存消耗：1,554.81kb] [文件加载：36]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Index',
+    2 => 'index',
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method index ] {
+  @@ D:\workerman\laychat-master\app\api\controller\Index.php 21 - 38
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ DB ] INIT mysql:array (
+  'type' => 'mysql',
+  'dsn' => '',
+  'hostname' => '127.0.0.1',
+  'database' => 'laychat',
+  'username' => 'root',
+  'password' => 'root',
+  'hostport' => '3306',
+  'params' => 
+  array (
+  ),
+  'charset' => 'utf8',
+  'prefix' => 'lsiten_',
+  'debug' => true,
+  'deploy' => 0,
+  'rw_separate' => false,
+  'master_num' => 1,
+  'slave_no' => '',
+  'fields_strict' => true,
+  'auto_timestamp' => false,
+  'resultset_type' => 'array',
+  'sql_explain' => false,
+)
+[ info ] [ DB ] CONNECT: mysql:dbname=laychat;host=127.0.0.1;port=3306;charset=utf8
+[ info ] [ LOG ] INIT File: array (
+  'path' => 'D:\\workerman\\laychat-master\\public/../runtime/log\\',
+  'level' => 
+  array (
+  ),
+)
+[ sql ] [ SQL ] SELECT * FROM `lsiten_doguser` WHERE  `phoneNumber` = null LIMIT 1   [ RunTime:0.000867s ]
+[ sql ] [ SQL ] INSERT INTO `lsiten_doguser` (`verifyCode`) VALUES ('123')   [ RunTime:0.010775s ]
+
+[ 2017-11-19T14:34:28+08:00 ] 127.0.0.1 127.0.0.1 GET /api.php/api/Index/index
+[ log ] localhost/api.php/api/Index/index [运行时间：0.086219s][吞吐率：11.60req/s] [内存消耗：1,554.62kb] [文件加载：36]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Index',
+    2 => 'index',
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method index ] {
+  @@ D:\workerman\laychat-master\app\api\controller\Index.php 21 - 37
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ DB ] INIT mysql:array (
+  'type' => 'mysql',
+  'dsn' => '',
+  'hostname' => '127.0.0.1',
+  'database' => 'laychat',
+  'username' => 'root',
+  'password' => 'root',
+  'hostport' => '3306',
+  'params' => 
+  array (
+  ),
+  'charset' => 'utf8',
+  'prefix' => 'lsiten_',
+  'debug' => true,
+  'deploy' => 0,
+  'rw_separate' => false,
+  'master_num' => 1,
+  'slave_no' => '',
+  'fields_strict' => true,
+  'auto_timestamp' => false,
+  'resultset_type' => 'array',
+  'sql_explain' => false,
+)
+[ info ] [ DB ] CONNECT: mysql:dbname=laychat;host=127.0.0.1;port=3306;charset=utf8
+[ info ] [ LOG ] INIT File: array (
+  'path' => 'D:\\workerman\\laychat-master\\public/../runtime/log\\',
+  'level' => 
+  array (
+  ),
+)
+[ sql ] [ SQL ] SELECT * FROM `lsiten_doguser` WHERE  `phoneNumber` = null LIMIT 1   [ RunTime:0.001006s ]
+[ sql ] [ SQL ] INSERT INTO `lsiten_doguser` (`verifyCode`) VALUES ('123')   [ RunTime:0.012457s ]
+
+[ 2017-11-19T14:34:31+08:00 ] 127.0.0.1 127.0.0.1 GET /api.php/api/Index/index
+[ log ] localhost/api.php/api/Index/index [运行时间：0.050306s][吞吐率：19.88req/s] [内存消耗：1,554.62kb] [文件加载：36]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Index',
+    2 => 'index',
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method index ] {
+  @@ D:\workerman\laychat-master\app\api\controller\Index.php 21 - 37
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ DB ] INIT mysql:array (
+  'type' => 'mysql',
+  'dsn' => '',
+  'hostname' => '127.0.0.1',
+  'database' => 'laychat',
+  'username' => 'root',
+  'password' => 'root',
+  'hostport' => '3306',
+  'params' => 
+  array (
+  ),
+  'charset' => 'utf8',
+  'prefix' => 'lsiten_',
+  'debug' => true,
+  'deploy' => 0,
+  'rw_separate' => false,
+  'master_num' => 1,
+  'slave_no' => '',
+  'fields_strict' => true,
+  'auto_timestamp' => false,
+  'resultset_type' => 'array',
+  'sql_explain' => false,
+)
+[ info ] [ DB ] CONNECT: mysql:dbname=laychat;host=127.0.0.1;port=3306;charset=utf8
+[ info ] [ LOG ] INIT File: array (
+  'path' => 'D:\\workerman\\laychat-master\\public/../runtime/log\\',
+  'level' => 
+  array (
+  ),
+)
+[ sql ] [ SQL ] SELECT * FROM `lsiten_doguser` WHERE  `phoneNumber` = null LIMIT 1   [ RunTime:0.000538s ]
+[ sql ] [ SQL ] INSERT INTO `lsiten_doguser` (`verifyCode`) VALUES ('123')   [ RunTime:0.011640s ]
+
+[ 2017-11-19T15:07:31+08:00 ] 127.0.0.1 127.0.0.1 GET /api.php/api/index.html
+[ log ] localhost/api.php/api/index.html [运行时间：0.072971s][吞吐率：13.70req/s] [内存消耗：1,554.63kb] [文件加载：36]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'index',
+    2 => NULL,
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method index ] {
+  @@ D:\workerman\laychat-master\app\api\controller\Index.php 21 - 37
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ DB ] INIT mysql:array (
+  'type' => 'mysql',
+  'dsn' => '',
+  'hostname' => '127.0.0.1',
+  'database' => 'laychat',
+  'username' => 'root',
+  'password' => 'root',
+  'hostport' => '3306',
+  'params' => 
+  array (
+  ),
+  'charset' => 'utf8',
+  'prefix' => 'lsiten_',
+  'debug' => true,
+  'deploy' => 0,
+  'rw_separate' => false,
+  'master_num' => 1,
+  'slave_no' => '',
+  'fields_strict' => true,
+  'auto_timestamp' => false,
+  'resultset_type' => 'array',
+  'sql_explain' => false,
+)
+[ info ] [ DB ] CONNECT: mysql:dbname=laychat;host=127.0.0.1;port=3306;charset=utf8
+[ info ] [ LOG ] INIT File: array (
+  'path' => 'D:\\workerman\\laychat-master\\public/../runtime/log\\',
+  'level' => 
+  array (
+  ),
+)
+[ sql ] [ SQL ] SELECT * FROM `lsiten_doguser` WHERE  `phoneNumber` = null LIMIT 1   [ RunTime:0.000701s ]
+[ sql ] [ SQL ] INSERT INTO `lsiten_doguser` (`verifyCode`) VALUES ('123')   [ RunTime:0.011065s ]
+
+[ 2017-11-19T15:07:35+08:00 ] 127.0.0.1 127.0.0.1 GET /api.php/api/index.html?phoneNumber=18565884671
+[ log ] localhost/api.php/api/index.html?phoneNumber=18565884671 [运行时间：0.050173s][吞吐率：19.93req/s] [内存消耗：1,554.88kb] [文件加载：36]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'index',
+    2 => NULL,
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method index ] {
+  @@ D:\workerman\laychat-master\app\api\controller\Index.php 21 - 37
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ DB ] INIT mysql:array (
+  'type' => 'mysql',
+  'dsn' => '',
+  'hostname' => '127.0.0.1',
+  'database' => 'laychat',
+  'username' => 'root',
+  'password' => 'root',
+  'hostport' => '3306',
+  'params' => 
+  array (
+  ),
+  'charset' => 'utf8',
+  'prefix' => 'lsiten_',
+  'debug' => true,
+  'deploy' => 0,
+  'rw_separate' => false,
+  'master_num' => 1,
+  'slave_no' => '',
+  'fields_strict' => true,
+  'auto_timestamp' => false,
+  'resultset_type' => 'array',
+  'sql_explain' => false,
+)
+[ info ] [ DB ] CONNECT: mysql:dbname=laychat;host=127.0.0.1;port=3306;charset=utf8
+[ info ] [ LOG ] INIT File: array (
+  'path' => 'D:\\workerman\\laychat-master\\public/../runtime/log\\',
+  'level' => 
+  array (
+  ),
+)
+[ sql ] [ SQL ] SELECT * FROM `lsiten_doguser` WHERE  `phoneNumber` = '18565884671' LIMIT 1    [ RunTime:0.000579s ]
+[ sql ] [ SQL ] INSERT INTO `lsiten_doguser` (`verifyCode`) VALUES ('123')   [ RunTime:0.013605s ]
+
+[ 2017-11-19T15:08:31+08:00 ] 127.0.0.1 127.0.0.1 GET /api.php/api/index.html?phoneNumber=18565884671
+[ log ] localhost/api.php/api/index.html?phoneNumber=18565884671 [运行时间：0.064710s][吞吐率：15.45req/s] [内存消耗：1,554.88kb] [文件加载：36]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'index',
+    2 => NULL,
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method index ] {
+  @@ D:\workerman\laychat-master\app\api\controller\Index.php 21 - 37
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ DB ] INIT mysql:array (
+  'type' => 'mysql',
+  'dsn' => '',
+  'hostname' => '127.0.0.1',
+  'database' => 'laychat',
+  'username' => 'root',
+  'password' => 'root',
+  'hostport' => '3306',
+  'params' => 
+  array (
+  ),
+  'charset' => 'utf8',
+  'prefix' => 'lsiten_',
+  'debug' => true,
+  'deploy' => 0,
+  'rw_separate' => false,
+  'master_num' => 1,
+  'slave_no' => '',
+  'fields_strict' => true,
+  'auto_timestamp' => false,
+  'resultset_type' => 'array',
+  'sql_explain' => false,
+)
+[ info ] [ DB ] CONNECT: mysql:dbname=laychat;host=127.0.0.1;port=3306;charset=utf8
+[ info ] [ LOG ] INIT File: array (
+  'path' => 'D:\\workerman\\laychat-master\\public/../runtime/log\\',
+  'level' => 
+  array (
+  ),
+)
+[ sql ] [ SQL ] SELECT * FROM `lsiten_doguser` WHERE  `phoneNumber` = '18565884671' LIMIT 1    [ RunTime:0.000642s ]
+[ sql ] [ SQL ] INSERT INTO `lsiten_doguser` (`verifyCode`) VALUES ('123')   [ RunTime:0.013646s ]
+
+[ 2017-11-19T15:09:35+08:00 ] 127.0.0.1 127.0.0.1 GET /api.php/api/index.html?phoneNumber=18565884671
+[ log ] localhost/api.php/api/index.html?phoneNumber=18565884671 [运行时间：0.244900s][吞吐率：4.08req/s] [内存消耗：1,597.01kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'index',
+    2 => NULL,
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method index ] {
+  @@ D:\workerman\laychat-master\app\api\controller\Index.php 21 - 37
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ DB ] INIT mysql:array (
+  'type' => 'mysql',
+  'dsn' => '',
+  'hostname' => '127.0.0.1',
+  'database' => 'laychat',
+  'username' => 'root',
+  'password' => 'root',
+  'hostport' => '3306',
+  'params' => 
+  array (
+  ),
+  'charset' => 'utf8',
+  'prefix' => 'lsiten_',
+  'debug' => true,
+  'deploy' => 0,
+  'rw_separate' => false,
+  'master_num' => 1,
+  'slave_no' => '',
+  'fields_strict' => true,
+  'auto_timestamp' => false,
+  'resultset_type' => 'array',
+  'sql_explain' => false,
+)
+[ info ] [ DB ] CONNECT: mysql:dbname=laychat;host=127.0.0.1;port=3306;charset=utf8
+[ info ] [ LOG ] INIT File: array (
+  'path' => 'D:\\workerman\\laychat-master\\public/../runtime/log\\',
+  'level' => 
+  array (
+  ),
+)
+[ sql ] [ SQL ] SELECT * FROM `lsiten_doguser` WHERE  `phoneNumber` = '18565884671' LIMIT 1    [ RunTime:0.000712s ]
+
+[ 2017-11-19T15:12:47+08:00 ] 127.0.0.1 127.0.0.1 GET /api.php/api/index.html?phoneNumber=18565884672
+[ log ] localhost/api.php/api/index.html?phoneNumber=18565884672 [运行时间：0.070886s][吞吐率：14.11req/s] [内存消耗：1,654.36kb] [文件加载：42]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'index',
+    2 => NULL,
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method index ] {
+  @@ D:\workerman\laychat-master\app\api\controller\Index.php 21 - 37
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ DB ] INIT mysql:array (
+  'type' => 'mysql',
+  'dsn' => '',
+  'hostname' => '127.0.0.1',
+  'database' => 'laychat',
+  'username' => 'root',
+  'password' => 'root',
+  'hostport' => '3306',
+  'params' => 
+  array (
+  ),
+  'charset' => 'utf8',
+  'prefix' => 'lsiten_',
+  'debug' => true,
+  'deploy' => 0,
+  'rw_separate' => false,
+  'master_num' => 1,
+  'slave_no' => '',
+  'fields_strict' => true,
+  'auto_timestamp' => false,
+  'resultset_type' => 'array',
+  'sql_explain' => false,
+)
+[ info ] [ DB ] CONNECT: mysql:dbname=laychat;host=127.0.0.1;port=3306;charset=utf8
+[ info ] [ LANG ] D:\workerman\laychat-master\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\workerman\laychat-master\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => 'D:\\workerman\\laychat-master\\public/../runtime/log\\',
+  'level' => 
+  array (
+  ),
+)
+[ sql ] [ SQL ] SELECT * FROM `lsiten_doguser` WHERE  `phoneNumber` = '18565884672' LIMIT 1    [ RunTime:0.000758s ]
+[ error ] [0]数据表字段不存在 :[update_at][D:\workerman\laychat-master\thinkphp\library\think\db\Builder.php:97]
+
+[ 2017-11-19T15:13:15+08:00 ] 127.0.0.1 127.0.0.1 GET /api.php/api/index.html?phoneNumber=18565884672
+[ log ] localhost/api.php/api/index.html?phoneNumber=18565884672 [运行时间：0.225709s][吞吐率：4.43req/s] [内存消耗：1,555.74kb] [文件加载：36]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'index',
+    2 => NULL,
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method index ] {
+  @@ D:\workerman\laychat-master\app\api\controller\Index.php 21 - 37
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ DB ] INIT mysql:array (
+  'type' => 'mysql',
+  'dsn' => '',
+  'hostname' => '127.0.0.1',
+  'database' => 'laychat',
+  'username' => 'root',
+  'password' => 'root',
+  'hostport' => '3306',
+  'params' => 
+  array (
+  ),
+  'charset' => 'utf8',
+  'prefix' => 'lsiten_',
+  'debug' => true,
+  'deploy' => 0,
+  'rw_separate' => false,
+  'master_num' => 1,
+  'slave_no' => '',
+  'fields_strict' => true,
+  'auto_timestamp' => false,
+  'resultset_type' => 'array',
+  'sql_explain' => false,
+)
+[ info ] [ DB ] CONNECT: mysql:dbname=laychat;host=127.0.0.1;port=3306;charset=utf8
+[ info ] [ LOG ] INIT File: array (
+  'path' => 'D:\\workerman\\laychat-master\\public/../runtime/log\\',
+  'level' => 
+  array (
+  ),
+)
+[ sql ] [ SQL ] SELECT * FROM `lsiten_doguser` WHERE  `phoneNumber` = '18565884672' LIMIT 1    [ RunTime:0.000543s ]
+[ sql ] [ SQL ] INSERT INTO `lsiten_doguser` (`verifyCode` , `updateAt` , `createAt`) VALUES ('123' , '1511075595' , '1511075595')     [ RunTime:0.185358s ]
+
+[ 2017-11-19T15:13:18+08:00 ] 127.0.0.1 127.0.0.1 GET /api.php/api/index.html?phoneNumber=18565884672
+[ log ] localhost/api.php/api/index.html?phoneNumber=18565884672 [运行时间：0.052888s][吞吐率：18.91req/s] [内存消耗：1,555.74kb] [文件加载：36]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'index',
+    2 => NULL,
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method index ] {
+  @@ D:\workerman\laychat-master\app\api\controller\Index.php 21 - 37
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ DB ] INIT mysql:array (
+  'type' => 'mysql',
+  'dsn' => '',
+  'hostname' => '127.0.0.1',
+  'database' => 'laychat',
+  'username' => 'root',
+  'password' => 'root',
+  'hostport' => '3306',
+  'params' => 
+  array (
+  ),
+  'charset' => 'utf8',
+  'prefix' => 'lsiten_',
+  'debug' => true,
+  'deploy' => 0,
+  'rw_separate' => false,
+  'master_num' => 1,
+  'slave_no' => '',
+  'fields_strict' => true,
+  'auto_timestamp' => false,
+  'resultset_type' => 'array',
+  'sql_explain' => false,
+)
+[ info ] [ DB ] CONNECT: mysql:dbname=laychat;host=127.0.0.1;port=3306;charset=utf8
+[ info ] [ LOG ] INIT File: array (
+  'path' => 'D:\\workerman\\laychat-master\\public/../runtime/log\\',
+  'level' => 
+  array (
+  ),
+)
+[ sql ] [ SQL ] SELECT * FROM `lsiten_doguser` WHERE  `phoneNumber` = '18565884672' LIMIT 1    [ RunTime:0.000491s ]
+[ sql ] [ SQL ] INSERT INTO `lsiten_doguser` (`verifyCode` , `updateAt` , `createAt`) VALUES ('123' , '1511075598' , '1511075598')     [ RunTime:0.012316s ]
+
+[ 2017-11-19T15:14:30+08:00 ] 127.0.0.1 127.0.0.1 GET /api.php/api/index.html?phoneNumber=18565884672
+[ log ] localhost/api.php/api/index.html?phoneNumber=18565884672 [运行时间：0.054919s][吞吐率：18.21req/s] [内存消耗：1,597.33kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'index',
+    2 => NULL,
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method index ] {
+  @@ D:\workerman\laychat-master\app\api\controller\Index.php 21 - 37
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ DB ] INIT mysql:array (
+  'type' => 'mysql',
+  'dsn' => '',
+  'hostname' => '127.0.0.1',
+  'database' => 'laychat',
+  'username' => 'root',
+  'password' => 'root',
+  'hostport' => '3306',
+  'params' => 
+  array (
+  ),
+  'charset' => 'utf8',
+  'prefix' => 'lsiten_',
+  'debug' => true,
+  'deploy' => 0,
+  'rw_separate' => false,
+  'master_num' => 1,
+  'slave_no' => '',
+  'fields_strict' => true,
+  'auto_timestamp' => false,
+  'resultset_type' => 'array',
+  'sql_explain' => false,
+)
+[ info ] [ DB ] CONNECT: mysql:dbname=laychat;host=127.0.0.1;port=3306;charset=utf8
+[ info ] [ LOG ] INIT File: array (
+  'path' => 'D:\\workerman\\laychat-master\\public/../runtime/log\\',
+  'level' => 
+  array (
+  ),
+)
+[ sql ] [ SQL ] SELECT * FROM `lsiten_doguser` WHERE  `phoneNumber` = '18565884672' LIMIT 1    [ RunTime:0.000621s ]
+
+[ 2017-11-19T15:22:36+08:00 ] 127.0.0.1 127.0.0.1 GET /api.php/api/user/update?phoneNumber=18565884672
+[ log ] localhost/api.php/api/user/update?phoneNumber=18565884672 [运行时间：0.064273s][吞吐率：15.56req/s] [内存消耗：1,597.30kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'user',
+    2 => 'update',
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method update ] {
+  @@ D:\workerman\laychat-master\app\api\controller\User.php 30 - 45
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ DB ] INIT mysql:array (
+  'type' => 'mysql',
+  'dsn' => '',
+  'hostname' => '127.0.0.1',
+  'database' => 'laychat',
+  'username' => 'root',
+  'password' => 'root',
+  'hostport' => '3306',
+  'params' => 
+  array (
+  ),
+  'charset' => 'utf8',
+  'prefix' => 'lsiten_',
+  'debug' => true,
+  'deploy' => 0,
+  'rw_separate' => false,
+  'master_num' => 1,
+  'slave_no' => '',
+  'fields_strict' => true,
+  'auto_timestamp' => false,
+  'resultset_type' => 'array',
+  'sql_explain' => false,
+)
+[ info ] [ DB ] CONNECT: mysql:dbname=laychat;host=127.0.0.1;port=3306;charset=utf8
+[ info ] [ LOG ] INIT File: array (
+  'path' => 'D:\\workerman\\laychat-master\\public/../runtime/log\\',
+  'level' => 
+  array (
+  ),
+)
+[ sql ] [ SQL ] SELECT * FROM `lsiten_doguser` WHERE  `phoneNumber` = '18565884672' LIMIT 1    [ RunTime:0.000591s ]
+
+[ 2017-11-19T15:29:26+08:00 ] 127.0.0.1 127.0.0.1 GET /api.php/api/user/update?phoneNumber=18565884672
+[ log ] localhost/api.php/api/user/update?phoneNumber=18565884672 [运行时间：0.094732s][吞吐率：10.56req/s] [内存消耗：699.00kb] [文件加载：29]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'user',
+    2 => 'update',
+  ),
+)
+[ info ] [ LANG ] D:\workerman\laychat-master\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\workerman\laychat-master\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => 'D:\\workerman\\laychat-master\\public/../runtime/log\\',
+  'level' => 
+  array (
+  ),
+)
+[ error ] [1]Class 'think\controller' not found[D:\workerman\laychat-master\app\api\controller\Base.php:11]
+
+[ 2017-11-19T15:29:46+08:00 ] 127.0.0.1 127.0.0.1 GET /api.php/api/user/update?phoneNumber=18565884672
+[ log ] localhost/api.php/api/user/update?phoneNumber=18565884672 [运行时间：0.059596s][吞吐率：16.78req/s] [内存消耗：920.55kb] [文件加载：34]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'user',
+    2 => 'update',
+  ),
+)
+[ info ] [ LANG ] D:\workerman\laychat-master\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] D:\workerman\laychat-master\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => 'D:\\workerman\\laychat-master\\public/../runtime/log\\',
+  'level' => 
+  array (
+  ),
+)
+[ error ] [0]致命错误 : Call to undefined method app\api\controller\Base::initialize()[D:\workerman\laychat-master\app\api\controller\User.php:15]
+
+[ 2017-11-19T15:30:09+08:00 ] 127.0.0.1 127.0.0.1 GET /api.php/api/user/update?phoneNumber=18565884672
+[ log ] localhost/api.php/api/user/update?phoneNumber=18565884672 [运行时间：0.082991s][吞吐率：12.05req/s] [内存消耗：1,598.77kb] [文件加载：38]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'user',
+    2 => 'update',
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method update ] {
+  @@ D:\workerman\laychat-master\app\api\controller\User.php 22 - 37
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ DB ] INIT mysql:array (
+  'type' => 'mysql',
+  'dsn' => '',
+  'hostname' => '127.0.0.1',
+  'database' => 'laychat',
+  'username' => 'root',
+  'password' => 'root',
+  'hostport' => '3306',
+  'params' => 
+  array (
+  ),
+  'charset' => 'utf8',
+  'prefix' => 'lsiten_',
+  'debug' => true,
+  'deploy' => 0,
+  'rw_separate' => false,
+  'master_num' => 1,
+  'slave_no' => '',
+  'fields_strict' => true,
+  'auto_timestamp' => false,
+  'resultset_type' => 'array',
+  'sql_explain' => false,
+)
+[ info ] [ DB ] CONNECT: mysql:dbname=laychat;host=127.0.0.1;port=3306;charset=utf8
+[ info ] [ LOG ] INIT File: array (
+  'path' => 'D:\\workerman\\laychat-master\\public/../runtime/log\\',
+  'level' => 
+  array (
+  ),
+)
+[ sql ] [ SQL ] SELECT * FROM `lsiten_doguser` WHERE  `phoneNumber` = '18565884672' LIMIT 1    [ RunTime:0.000825s ]
+
+[ 2017-11-19T15:31:09+08:00 ] 127.0.0.1 127.0.0.1 GET /api.php/api/user/update?phoneNumber=18565884672
+[ log ] localhost/api.php/api/user/update?phoneNumber=18565884672 [运行时间：0.044231s][吞吐率：22.61req/s] [内存消耗：1,598.77kb] [文件加载：38]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'user',
+    2 => 'update',
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method update ] {
+  @@ D:\workerman\laychat-master\app\api\controller\User.php 22 - 37
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ DB ] INIT mysql:array (
+  'type' => 'mysql',
+  'dsn' => '',
+  'hostname' => '127.0.0.1',
+  'database' => 'laychat',
+  'username' => 'root',
+  'password' => 'root',
+  'hostport' => '3306',
+  'params' => 
+  array (
+  ),
+  'charset' => 'utf8',
+  'prefix' => 'lsiten_',
+  'debug' => true,
+  'deploy' => 0,
+  'rw_separate' => false,
+  'master_num' => 1,
+  'slave_no' => '',
+  'fields_strict' => true,
+  'auto_timestamp' => false,
+  'resultset_type' => 'array',
+  'sql_explain' => false,
+)
+[ info ] [ DB ] CONNECT: mysql:dbname=laychat;host=127.0.0.1;port=3306;charset=utf8
+[ info ] [ LOG ] INIT File: array (
+  'path' => 'D:\\workerman\\laychat-master\\public/../runtime/log\\',
+  'level' => 
+  array (
+  ),
+)
+[ sql ] [ SQL ] SELECT * FROM `lsiten_doguser` WHERE  `phoneNumber` = '18565884672' LIMIT 1    [ RunTime:0.000862s ]
+

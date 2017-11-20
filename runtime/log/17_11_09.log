@@ -1,0 +1,451 @@
+[ 2017-11-09T16:52:13+08:00 ] 127.0.0.1 127.0.0.1 GET /api.php/
+[ log ] localhost:8088/api.php/ [运行时间：1.467857s][吞吐率：0.68req/s] [内存消耗：681.92kb] [文件加载：24]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ LANG ] E:\workerman\laychat-master\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => 'E:\\workerman\\laychat-master\\public/../runtime/log\\',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-09T16:52:29+08:00 ] 127.0.0.1 127.0.0.1 GET /api.php/Index/index
+[ log ] localhost:8088/api.php/Index/index [运行时间：0.108791s][吞吐率：9.19req/s] [内存消耗：681.98kb] [文件加载：24]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'Index',
+    1 => 'index',
+    2 => NULL,
+  ),
+)
+[ info ] [ LANG ] E:\workerman\laychat-master\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => 'E:\\workerman\\laychat-master\\public/../runtime/log\\',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-09T16:53:00+08:00 ] 127.0.0.1 127.0.0.1 GET /api.php/api/Index/index
+[ log ] localhost:8088/api.php/api/Index/index [运行时间：0.277407s][吞吐率：3.60req/s] [内存消耗：691.54kb] [文件加载：26]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Index',
+    2 => 'index',
+  ),
+)
+[ info ] [ LANG ] E:\workerman\laychat-master\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] E:\workerman\laychat-master\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => 'E:\\workerman\\laychat-master\\public/../runtime/log\\',
+  'level' => 
+  array (
+  ),
+)
+[ error ] [1]Class 'Think\Controller' not found[E:\workerman\laychat-master\app\api\controller\Index.php:6]
+
+[ 2017-11-09T16:53:31+08:00 ] 127.0.0.1 127.0.0.1 GET /api.php/api/Index/index
+[ log ] localhost:8088/api.php/api/Index/index [运行时间：0.811972s][吞吐率：1.23req/s] [内存消耗：848.73kb] [文件加载：25]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Index',
+    2 => 'index',
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method index ] {
+  @@ E:\workerman\laychat-master\app\api\controller\Index.php 8 - 10
+}
+
+[ info ] [ LOG ] INIT File: array (
+  'path' => 'E:\\workerman\\laychat-master\\public/../runtime/log\\',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-09T16:57:34+08:00 ] 127.0.0.1 127.0.0.1 GET /api.php/api/Index/index
+[ log ] localhost:8088/api.php/api/Index/index [运行时间：1.709921s][吞吐率：0.58req/s] [内存消耗：852.08kb] [文件加载：27]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Index',
+    2 => 'index',
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method index ] {
+  @@ E:\workerman\laychat-master\app\api\controller\Index.php 8 - 10
+}
+
+[ info ] [ LOG ] INIT File: array (
+  'path' => 'E:\\workerman\\laychat-master\\public/../runtime/log\\',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-09T16:58:01+08:00 ] 127.0.0.1 127.0.0.1 GET /api.php/api/Index/index
+[ log ] localhost:8088/api.php/api/Index/index [运行时间：1.792016s][吞吐率：0.56req/s] [内存消耗：852.08kb] [文件加载：27]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Index',
+    2 => 'index',
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method index ] {
+  @@ E:\workerman\laychat-master\app\api\controller\Index.php 8 - 10
+}
+
+[ info ] [ LOG ] INIT File: array (
+  'path' => 'E:\\workerman\\laychat-master\\public/../runtime/log\\',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-09T17:05:30+08:00 ] 127.0.0.1 127.0.0.1 GET /api.php/api/Index/index
+[ log ] localhost:8088/api.php/api/Index/index [运行时间：2.901325s][吞吐率：0.34req/s] [内存消耗：685.27kb] [文件加载：25]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Index',
+    2 => 'index',
+  ),
+)
+[ info ] [ LANG ] E:\workerman\laychat-master\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] E:\workerman\laychat-master\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => 'E:\\workerman\\laychat-master\\public/../runtime/log\\',
+  'level' => 
+  array (
+  ),
+)
+[ error ] [0]语法解析错误 : syntax error, unexpected '='[E:\workerman\laychat-master\app\api\controller\Index.php:11]
+
+[ 2017-11-09T17:05:46+08:00 ] 127.0.0.1 127.0.0.1 GET /api.php/api/Index/index
+[ log ] localhost:8088/api.php/api/Index/index [运行时间：0.509570s][吞吐率：1.96req/s] [内存消耗：853.55kb] [文件加载：27]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Index',
+    2 => 'index',
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method index ] {
+  @@ E:\workerman\laychat-master\app\api\controller\Index.php 20 - 22
+}
+
+[ info ] [ LOG ] INIT File: array (
+  'path' => 'E:\\workerman\\laychat-master\\public/../runtime/log\\',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-09T17:06:02+08:00 ] 127.0.0.1 127.0.0.1 GET /api.php/api/Index/index?type=xml
+[ log ] localhost:8088/api.php/api/Index/index?type=xml [运行时间：0.048804s][吞吐率：20.49req/s] [内存消耗：853.78kb] [文件加载：27]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Index',
+    2 => 'index',
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method index ] {
+  @@ E:\workerman\laychat-master\app\api\controller\Index.php 20 - 22
+}
+
+[ info ] [ LOG ] INIT File: array (
+  'path' => 'E:\\workerman\\laychat-master\\public/../runtime/log\\',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-09T17:06:25+08:00 ] 127.0.0.1 127.0.0.1 GET /api.php/api/Index/index?type=xml
+[ log ] localhost:8088/api.php/api/Index/index?type=xml [运行时间：1.716125s][吞吐率：0.58req/s] [内存消耗：853.78kb] [文件加载：27]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Index',
+    2 => 'index',
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method index ] {
+  @@ E:\workerman\laychat-master\app\api\controller\Index.php 20 - 22
+}
+
+[ info ] [ LOG ] INIT File: array (
+  'path' => 'E:\\workerman\\laychat-master\\public/../runtime/log\\',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-09T17:08:22+08:00 ] 127.0.0.1 127.0.0.1 GET /api.php/api/Index/index?type=xml
+[ log ] localhost:8088/api.php/api/Index/index?type=xml [运行时间：0.068291s][吞吐率：14.64req/s] [内存消耗：853.69kb] [文件加载：27]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Index',
+    2 => 'index',
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method index ] {
+  @@ E:\workerman\laychat-master\app\api\controller\Index.php 20 - 22
+}
+
+[ info ] [ LOG ] INIT File: array (
+  'path' => 'E:\\workerman\\laychat-master\\public/../runtime/log\\',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-09T17:12:56+08:00 ] 127.0.0.1 127.0.0.1 GET /api.php/api/Index/index?type=xml
+[ log ] localhost:8088/api.php/api/Index/index?type=xml [运行时间：0.088210s][吞吐率：11.34req/s] [内存消耗：854.13kb] [文件加载：27]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Index',
+    2 => 'index',
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method index ] {
+  @@ E:\workerman\laychat-master\app\api\controller\Index.php 21 - 23
+}
+
+[ info ] [ LOG ] INIT File: array (
+  'path' => 'E:\\workerman\\laychat-master\\public/../runtime/log\\',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-09T17:13:21+08:00 ] 127.0.0.1 127.0.0.1 GET /api.php/api/Index/index?type=xml
+[ log ] localhost:8088/api.php/api/Index/index?type=xml [运行时间：0.732346s][吞吐率：1.37req/s] [内存消耗：913.70kb] [文件加载：32]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Index',
+    2 => 'index',
+  ),
+)
+[ info ] [ LANG ] E:\workerman\laychat-master\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] E:\workerman\laychat-master\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => 'E:\\workerman\\laychat-master\\public/../runtime/log\\',
+  'level' => 
+  array (
+  ),
+)
+[ error ] [0]类型错误 : Too few arguments to function app\api\controller\Index::_initialize(), 0 passed in E:\workerman\laychat-master\thinkphp\library\think\Controller.php on line 54 and exactly 1 expected[E:\workerman\laychat-master\app\api\controller\Index.php:9]
+
+[ 2017-11-09T17:13:37+08:00 ] 127.0.0.1 127.0.0.1 GET /api.php/api/Index/index?type=xml
+[ log ] localhost:8088/api.php/api/Index/index?type=xml [运行时间：0.087275s][吞吐率：11.46req/s] [内存消耗：913.26kb] [文件加载：32]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Index',
+    2 => 'index',
+  ),
+)
+[ info ] [ LANG ] E:\workerman\laychat-master\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] E:\workerman\laychat-master\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => 'E:\\workerman\\laychat-master\\public/../runtime/log\\',
+  'level' => 
+  array (
+  ),
+)
+[ error ] [0]类型错误 : Too few arguments to function app\api\controller\Index::_initialize(), 0 passed in E:\workerman\laychat-master\thinkphp\library\think\Controller.php on line 54 and exactly 1 expected[E:\workerman\laychat-master\app\api\controller\Index.php:9]
+
+[ 2017-11-09T17:14:23+08:00 ] 127.0.0.1 127.0.0.1 GET /api.php/api/Index/index?type=xml
+[ log ] localhost:8088/api.php/api/Index/index?type=xml [运行时间：0.263823s][吞吐率：3.79req/s] [内存消耗：915.83kb] [文件加载：33]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Index',
+    2 => 'index',
+  ),
+)
+[ info ] [ LANG ] E:\workerman\laychat-master\thinkphp\lang\zh-cn.php
+[ info ] [ LANG ] E:\workerman\laychat-master\thinkphp\lang\zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => 'E:\\workerman\\laychat-master\\public/../runtime/log\\',
+  'level' => 
+  array (
+  ),
+)
+[ error ] [8192]Non-static method think\Request::param() should not be called statically[E:\workerman\laychat-master\app\api\controller\Index.php:10]
+
+[ 2017-11-09T17:15:00+08:00 ] 127.0.0.1 127.0.0.1 GET /api.php/api/Index/index?type=xml
+[ log ] localhost:8088/api.php/api/Index/index?type=xml [运行时间：0.064486s][吞吐率：15.51req/s] [内存消耗：853.77kb] [文件加载：27]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Index',
+    2 => 'index',
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method index ] {
+  @@ E:\workerman\laychat-master\app\api\controller\Index.php 21 - 23
+}
+
+[ info ] [ LOG ] INIT File: array (
+  'path' => 'E:\\workerman\\laychat-master\\public/../runtime/log\\',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-09T17:16:11+08:00 ] 127.0.0.1 127.0.0.1 GET /api.php/api/Index/index?type=xml
+[ log ] localhost:8088/api.php/api/Index/index?type=xml [运行时间：0.153025s][吞吐率：6.53req/s] [内存消耗：862.24kb] [文件加载：27]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Index',
+    2 => 'index',
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method index ] {
+  @@ E:\workerman\laychat-master\app\api\controller\Index.php 20 - 22
+}
+
+[ info ] [ LOG ] INIT File: array (
+  'path' => 'E:\\workerman\\laychat-master\\public/../runtime/log\\',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-09T17:16:30+08:00 ] 127.0.0.1 127.0.0.1 GET /api.php/api/Index/index?type=jsonp
+[ log ] localhost:8088/api.php/api/Index/index?type=jsonp [运行时间：0.184151s][吞吐率：5.43req/s] [内存消耗：856.96kb] [文件加载：27]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Index',
+    2 => 'index',
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method index ] {
+  @@ E:\workerman\laychat-master\app\api\controller\Index.php 20 - 22
+}
+
+[ info ] [ LOG ] INIT File: array (
+  'path' => 'E:\\workerman\\laychat-master\\public/../runtime/log\\',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-09T17:16:41+08:00 ] 127.0.0.1 127.0.0.1 GET /api.php/api/Index/index?type=json
+[ log ] localhost:8088/api.php/api/Index/index?type=json [运行时间：0.061856s][吞吐率：16.17req/s] [内存消耗：853.62kb] [文件加载：27]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Index',
+    2 => 'index',
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method index ] {
+  @@ E:\workerman\laychat-master\app\api\controller\Index.php 20 - 22
+}
+
+[ info ] [ LOG ] INIT File: array (
+  'path' => 'E:\\workerman\\laychat-master\\public/../runtime/log\\',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-09T17:16:47+08:00 ] 127.0.0.1 127.0.0.1 GET /api.php/api/Index/index?type=html
+[ log ] localhost:8088/api.php/api/Index/index?type=html [运行时间：0.073857s][吞吐率：13.54req/s] [内存消耗：853.62kb] [文件加载：27]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Index',
+    2 => 'index',
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method index ] {
+  @@ E:\workerman\laychat-master\app\api\controller\Index.php 20 - 22
+}
+
+[ info ] [ LOG ] INIT File: array (
+  'path' => 'E:\\workerman\\laychat-master\\public/../runtime/log\\',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-09T17:16:59+08:00 ] 127.0.0.1 127.0.0.1 GET /api.php/api/Index/index
+[ log ] localhost:8088/api.php/api/Index/index [运行时间：0.072838s][吞吐率：13.73req/s] [内存消耗：853.38kb] [文件加载：27]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'Index',
+    2 => 'index',
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method index ] {
+  @@ E:\workerman\laychat-master\app\api\controller\Index.php 20 - 22
+}
+
+[ info ] [ LOG ] INIT File: array (
+  'path' => 'E:\\workerman\\laychat-master\\public/../runtime/log\\',
+  'level' => 
+  array (
+  ),
+)
+
