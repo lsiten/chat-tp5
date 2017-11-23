@@ -49,5 +49,10 @@ return [
                   'image' => '/image/upload',
                   'video' => '/video/upload',
                   'audio' => '/raw/upload'
-                ]
+  ],
+  'qiniu' => [
+            "bucket"=>"dogapp",
+            "AK"=>"-tVa9-F1avUf-usuodBBzjNiliLTTIwkmO9zjV5l",
+            "SK"=>"jRLU5QK0rNg-IdkcNXx9hIrjVdAg5A1PMuFTYsRu"
+  ]
 ];

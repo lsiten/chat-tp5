@@ -18,7 +18,8 @@ class Index extends Base
     $this->return = config('return');
   }
   public function index(Request $request){
-
+    $token = getQiniuToken();
+    print_r($token);
   }
  /**
   * 获取图床的signatrue
@@ -27,46 +28,38 @@ class Index extends Base
   */
   public function signature(Request $request){
     hasToken();
-    $timestamp = $request->put('timestamp');
-    $type = $request->put('type');
-    if(!$timestamp || !$type)
+    $cloud = $request->put('cloud');
+    if("qiniu"==$cloud)
     {
-      $this->return['success'] = false;
-      $this->return['code'] = 4020;
-      $this->return['obj'] = ['errorMsg'=>"参数不全，请确认参数！"];
+      //获取七牛token
+      $token = getQiniuToken();
+      $key = uuid(false).".jpeg";
+      $this->return['obj'] = [
+              "signature"=>$token,
+              "key"=>$key
+            ];
       return $this->return;
     }
-    $folder = "";
-    $tags = "";
-    //匹配市那种类型，选择folder，tags
-    switch($type)
+    else
     {
-      case 'image':
-        $folder = "appDog/image";
-        $tags = "appDog,image";
-      break;
-      case 'avatar':
-        $folder = "appDog/avatar";
-        $tags = "appDog,avatar";
-      break;
-      case 'video':
-        $folder = "appDog/video";
-        $tags = "appDog,video";
-      break;
-      case 'audio':
-        $folder = "appDog/audio";
-        $tags = "appDog,audio";
-      break;
+      //获取cloudinary图床
+      $timestamp = $request->put('timestamp');
+      $type = $request->put('type');
+      if(!$timestamp || !$type)
+      {
+        $this->return['success'] = false;
+        $this->return['code'] = 4020;
+        $this->return['obj'] = ['errorMsg'=>"参数不全，请确认参数！"];
+        return $this->return;
+      }
+      $token = getCloudinaryToken($timestamp,$type);
+      $this->return['obj'] = [
+                              "signature"=>$signature,
+                              "folder"=>$folder,
+                              "tags"=>$tags,
+                            ];
+      return $this->return;
     }
-    $cloudinary = config('cloudinary');
-    $signature = "folder=".$folder."&tags=".$tags."&timestamp=".$timestamp.$cloudinary['api_secret'];
-    $signature = sha1($signature);
-    $this->return['obj'] = [
-                            "signature"=>$signature,
-                            "folder"=>$folder,
-                            "tags"=>$tags,
-                          ];
-    return $this->return;
   }
 
 

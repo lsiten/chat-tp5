@@ -133,7 +133,7 @@ class User extends Base{
       hasToken();
       $user = new Doguser();
       $userData = session("user");
-      $fields = ['age','avatar','breed','nickname','sex'];
+      $fields = ['age','avatar','breed','nickname'];
       $data = [];
       foreach($fields as $field)
       {
@@ -142,7 +142,15 @@ class User extends Base{
             $data[$field] = $request->put($field);
         }
       }
-      
+      //sex=0为男
+      if($request->put("sex"))
+      {
+        $data['sex'] = 1;
+      }
+      else if(0 == $request->put("sex"))
+      {
+        $data['sex'] = 0;
+      }
       if(empty($data))
       {
         $this->return['obj'] = ['tips'=>'修改项为空','isempty'=>true];
