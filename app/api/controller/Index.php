@@ -31,12 +31,12 @@ class Index extends Base
     $cloud = $request->put('cloud');
     if("qiniu"==$cloud)
     {
+      $type = $request->put('type');
       //获取七牛token
-      $token = getQiniuToken();
-      $key = uuid(false).".jpeg";
+      $data = getQiniuToken($type);
       $this->return['obj'] = [
-              "signature"=>$token,
-              "key"=>$key
+              "signature"=>$data["token"],
+              "key"=>$data["key"]
             ];
       return $this->return;
     }

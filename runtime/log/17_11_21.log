@@ -1,0 +1,336 @@
+[ 2017-11-21T21:05:48+08:00 ] ::1 ::1 GET /api.php/api
+[ log ] localhost/api.php/api [运行时间：0.029880s][吞吐率：33.47req/s] [内存消耗：918.25kb] [文件加载：28]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method index ] {
+  @@ /Users/lsiten/project/workman/chat-tp5/app/api/controller/Index.php 18 - 20
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-21T21:06:01+08:00 ] ::1 ::1 GET /api.php/api/index/index
+[ log ] localhost/api.php/api/index/index [运行时间：0.027956s][吞吐率：35.77req/s] [内存消耗：918.49kb] [文件加载：28]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method index ] {
+  @@ /Users/lsiten/project/workman/chat-tp5/app/api/controller/Index.php 18 - 20
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-21T21:06:14+08:00 ] ::1 ::1 GET /api.php/api/index/index
+[ log ] localhost/api.php/api/index/index [运行时间：0.026849s][吞吐率：37.25req/s] [内存消耗：919.91kb] [文件加载：28]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method index ] {
+  @@ /Users/lsiten/project/workman/chat-tp5/app/api/controller/Index.php 18 - 20
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-21T21:06:25+08:00 ] ::1 ::1 GET /api.php/api/index/index
+[ log ] localhost/api.php/api/index/index [运行时间：0.038020s][吞吐率：26.30req/s] [内存消耗：919.91kb] [文件加载：28]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method index ] {
+  @@ /Users/lsiten/project/workman/chat-tp5/app/api/controller/Index.php 18 - 20
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-21T21:07:18+08:00 ] ::1 ::1 GET /api.php/api/index/index
+[ log ] localhost/api.php/api/index/index [运行时间：0.020239s][吞吐率：49.41req/s] [内存消耗：919.91kb] [文件加载：28]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method index ] {
+  @@ /Users/lsiten/project/workman/chat-tp5/app/api/controller/Index.php 18 - 20
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-21T21:07:26+08:00 ] ::1 ::1 GET /api.php/api/index/index
+[ log ] localhost/api.php/api/index/index [运行时间：0.024415s][吞吐率：40.96req/s] [内存消耗：919.91kb] [文件加载：28]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method index ] {
+  @@ /Users/lsiten/project/workman/chat-tp5/app/api/controller/Index.php 18 - 20
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-21T21:07:34+08:00 ] ::1 ::1 GET /api.php/api/index/index
+[ log ] localhost/api.php/api/index/index [运行时间：0.020585s][吞吐率：48.58req/s] [内存消耗：919.91kb] [文件加载：28]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'index',
+    2 => 'index',
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method index ] {
+  @@ /Users/lsiten/project/workman/chat-tp5/app/api/controller/Index.php 18 - 20
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-21T21:07:50+08:00 ] ::1 ::1 GET /api.php
+[ log ] localhost/api.php [运行时间：0.024106s][吞吐率：41.48req/s] [内存消耗：770.84kb] [文件加载：25]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => '',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ LANG ] /Users/lsiten/project/workman/chat-tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-21T21:07:59+08:00 ] ::1 ::1 GET /api.php/api
+[ log ] localhost/api.php/api [运行时间：0.020164s][吞吐率：49.59req/s] [内存消耗：918.27kb] [文件加载：28]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method index ] {
+  @@ /Users/lsiten/project/workman/chat-tp5/app/api/controller/Index.php 18 - 20
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-21T21:08:53+08:00 ] ::1 ::1 GET /api.php/user
+[ log ] localhost/api.php/user [运行时间：0.026999s][吞吐率：37.04req/s] [内存消耗：771.16kb] [文件加载：25]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'user',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ LANG ] /Users/lsiten/project/workman/chat-tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-21T21:09:18+08:00 ] ::1 ::1 GET /api.php/user/signup
+[ log ] localhost/api.php/user/signup [运行时间：0.024673s][吞吐率：40.53req/s] [内存消耗：771.30kb] [文件加载：25]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'user',
+    1 => 'signup',
+    2 => NULL,
+  ),
+)
+[ info ] [ LANG ] /Users/lsiten/project/workman/chat-tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-21T21:09:29+08:00 ] ::1 ::1 GET /api.php/api/user/signup
+[ log ] localhost/api.php/api/user/signup [运行时间：0.037707s][吞吐率：26.52req/s] [内存消耗：1,003.62kb] [文件加载：34]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'user',
+    2 => 'signup',
+  ),
+)
+[ info ] [ LANG ] /Users/lsiten/project/workman/chat-tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-21T21:09:46+08:00 ] ::1 ::1 GET /api.php/api/user/update
+[ log ] localhost/api.php/api/user/update [运行时间：0.179892s][吞吐率：5.56req/s] [内存消耗：1,648.83kb] [文件加载：42]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'user',
+    2 => 'update',
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method update ] {
+  @@ /Users/lsiten/project/workman/chat-tp5/app/api/controller/User.php 22 - 42
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ DB ] INIT mysql:array (
+  'type' => 'mysql',
+  'dsn' => '',
+  'hostname' => '127.0.0.1',
+  'database' => 'laychat',
+  'username' => 'root',
+  'password' => 'root',
+  'hostport' => '3306',
+  'params' => 
+  array (
+  ),
+  'charset' => 'utf8',
+  'prefix' => 'lsiten_',
+  'debug' => true,
+  'deploy' => 0,
+  'rw_separate' => false,
+  'master_num' => 1,
+  'slave_no' => '',
+  'fields_strict' => true,
+  'auto_timestamp' => false,
+  'resultset_type' => 'array',
+  'sql_explain' => false,
+)
+[ info ] [ LANG ] /Users/lsiten/project/workman/chat-tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /Users/lsiten/project/workman/chat-tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+[ error ] [0]SQLSTATE[HY000] [2002] Connection refused[/Users/lsiten/project/workman/chat-tp5/thinkphp/library/think/db/Connection.php:270]
+

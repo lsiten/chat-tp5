@@ -1,0 +1,95 @@
+[ 2017-11-25T00:06:17+08:00 ] 192.168.1.62 192.168.1.62 GET /api.php/api/videoList?accessToken=11dsdf&page=0
+[ log ] 192.168.1.62/api.php/api/videoList?accessToken=11dsdf&page=0 [运行时间：0.096117s][吞吐率：10.40req/s] [内存消耗：969.29kb] [文件加载：33]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'videoList',
+    2 => NULL,
+  ),
+)
+[ info ] [ LANG ] /Users/lsiten/project/workman/chat-tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-25T00:06:20+08:00 ] 192.168.1.62 192.168.1.62 GET /api.php/api/videoList?accessToken=11dsdf&page=0
+[ log ] 192.168.1.62/api.php/api/videoList?accessToken=11dsdf&page=0 [运行时间：0.046891s][吞吐率：21.33req/s] [内存消耗：969.30kb] [文件加载：33]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'videoList',
+    2 => NULL,
+  ),
+)
+[ info ] [ LANG ] /Users/lsiten/project/workman/chat-tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-25T00:12:03+08:00 ] 192.168.1.62 192.168.1.62 GET /api.php/api/videoList?accessToken=11dsdf&page=0
+[ log ] 192.168.1.62/api.php/api/videoList?accessToken=11dsdf&page=0 [运行时间：0.066000s][吞吐率：15.15req/s] [内存消耗：969.30kb] [文件加载：33]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'videoList',
+    2 => NULL,
+  ),
+)
+[ info ] [ LANG ] /Users/lsiten/project/workman/chat-tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-25T00:15:14+08:00 ] 192.168.1.62 192.168.1.62 GET /api.php/api/videoList?accessToken=11dsdf&page=0
+[ log ] 192.168.1.62/api.php/api/videoList?accessToken=11dsdf&page=0 [运行时间：0.076857s][吞吐率：13.01req/s] [内存消耗：969.30kb] [文件加载：33]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'videoList',
+    2 => NULL,
+  ),
+)
+[ info ] [ LANG ] /Users/lsiten/project/workman/chat-tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-25T00:15:19+08:00 ] 192.168.1.62 192.168.1.62 GET /api.php/api/videoList?accessToken=11dsdf&page=0
+[ log ] 192.168.1.62/api.php/api/videoList?accessToken=11dsdf&page=0 [运行时间：0.051485s][吞吐率：19.42req/s] [内存消耗：969.30kb] [文件加载：33]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'videoList',
+    2 => NULL,
+  ),
+)
+[ info ] [ LANG ] /Users/lsiten/project/workman/chat-tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+

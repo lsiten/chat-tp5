@@ -1,0 +1,2050 @@
+[ 2017-11-24T17:27:10+08:00 ] 192.168.1.62 192.168.1.20 POST /api.php/api/index/signature
+[ log ] 192.168.1.62/api.php/api/index/signature [运行时间：0.087379s][吞吐率：11.44req/s] [内存消耗：1,910.25kb] [文件加载：47]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'index',
+    2 => 'signature',
+  ),
+)
+[ info ] [ RUN ] /**
+  * 获取图床的signatrue
+  *@params $request
+  *return 响应内容
+  */
+Method [ <user> public method signature ] {
+  @@ /Users/lsiten/project/workman/chat-tp5/app/api/controller/Index.php 29 - 63
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ DB ] INIT mysql:array (
+  'type' => 'mysql',
+  'dsn' => '',
+  'hostname' => '127.0.0.1',
+  'database' => 'laychat',
+  'username' => 'root',
+  'password' => 'root',
+  'hostport' => '3306',
+  'params' => 
+  array (
+  ),
+  'charset' => 'utf8',
+  'prefix' => 'lsiten_',
+  'debug' => true,
+  'deploy' => 0,
+  'rw_separate' => false,
+  'master_num' => 1,
+  'slave_no' => '',
+  'fields_strict' => true,
+  'auto_timestamp' => false,
+  'resultset_type' => 'array',
+  'sql_explain' => false,
+)
+[ info ] [ DB ] CONNECT: mysql:dbname=laychat;host=127.0.0.1;port=3306;charset=utf8
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+[ sql ] [ SQL ] SELECT * FROM `lsiten_doguser` WHERE  `accessToken` = '{e510261d-5ea3-8345-60b4-0419d3ab0a6f}' LIMIT 1    [ RunTime:0.001088s ]
+
+[ 2017-11-24T17:27:10+08:00 ] 192.168.1.62 192.168.1.20 POST /api.php/api/user/update
+[ log ] 192.168.1.62/api.php/api/user/update [运行时间：0.059454s][吞吐率：16.82req/s] [内存消耗：1,931.27kb] [文件加载：48]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'user',
+    2 => 'update',
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method update ] {
+  @@ /Users/lsiten/project/workman/chat-tp5/app/api/controller/User.php 131 - 185
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ DB ] INIT mysql:array (
+  'type' => 'mysql',
+  'dsn' => '',
+  'hostname' => '127.0.0.1',
+  'database' => 'laychat',
+  'username' => 'root',
+  'password' => 'root',
+  'hostport' => '3306',
+  'params' => 
+  array (
+  ),
+  'charset' => 'utf8',
+  'prefix' => 'lsiten_',
+  'debug' => true,
+  'deploy' => 0,
+  'rw_separate' => false,
+  'master_num' => 1,
+  'slave_no' => '',
+  'fields_strict' => true,
+  'auto_timestamp' => false,
+  'resultset_type' => 'array',
+  'sql_explain' => false,
+)
+[ info ] [ DB ] CONNECT: mysql:dbname=laychat;host=127.0.0.1;port=3306;charset=utf8
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ CACHE ] INIT File:array (
+  'type' => 'File',
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/cache/',
+  'prefix' => '',
+  'expire' => 0,
+)
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+[ sql ] [ SQL ] SELECT * FROM `lsiten_doguser` WHERE  `accessToken` = '{e510261d-5ea3-8345-60b4-0419d3ab0a6f}' LIMIT 1    [ RunTime:0.000814s ]
+[ sql ] [ SQL ] UPDATE `lsiten_doguser`  SET `avatar`='http://ozuexev9i.bkt.clouddn.com/dcfda25a-23be-8cfa-6d34-b961eaef68f7.jpeg',`sex`='0',`updateAt`='1511515630'  WHERE  `id` = '1'       [ RunTime:0.003900s ]
+[ sql ] [ SQL ] SELECT * FROM `lsiten_doguser` WHERE  `id` = '1' LIMIT 1    [ RunTime:0.000810s ]
+
+[ 2017-11-24T17:27:20+08:00 ] 192.168.1.62 192.168.1.20 POST /api.php/api/index/signature
+[ log ] 192.168.1.62/api.php/api/index/signature [运行时间：0.067298s][吞吐率：14.86req/s] [内存消耗：2,062.07kb] [文件加载：54]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'index',
+    2 => 'signature',
+  ),
+)
+[ info ] [ RUN ] /**
+  * 获取图床的signatrue
+  *@params $request
+  *return 响应内容
+  */
+Method [ <user> public method signature ] {
+  @@ /Users/lsiten/project/workman/chat-tp5/app/api/controller/Index.php 29 - 63
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ DB ] INIT mysql:array (
+  'type' => 'mysql',
+  'dsn' => '',
+  'hostname' => '127.0.0.1',
+  'database' => 'laychat',
+  'username' => 'root',
+  'password' => 'root',
+  'hostport' => '3306',
+  'params' => 
+  array (
+  ),
+  'charset' => 'utf8',
+  'prefix' => 'lsiten_',
+  'debug' => true,
+  'deploy' => 0,
+  'rw_separate' => false,
+  'master_num' => 1,
+  'slave_no' => '',
+  'fields_strict' => true,
+  'auto_timestamp' => false,
+  'resultset_type' => 'array',
+  'sql_explain' => false,
+)
+[ info ] [ DB ] CONNECT: mysql:dbname=laychat;host=127.0.0.1;port=3306;charset=utf8
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LANG ] /Users/lsiten/project/workman/chat-tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /Users/lsiten/project/workman/chat-tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+[ sql ] [ SQL ] SELECT * FROM `lsiten_doguser` WHERE  `accessToken` = '{e510261d-5ea3-8345-60b4-0419d3ab0a6f}' LIMIT 1    [ RunTime:0.001040s ]
+[ error ] [8]未定义变量 : token[/Users/lsiten/project/workman/chat-tp5/app/helper.php:196]
+
+[ 2017-11-24T17:27:50+08:00 ] 192.168.1.62 192.168.1.62 GET /api.php/api/index/signature
+[ log ] 192.168.1.62/api.php/api/index/signature [运行时间：0.046215s][吞吐率：21.64req/s] [内存消耗：1,123.20kb] [文件加载：36]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'index',
+    2 => 'signature',
+  ),
+)
+[ info ] [ RUN ] /**
+  * 获取图床的signatrue
+  *@params $request
+  *return 响应内容
+  */
+Method [ <user> public method signature ] {
+  @@ /Users/lsiten/project/workman/chat-tp5/app/api/controller/Index.php 29 - 63
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-24T17:29:46+08:00 ] 192.168.1.62 192.168.1.20 POST /api.php/api/index/signature
+[ log ] 192.168.1.62/api.php/api/index/signature [运行时间：0.055766s][吞吐率：17.93req/s] [内存消耗：1,910.30kb] [文件加载：47]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'index',
+    2 => 'signature',
+  ),
+)
+[ info ] [ RUN ] /**
+  * 获取图床的signatrue
+  *@params $request
+  *return 响应内容
+  */
+Method [ <user> public method signature ] {
+  @@ /Users/lsiten/project/workman/chat-tp5/app/api/controller/Index.php 29 - 63
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ DB ] INIT mysql:array (
+  'type' => 'mysql',
+  'dsn' => '',
+  'hostname' => '127.0.0.1',
+  'database' => 'laychat',
+  'username' => 'root',
+  'password' => 'root',
+  'hostport' => '3306',
+  'params' => 
+  array (
+  ),
+  'charset' => 'utf8',
+  'prefix' => 'lsiten_',
+  'debug' => true,
+  'deploy' => 0,
+  'rw_separate' => false,
+  'master_num' => 1,
+  'slave_no' => '',
+  'fields_strict' => true,
+  'auto_timestamp' => false,
+  'resultset_type' => 'array',
+  'sql_explain' => false,
+)
+[ info ] [ DB ] CONNECT: mysql:dbname=laychat;host=127.0.0.1;port=3306;charset=utf8
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+[ sql ] [ SQL ] SELECT * FROM `lsiten_doguser` WHERE  `accessToken` = '{e510261d-5ea3-8345-60b4-0419d3ab0a6f}' LIMIT 1    [ RunTime:0.000837s ]
+
+[ 2017-11-24T18:34:29+08:00 ] 192.168.1.62 192.168.1.20 POST /api.php/api/index/signature
+[ log ] 192.168.1.62/api.php/api/index/signature [运行时间：0.100899s][吞吐率：9.91req/s] [内存消耗：1,910.27kb] [文件加载：47]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'index',
+    2 => 'signature',
+  ),
+)
+[ info ] [ RUN ] /**
+  * 获取图床的signatrue
+  *@params $request
+  *return 响应内容
+  */
+Method [ <user> public method signature ] {
+  @@ /Users/lsiten/project/workman/chat-tp5/app/api/controller/Index.php 29 - 63
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ DB ] INIT mysql:array (
+  'type' => 'mysql',
+  'dsn' => '',
+  'hostname' => '127.0.0.1',
+  'database' => 'laychat',
+  'username' => 'root',
+  'password' => 'root',
+  'hostport' => '3306',
+  'params' => 
+  array (
+  ),
+  'charset' => 'utf8',
+  'prefix' => 'lsiten_',
+  'debug' => true,
+  'deploy' => 0,
+  'rw_separate' => false,
+  'master_num' => 1,
+  'slave_no' => '',
+  'fields_strict' => true,
+  'auto_timestamp' => false,
+  'resultset_type' => 'array',
+  'sql_explain' => false,
+)
+[ info ] [ DB ] CONNECT: mysql:dbname=laychat;host=127.0.0.1;port=3306;charset=utf8
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+[ sql ] [ SQL ] SELECT * FROM `lsiten_doguser` WHERE  `accessToken` = '{e510261d-5ea3-8345-60b4-0419d3ab0a6f}' LIMIT 1    [ RunTime:0.001597s ]
+
+[ 2017-11-24T19:19:20+08:00 ] 192.168.1.62 192.168.1.20 GET /api.php/api/videoList?accessToken=11dsdf&page=0
+[ log ] 192.168.1.62/api.php/api/videoList?accessToken=11dsdf&page=0 [运行时间：0.049113s][吞吐率：20.36req/s] [内存消耗：968.02kb] [文件加载：33]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'videoList',
+    2 => NULL,
+  ),
+)
+[ info ] [ LANG ] /Users/lsiten/project/workman/chat-tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-24T19:19:41+08:00 ] 192.168.1.62 192.168.1.20 POST /api.php/api/index/signature
+[ log ] 192.168.1.62/api.php/api/index/signature [运行时间：0.067729s][吞吐率：14.76req/s] [内存消耗：1,910.30kb] [文件加载：47]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'index',
+    2 => 'signature',
+  ),
+)
+[ info ] [ RUN ] /**
+  * 获取图床的signatrue
+  *@params $request
+  *return 响应内容
+  */
+Method [ <user> public method signature ] {
+  @@ /Users/lsiten/project/workman/chat-tp5/app/api/controller/Index.php 29 - 63
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ DB ] INIT mysql:array (
+  'type' => 'mysql',
+  'dsn' => '',
+  'hostname' => '127.0.0.1',
+  'database' => 'laychat',
+  'username' => 'root',
+  'password' => 'root',
+  'hostport' => '3306',
+  'params' => 
+  array (
+  ),
+  'charset' => 'utf8',
+  'prefix' => 'lsiten_',
+  'debug' => true,
+  'deploy' => 0,
+  'rw_separate' => false,
+  'master_num' => 1,
+  'slave_no' => '',
+  'fields_strict' => true,
+  'auto_timestamp' => false,
+  'resultset_type' => 'array',
+  'sql_explain' => false,
+)
+[ info ] [ DB ] CONNECT: mysql:dbname=laychat;host=127.0.0.1;port=3306;charset=utf8
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+[ sql ] [ SQL ] SELECT * FROM `lsiten_doguser` WHERE  `accessToken` = '{e510261d-5ea3-8345-60b4-0419d3ab0a6f}' LIMIT 1    [ RunTime:0.000917s ]
+
+[ 2017-11-24T19:41:02+08:00 ] 192.168.1.62 192.168.1.20 GET /api.php/api/videoList?accessToken=11dsdf&page=0
+[ log ] 192.168.1.62/api.php/api/videoList?accessToken=11dsdf&page=0 [运行时间：0.039800s][吞吐率：25.13req/s] [内存消耗：967.52kb] [文件加载：33]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'videoList',
+    2 => NULL,
+  ),
+)
+[ info ] [ LANG ] /Users/lsiten/project/workman/chat-tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-24T19:41:21+08:00 ] 192.168.1.62 192.168.1.20 POST /api.php/api/index/signature
+[ log ] 192.168.1.62/api.php/api/index/signature [运行时间：0.081849s][吞吐率：12.22req/s] [内存消耗：1,910.30kb] [文件加载：47]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'index',
+    2 => 'signature',
+  ),
+)
+[ info ] [ RUN ] /**
+  * 获取图床的signatrue
+  *@params $request
+  *return 响应内容
+  */
+Method [ <user> public method signature ] {
+  @@ /Users/lsiten/project/workman/chat-tp5/app/api/controller/Index.php 29 - 63
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ DB ] INIT mysql:array (
+  'type' => 'mysql',
+  'dsn' => '',
+  'hostname' => '127.0.0.1',
+  'database' => 'laychat',
+  'username' => 'root',
+  'password' => 'root',
+  'hostport' => '3306',
+  'params' => 
+  array (
+  ),
+  'charset' => 'utf8',
+  'prefix' => 'lsiten_',
+  'debug' => true,
+  'deploy' => 0,
+  'rw_separate' => false,
+  'master_num' => 1,
+  'slave_no' => '',
+  'fields_strict' => true,
+  'auto_timestamp' => false,
+  'resultset_type' => 'array',
+  'sql_explain' => false,
+)
+[ info ] [ DB ] CONNECT: mysql:dbname=laychat;host=127.0.0.1;port=3306;charset=utf8
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+[ sql ] [ SQL ] SELECT * FROM `lsiten_doguser` WHERE  `accessToken` = '{e510261d-5ea3-8345-60b4-0419d3ab0a6f}' LIMIT 1    [ RunTime:0.001072s ]
+
+[ 2017-11-24T19:58:56+08:00 ] 192.168.1.62 192.168.1.20 GET /api.php/api/videoList?accessToken=11dsdf&page=0
+[ log ] 192.168.1.62/api.php/api/videoList?accessToken=11dsdf&page=0 [运行时间：0.045200s][吞吐率：22.12req/s] [内存消耗：967.52kb] [文件加载：33]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'videoList',
+    2 => NULL,
+  ),
+)
+[ info ] [ LANG ] /Users/lsiten/project/workman/chat-tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-24T19:59:14+08:00 ] 192.168.1.62 192.168.1.20 POST /api.php/api/index/signature
+[ log ] 192.168.1.62/api.php/api/index/signature [运行时间：0.073346s][吞吐率：13.63req/s] [内存消耗：1,910.30kb] [文件加载：47]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'index',
+    2 => 'signature',
+  ),
+)
+[ info ] [ RUN ] /**
+  * 获取图床的signatrue
+  *@params $request
+  *return 响应内容
+  */
+Method [ <user> public method signature ] {
+  @@ /Users/lsiten/project/workman/chat-tp5/app/api/controller/Index.php 29 - 63
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ DB ] INIT mysql:array (
+  'type' => 'mysql',
+  'dsn' => '',
+  'hostname' => '127.0.0.1',
+  'database' => 'laychat',
+  'username' => 'root',
+  'password' => 'root',
+  'hostport' => '3306',
+  'params' => 
+  array (
+  ),
+  'charset' => 'utf8',
+  'prefix' => 'lsiten_',
+  'debug' => true,
+  'deploy' => 0,
+  'rw_separate' => false,
+  'master_num' => 1,
+  'slave_no' => '',
+  'fields_strict' => true,
+  'auto_timestamp' => false,
+  'resultset_type' => 'array',
+  'sql_explain' => false,
+)
+[ info ] [ DB ] CONNECT: mysql:dbname=laychat;host=127.0.0.1;port=3306;charset=utf8
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+[ sql ] [ SQL ] SELECT * FROM `lsiten_doguser` WHERE  `accessToken` = '{e510261d-5ea3-8345-60b4-0419d3ab0a6f}' LIMIT 1    [ RunTime:0.001107s ]
+
+[ 2017-11-24T20:04:47+08:00 ] 192.168.1.62 192.168.1.20 GET /api.php/api/videoList?accessToken=11dsdf&page=0
+[ log ] 192.168.1.62/api.php/api/videoList?accessToken=11dsdf&page=0 [运行时间：0.035228s][吞吐率：28.39req/s] [内存消耗：967.52kb] [文件加载：33]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'videoList',
+    2 => NULL,
+  ),
+)
+[ info ] [ LANG ] /Users/lsiten/project/workman/chat-tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-24T20:05:25+08:00 ] 192.168.1.62 192.168.1.20 POST /api.php/api/index/signature
+[ log ] 192.168.1.62/api.php/api/index/signature [运行时间：0.062005s][吞吐率：16.13req/s] [内存消耗：1,910.30kb] [文件加载：47]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'index',
+    2 => 'signature',
+  ),
+)
+[ info ] [ RUN ] /**
+  * 获取图床的signatrue
+  *@params $request
+  *return 响应内容
+  */
+Method [ <user> public method signature ] {
+  @@ /Users/lsiten/project/workman/chat-tp5/app/api/controller/Index.php 29 - 63
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ DB ] INIT mysql:array (
+  'type' => 'mysql',
+  'dsn' => '',
+  'hostname' => '127.0.0.1',
+  'database' => 'laychat',
+  'username' => 'root',
+  'password' => 'root',
+  'hostport' => '3306',
+  'params' => 
+  array (
+  ),
+  'charset' => 'utf8',
+  'prefix' => 'lsiten_',
+  'debug' => true,
+  'deploy' => 0,
+  'rw_separate' => false,
+  'master_num' => 1,
+  'slave_no' => '',
+  'fields_strict' => true,
+  'auto_timestamp' => false,
+  'resultset_type' => 'array',
+  'sql_explain' => false,
+)
+[ info ] [ DB ] CONNECT: mysql:dbname=laychat;host=127.0.0.1;port=3306;charset=utf8
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+[ sql ] [ SQL ] SELECT * FROM `lsiten_doguser` WHERE  `accessToken` = '{e510261d-5ea3-8345-60b4-0419d3ab0a6f}' LIMIT 1    [ RunTime:0.000868s ]
+
+[ 2017-11-24T20:12:43+08:00 ] 192.168.1.62 192.168.1.20 GET /api.php/api/videoList?accessToken=11dsdf&page=0
+[ log ] 192.168.1.62/api.php/api/videoList?accessToken=11dsdf&page=0 [运行时间：0.029610s][吞吐率：33.77req/s] [内存消耗：967.52kb] [文件加载：33]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'videoList',
+    2 => NULL,
+  ),
+)
+[ info ] [ LANG ] /Users/lsiten/project/workman/chat-tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-24T20:13:23+08:00 ] 192.168.1.62 192.168.1.20 GET /api.php/api/videoList?accessToken=11dsdf&page=0
+[ log ] 192.168.1.62/api.php/api/videoList?accessToken=11dsdf&page=0 [运行时间：0.029137s][吞吐率：34.32req/s] [内存消耗：967.52kb] [文件加载：33]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'videoList',
+    2 => NULL,
+  ),
+)
+[ info ] [ LANG ] /Users/lsiten/project/workman/chat-tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-24T20:13:38+08:00 ] 192.168.1.62 192.168.1.20 POST /api.php/api/index/signature
+[ log ] 192.168.1.62/api.php/api/index/signature [运行时间：0.055360s][吞吐率：18.06req/s] [内存消耗：1,910.30kb] [文件加载：47]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'index',
+    2 => 'signature',
+  ),
+)
+[ info ] [ RUN ] /**
+  * 获取图床的signatrue
+  *@params $request
+  *return 响应内容
+  */
+Method [ <user> public method signature ] {
+  @@ /Users/lsiten/project/workman/chat-tp5/app/api/controller/Index.php 29 - 63
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ DB ] INIT mysql:array (
+  'type' => 'mysql',
+  'dsn' => '',
+  'hostname' => '127.0.0.1',
+  'database' => 'laychat',
+  'username' => 'root',
+  'password' => 'root',
+  'hostport' => '3306',
+  'params' => 
+  array (
+  ),
+  'charset' => 'utf8',
+  'prefix' => 'lsiten_',
+  'debug' => true,
+  'deploy' => 0,
+  'rw_separate' => false,
+  'master_num' => 1,
+  'slave_no' => '',
+  'fields_strict' => true,
+  'auto_timestamp' => false,
+  'resultset_type' => 'array',
+  'sql_explain' => false,
+)
+[ info ] [ DB ] CONNECT: mysql:dbname=laychat;host=127.0.0.1;port=3306;charset=utf8
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+[ sql ] [ SQL ] SELECT * FROM `lsiten_doguser` WHERE  `accessToken` = '{e510261d-5ea3-8345-60b4-0419d3ab0a6f}' LIMIT 1    [ RunTime:0.000866s ]
+
+[ 2017-11-24T20:17:55+08:00 ] 192.168.1.62 192.168.1.20 POST /api.php/api/index/signature
+[ log ] 192.168.1.62/api.php/api/index/signature [运行时间：0.055045s][吞吐率：18.17req/s] [内存消耗：1,910.30kb] [文件加载：47]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'index',
+    2 => 'signature',
+  ),
+)
+[ info ] [ RUN ] /**
+  * 获取图床的signatrue
+  *@params $request
+  *return 响应内容
+  */
+Method [ <user> public method signature ] {
+  @@ /Users/lsiten/project/workman/chat-tp5/app/api/controller/Index.php 29 - 63
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ DB ] INIT mysql:array (
+  'type' => 'mysql',
+  'dsn' => '',
+  'hostname' => '127.0.0.1',
+  'database' => 'laychat',
+  'username' => 'root',
+  'password' => 'root',
+  'hostport' => '3306',
+  'params' => 
+  array (
+  ),
+  'charset' => 'utf8',
+  'prefix' => 'lsiten_',
+  'debug' => true,
+  'deploy' => 0,
+  'rw_separate' => false,
+  'master_num' => 1,
+  'slave_no' => '',
+  'fields_strict' => true,
+  'auto_timestamp' => false,
+  'resultset_type' => 'array',
+  'sql_explain' => false,
+)
+[ info ] [ DB ] CONNECT: mysql:dbname=laychat;host=127.0.0.1;port=3306;charset=utf8
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+[ sql ] [ SQL ] SELECT * FROM `lsiten_doguser` WHERE  `accessToken` = '{e510261d-5ea3-8345-60b4-0419d3ab0a6f}' LIMIT 1    [ RunTime:0.000856s ]
+
+[ 2017-11-24T20:18:43+08:00 ] 192.168.1.62 192.168.1.20 GET /api.php/api/videoList?accessToken=11dsdf&page=0
+[ log ] 192.168.1.62/api.php/api/videoList?accessToken=11dsdf&page=0 [运行时间：0.033160s][吞吐率：30.16req/s] [内存消耗：969.05kb] [文件加载：33]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'videoList',
+    2 => NULL,
+  ),
+)
+[ info ] [ LANG ] /Users/lsiten/project/workman/chat-tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-24T20:18:45+08:00 ] 192.168.1.62 192.168.1.20 GET /api.php/api/coment?accessToken=11dsdf&page=0&vid=500000200009062983
+[ log ] 192.168.1.62/api.php/api/coment?accessToken=11dsdf&page=0&vid=500000200009062983 [运行时间：0.022851s][吞吐率：43.76req/s] [内存消耗：969.16kb] [文件加载：33]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'coment',
+    2 => NULL,
+  ),
+)
+[ info ] [ LANG ] /Users/lsiten/project/workman/chat-tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-24T20:20:07+08:00 ] 192.168.1.62 192.168.1.20 GET /api.php/api/videoList?accessToken=11dsdf&page=0
+[ log ] 192.168.1.62/api.php/api/videoList?accessToken=11dsdf&page=0 [运行时间：0.026871s][吞吐率：37.21req/s] [内存消耗：968.02kb] [文件加载：33]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'videoList',
+    2 => NULL,
+  ),
+)
+[ info ] [ LANG ] /Users/lsiten/project/workman/chat-tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-24T20:20:29+08:00 ] 192.168.1.62 192.168.1.20 POST /api.php/api/index/signature
+[ log ] 192.168.1.62/api.php/api/index/signature [运行时间：0.046177s][吞吐率：21.66req/s] [内存消耗：1,910.02kb] [文件加载：47]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'index',
+    2 => 'signature',
+  ),
+)
+[ info ] [ RUN ] /**
+  * 获取图床的signatrue
+  *@params $request
+  *return 响应内容
+  */
+Method [ <user> public method signature ] {
+  @@ /Users/lsiten/project/workman/chat-tp5/app/api/controller/Index.php 29 - 63
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ DB ] INIT mysql:array (
+  'type' => 'mysql',
+  'dsn' => '',
+  'hostname' => '127.0.0.1',
+  'database' => 'laychat',
+  'username' => 'root',
+  'password' => 'root',
+  'hostport' => '3306',
+  'params' => 
+  array (
+  ),
+  'charset' => 'utf8',
+  'prefix' => 'lsiten_',
+  'debug' => true,
+  'deploy' => 0,
+  'rw_separate' => false,
+  'master_num' => 1,
+  'slave_no' => '',
+  'fields_strict' => true,
+  'auto_timestamp' => false,
+  'resultset_type' => 'array',
+  'sql_explain' => false,
+)
+[ info ] [ DB ] CONNECT: mysql:dbname=laychat;host=127.0.0.1;port=3306;charset=utf8
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+[ sql ] [ SQL ] SELECT * FROM `lsiten_doguser` WHERE  `accessToken` = '{e510261d-5ea3-8345-60b4-0419d3ab0a6f}' LIMIT 1    [ RunTime:0.000850s ]
+
+[ 2017-11-24T20:22:04+08:00 ] 192.168.1.62 192.168.1.20 GET /api.php/api/videoList?accessToken=11dsdf&page=0
+[ log ] 192.168.1.62/api.php/api/videoList?accessToken=11dsdf&page=0 [运行时间：0.026760s][吞吐率：37.37req/s] [内存消耗：969.05kb] [文件加载：33]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'videoList',
+    2 => NULL,
+  ),
+)
+[ info ] [ LANG ] /Users/lsiten/project/workman/chat-tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-24T20:22:09+08:00 ] 192.168.1.62 192.168.1.20 GET /api.php/api/coment?accessToken=11dsdf&page=0&vid=500000200009062983
+[ log ] 192.168.1.62/api.php/api/coment?accessToken=11dsdf&page=0&vid=500000200009062983 [运行时间：0.030471s][吞吐率：32.82req/s] [内存消耗：969.16kb] [文件加载：33]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'coment',
+    2 => NULL,
+  ),
+)
+[ info ] [ LANG ] /Users/lsiten/project/workman/chat-tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-24T20:22:51+08:00 ] 192.168.1.62 192.168.1.20 GET /api.php/api/videoList?accessToken=11dsdf&page=0
+[ log ] 192.168.1.62/api.php/api/videoList?accessToken=11dsdf&page=0 [运行时间：0.023247s][吞吐率：43.02req/s] [内存消耗：969.05kb] [文件加载：33]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'videoList',
+    2 => NULL,
+  ),
+)
+[ info ] [ LANG ] /Users/lsiten/project/workman/chat-tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-24T20:23:16+08:00 ] 192.168.1.62 192.168.1.20 POST /api.php/api/index/signature
+[ log ] 192.168.1.62/api.php/api/index/signature [运行时间：0.059724s][吞吐率：16.74req/s] [内存消耗：1,910.30kb] [文件加载：47]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'index',
+    2 => 'signature',
+  ),
+)
+[ info ] [ RUN ] /**
+  * 获取图床的signatrue
+  *@params $request
+  *return 响应内容
+  */
+Method [ <user> public method signature ] {
+  @@ /Users/lsiten/project/workman/chat-tp5/app/api/controller/Index.php 29 - 63
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ DB ] INIT mysql:array (
+  'type' => 'mysql',
+  'dsn' => '',
+  'hostname' => '127.0.0.1',
+  'database' => 'laychat',
+  'username' => 'root',
+  'password' => 'root',
+  'hostport' => '3306',
+  'params' => 
+  array (
+  ),
+  'charset' => 'utf8',
+  'prefix' => 'lsiten_',
+  'debug' => true,
+  'deploy' => 0,
+  'rw_separate' => false,
+  'master_num' => 1,
+  'slave_no' => '',
+  'fields_strict' => true,
+  'auto_timestamp' => false,
+  'resultset_type' => 'array',
+  'sql_explain' => false,
+)
+[ info ] [ DB ] CONNECT: mysql:dbname=laychat;host=127.0.0.1;port=3306;charset=utf8
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+[ sql ] [ SQL ] SELECT * FROM `lsiten_doguser` WHERE  `accessToken` = '{e510261d-5ea3-8345-60b4-0419d3ab0a6f}' LIMIT 1    [ RunTime:0.001377s ]
+
+[ 2017-11-24T20:38:21+08:00 ] 192.168.1.62 192.168.1.20 GET /api.php/api/videoList?accessToken=11dsdf&page=0
+[ log ] 192.168.1.62/api.php/api/videoList?accessToken=11dsdf&page=0 [运行时间：0.024388s][吞吐率：41.00req/s] [内存消耗：967.52kb] [文件加载：33]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'videoList',
+    2 => NULL,
+  ),
+)
+[ info ] [ LANG ] /Users/lsiten/project/workman/chat-tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-24T20:38:40+08:00 ] 192.168.1.62 192.168.1.20 POST /api.php/api/index/signature
+[ log ] 192.168.1.62/api.php/api/index/signature [运行时间：0.052813s][吞吐率：18.93req/s] [内存消耗：1,910.30kb] [文件加载：47]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'index',
+    2 => 'signature',
+  ),
+)
+[ info ] [ RUN ] /**
+  * 获取图床的signatrue
+  *@params $request
+  *return 响应内容
+  */
+Method [ <user> public method signature ] {
+  @@ /Users/lsiten/project/workman/chat-tp5/app/api/controller/Index.php 29 - 63
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ DB ] INIT mysql:array (
+  'type' => 'mysql',
+  'dsn' => '',
+  'hostname' => '127.0.0.1',
+  'database' => 'laychat',
+  'username' => 'root',
+  'password' => 'root',
+  'hostport' => '3306',
+  'params' => 
+  array (
+  ),
+  'charset' => 'utf8',
+  'prefix' => 'lsiten_',
+  'debug' => true,
+  'deploy' => 0,
+  'rw_separate' => false,
+  'master_num' => 1,
+  'slave_no' => '',
+  'fields_strict' => true,
+  'auto_timestamp' => false,
+  'resultset_type' => 'array',
+  'sql_explain' => false,
+)
+[ info ] [ DB ] CONNECT: mysql:dbname=laychat;host=127.0.0.1;port=3306;charset=utf8
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+[ sql ] [ SQL ] SELECT * FROM `lsiten_doguser` WHERE  `accessToken` = '{e510261d-5ea3-8345-60b4-0419d3ab0a6f}' LIMIT 1    [ RunTime:0.000802s ]
+
+[ 2017-11-24T22:29:47+08:00 ] 192.168.1.62 192.168.1.62 GET /api.php/api/videoList?accessToken=11dsdf&page=0
+[ log ] 192.168.1.62/api.php/api/videoList?accessToken=11dsdf&page=0 [运行时间：0.065160s][吞吐率：15.35req/s] [内存消耗：969.30kb] [文件加载：33]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'videoList',
+    2 => NULL,
+  ),
+)
+[ info ] [ LANG ] /Users/lsiten/project/workman/chat-tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-24T22:32:07+08:00 ] 192.168.1.62 192.168.1.20 GET /api.php/api/videoList?accessToken=11dsdf&page=0
+[ log ] 192.168.1.62/api.php/api/videoList?accessToken=11dsdf&page=0 [运行时间：0.045411s][吞吐率：22.02req/s] [内存消耗：968.02kb] [文件加载：33]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'videoList',
+    2 => NULL,
+  ),
+)
+[ info ] [ LANG ] /Users/lsiten/project/workman/chat-tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-24T22:32:10+08:00 ] 192.168.1.62 192.168.1.20 GET /api.php/api/coment?accessToken=11dsdf&page=0&vid=500000200009062983
+[ log ] 192.168.1.62/api.php/api/coment?accessToken=11dsdf&page=0&vid=500000200009062983 [运行时间：0.022922s][吞吐率：43.63req/s] [内存消耗：967.63kb] [文件加载：33]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'coment',
+    2 => NULL,
+  ),
+)
+[ info ] [ LANG ] /Users/lsiten/project/workman/chat-tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-24T22:32:20+08:00 ] 192.168.1.62 192.168.1.20 GET /api.php/api/videoList?accessToken=11dsdf&page=0
+[ log ] 192.168.1.62/api.php/api/videoList?accessToken=11dsdf&page=0 [运行时间：0.025146s][吞吐率：39.77req/s] [内存消耗：967.52kb] [文件加载：33]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'videoList',
+    2 => NULL,
+  ),
+)
+[ info ] [ LANG ] /Users/lsiten/project/workman/chat-tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-24T22:32:28+08:00 ] 192.168.1.62 192.168.1.20 POST /api.php/api/index/signature
+[ log ] 192.168.1.62/api.php/api/index/signature [运行时间：0.081736s][吞吐率：12.23req/s] [内存消耗：1,910.02kb] [文件加载：47]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'index',
+    2 => 'signature',
+  ),
+)
+[ info ] [ RUN ] /**
+  * 获取图床的signatrue
+  *@params $request
+  *return 响应内容
+  */
+Method [ <user> public method signature ] {
+  @@ /Users/lsiten/project/workman/chat-tp5/app/api/controller/Index.php 29 - 63
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ DB ] INIT mysql:array (
+  'type' => 'mysql',
+  'dsn' => '',
+  'hostname' => '127.0.0.1',
+  'database' => 'laychat',
+  'username' => 'root',
+  'password' => 'root',
+  'hostport' => '3306',
+  'params' => 
+  array (
+  ),
+  'charset' => 'utf8',
+  'prefix' => 'lsiten_',
+  'debug' => true,
+  'deploy' => 0,
+  'rw_separate' => false,
+  'master_num' => 1,
+  'slave_no' => '',
+  'fields_strict' => true,
+  'auto_timestamp' => false,
+  'resultset_type' => 'array',
+  'sql_explain' => false,
+)
+[ info ] [ DB ] CONNECT: mysql:dbname=laychat;host=127.0.0.1;port=3306;charset=utf8
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+[ sql ] [ SQL ] SELECT * FROM `lsiten_doguser` WHERE  `accessToken` = '{e510261d-5ea3-8345-60b4-0419d3ab0a6f}' LIMIT 1    [ RunTime:0.001339s ]
+
+[ 2017-11-24T22:46:43+08:00 ] 192.168.1.62 192.168.1.20 GET /api.php/api/videoList?accessToken=11dsdf&page=0
+[ log ] 192.168.1.62/api.php/api/videoList?accessToken=11dsdf&page=0 [运行时间：0.046589s][吞吐率：21.46req/s] [内存消耗：967.52kb] [文件加载：33]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'videoList',
+    2 => NULL,
+  ),
+)
+[ info ] [ LANG ] /Users/lsiten/project/workman/chat-tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-24T22:49:18+08:00 ] 192.168.1.62 192.168.1.20 GET /api.php/api/coment?accessToken=11dsdf&page=0&vid=500000200009062983
+[ log ] 192.168.1.62/api.php/api/coment?accessToken=11dsdf&page=0&vid=500000200009062983 [运行时间：0.032222s][吞吐率：31.03req/s] [内存消耗：967.63kb] [文件加载：33]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'coment',
+    2 => NULL,
+  ),
+)
+[ info ] [ LANG ] /Users/lsiten/project/workman/chat-tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-24T22:49:28+08:00 ] 192.168.1.62 192.168.1.20 GET /api.php/api/videoList?accessToken=11dsdf&page=0
+[ log ] 192.168.1.62/api.php/api/videoList?accessToken=11dsdf&page=0 [运行时间：0.027031s][吞吐率：36.99req/s] [内存消耗：967.52kb] [文件加载：33]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'videoList',
+    2 => NULL,
+  ),
+)
+[ info ] [ LANG ] /Users/lsiten/project/workman/chat-tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-24T22:51:44+08:00 ] 192.168.1.62 192.168.1.20 GET /api.php/api/videoList?accessToken=11dsdf&page=0
+[ log ] 192.168.1.62/api.php/api/videoList?accessToken=11dsdf&page=0 [运行时间：0.046289s][吞吐率：21.60req/s] [内存消耗：967.52kb] [文件加载：33]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'videoList',
+    2 => NULL,
+  ),
+)
+[ info ] [ LANG ] /Users/lsiten/project/workman/chat-tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-24T22:52:18+08:00 ] 192.168.1.62 192.168.1.20 GET /api.php/api/videoList?accessToken=11dsdf&page=0
+[ log ] 192.168.1.62/api.php/api/videoList?accessToken=11dsdf&page=0 [运行时间：0.041766s][吞吐率：23.94req/s] [内存消耗：967.52kb] [文件加载：33]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'videoList',
+    2 => NULL,
+  ),
+)
+[ info ] [ LANG ] /Users/lsiten/project/workman/chat-tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-24T22:53:57+08:00 ] 192.168.1.62 192.168.1.20 GET /api.php/api/videoList?accessToken=11dsdf&page=0
+[ log ] 192.168.1.62/api.php/api/videoList?accessToken=11dsdf&page=0 [运行时间：0.039802s][吞吐率：25.12req/s] [内存消耗：967.52kb] [文件加载：33]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'videoList',
+    2 => NULL,
+  ),
+)
+[ info ] [ LANG ] /Users/lsiten/project/workman/chat-tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-24T22:55:07+08:00 ] 192.168.1.62 192.168.1.20 POST /api.php/api/index/signature
+[ log ] 192.168.1.62/api.php/api/index/signature [运行时间：0.073606s][吞吐率：13.59req/s] [内存消耗：1,910.02kb] [文件加载：47]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'index',
+    2 => 'signature',
+  ),
+)
+[ info ] [ RUN ] /**
+  * 获取图床的signatrue
+  *@params $request
+  *return 响应内容
+  */
+Method [ <user> public method signature ] {
+  @@ /Users/lsiten/project/workman/chat-tp5/app/api/controller/Index.php 29 - 63
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ DB ] INIT mysql:array (
+  'type' => 'mysql',
+  'dsn' => '',
+  'hostname' => '127.0.0.1',
+  'database' => 'laychat',
+  'username' => 'root',
+  'password' => 'root',
+  'hostport' => '3306',
+  'params' => 
+  array (
+  ),
+  'charset' => 'utf8',
+  'prefix' => 'lsiten_',
+  'debug' => true,
+  'deploy' => 0,
+  'rw_separate' => false,
+  'master_num' => 1,
+  'slave_no' => '',
+  'fields_strict' => true,
+  'auto_timestamp' => false,
+  'resultset_type' => 'array',
+  'sql_explain' => false,
+)
+[ info ] [ DB ] CONNECT: mysql:dbname=laychat;host=127.0.0.1;port=3306;charset=utf8
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+[ sql ] [ SQL ] SELECT * FROM `lsiten_doguser` WHERE  `accessToken` = '{e510261d-5ea3-8345-60b4-0419d3ab0a6f}' LIMIT 1    [ RunTime:0.000875s ]
+
+[ 2017-11-24T22:55:17+08:00 ] 192.168.1.62 192.168.1.20 GET /api.php/api/videoList?accessToken=11dsdf&page=0
+[ log ] 192.168.1.62/api.php/api/videoList?accessToken=11dsdf&page=0 [运行时间：0.021773s][吞吐率：45.93req/s] [内存消耗：967.52kb] [文件加载：33]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'videoList',
+    2 => NULL,
+  ),
+)
+[ info ] [ LANG ] /Users/lsiten/project/workman/chat-tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-24T22:59:44+08:00 ] 192.168.1.62 192.168.1.20 POST /api.php/api/index/signature
+[ log ] 192.168.1.62/api.php/api/index/signature [运行时间：0.062836s][吞吐率：15.91req/s] [内存消耗：1,910.02kb] [文件加载：47]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'index',
+    2 => 'signature',
+  ),
+)
+[ info ] [ RUN ] /**
+  * 获取图床的signatrue
+  *@params $request
+  *return 响应内容
+  */
+Method [ <user> public method signature ] {
+  @@ /Users/lsiten/project/workman/chat-tp5/app/api/controller/Index.php 29 - 63
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ DB ] INIT mysql:array (
+  'type' => 'mysql',
+  'dsn' => '',
+  'hostname' => '127.0.0.1',
+  'database' => 'laychat',
+  'username' => 'root',
+  'password' => 'root',
+  'hostport' => '3306',
+  'params' => 
+  array (
+  ),
+  'charset' => 'utf8',
+  'prefix' => 'lsiten_',
+  'debug' => true,
+  'deploy' => 0,
+  'rw_separate' => false,
+  'master_num' => 1,
+  'slave_no' => '',
+  'fields_strict' => true,
+  'auto_timestamp' => false,
+  'resultset_type' => 'array',
+  'sql_explain' => false,
+)
+[ info ] [ DB ] CONNECT: mysql:dbname=laychat;host=127.0.0.1;port=3306;charset=utf8
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+[ sql ] [ SQL ] SELECT * FROM `lsiten_doguser` WHERE  `accessToken` = '{e510261d-5ea3-8345-60b4-0419d3ab0a6f}' LIMIT 1    [ RunTime:0.000861s ]
+
+[ 2017-11-24T23:00:16+08:00 ] 192.168.1.62 192.168.1.20 GET /api.php/api/videoList?accessToken=11dsdf&page=0
+[ log ] 192.168.1.62/api.php/api/videoList?accessToken=11dsdf&page=0 [运行时间：0.027946s][吞吐率：35.78req/s] [内存消耗：967.52kb] [文件加载：33]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'videoList',
+    2 => NULL,
+  ),
+)
+[ info ] [ LANG ] /Users/lsiten/project/workman/chat-tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-24T23:01:06+08:00 ] 192.168.1.62 192.168.1.20 GET /api.php/api/videoList?accessToken=11dsdf&page=0
+[ log ] 192.168.1.62/api.php/api/videoList?accessToken=11dsdf&page=0 [运行时间：0.038455s][吞吐率：26.00req/s] [内存消耗：967.52kb] [文件加载：33]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'videoList',
+    2 => NULL,
+  ),
+)
+[ info ] [ LANG ] /Users/lsiten/project/workman/chat-tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-24T23:01:15+08:00 ] 192.168.1.62 192.168.1.20 POST /api.php/api/index/signature
+[ log ] 192.168.1.62/api.php/api/index/signature [运行时间：0.063370s][吞吐率：15.78req/s] [内存消耗：1,910.02kb] [文件加载：47]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'index',
+    2 => 'signature',
+  ),
+)
+[ info ] [ RUN ] /**
+  * 获取图床的signatrue
+  *@params $request
+  *return 响应内容
+  */
+Method [ <user> public method signature ] {
+  @@ /Users/lsiten/project/workman/chat-tp5/app/api/controller/Index.php 29 - 63
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ DB ] INIT mysql:array (
+  'type' => 'mysql',
+  'dsn' => '',
+  'hostname' => '127.0.0.1',
+  'database' => 'laychat',
+  'username' => 'root',
+  'password' => 'root',
+  'hostport' => '3306',
+  'params' => 
+  array (
+  ),
+  'charset' => 'utf8',
+  'prefix' => 'lsiten_',
+  'debug' => true,
+  'deploy' => 0,
+  'rw_separate' => false,
+  'master_num' => 1,
+  'slave_no' => '',
+  'fields_strict' => true,
+  'auto_timestamp' => false,
+  'resultset_type' => 'array',
+  'sql_explain' => false,
+)
+[ info ] [ DB ] CONNECT: mysql:dbname=laychat;host=127.0.0.1;port=3306;charset=utf8
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+[ sql ] [ SQL ] SELECT * FROM `lsiten_doguser` WHERE  `accessToken` = '{e510261d-5ea3-8345-60b4-0419d3ab0a6f}' LIMIT 1    [ RunTime:0.000847s ]
+
+[ 2017-11-24T23:05:57+08:00 ] 192.168.1.62 192.168.1.20 GET /api.php/api/videoList?accessToken=11dsdf&page=0
+[ log ] 192.168.1.62/api.php/api/videoList?accessToken=11dsdf&page=0 [运行时间：0.043502s][吞吐率：22.99req/s] [内存消耗：967.52kb] [文件加载：33]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'videoList',
+    2 => NULL,
+  ),
+)
+[ info ] [ LANG ] /Users/lsiten/project/workman/chat-tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-24T23:06:06+08:00 ] 192.168.1.62 192.168.1.20 POST /api.php/api/index/signature
+[ log ] 192.168.1.62/api.php/api/index/signature [运行时间：0.060532s][吞吐率：16.52req/s] [内存消耗：1,910.02kb] [文件加载：47]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'index',
+    2 => 'signature',
+  ),
+)
+[ info ] [ RUN ] /**
+  * 获取图床的signatrue
+  *@params $request
+  *return 响应内容
+  */
+Method [ <user> public method signature ] {
+  @@ /Users/lsiten/project/workman/chat-tp5/app/api/controller/Index.php 29 - 63
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ DB ] INIT mysql:array (
+  'type' => 'mysql',
+  'dsn' => '',
+  'hostname' => '127.0.0.1',
+  'database' => 'laychat',
+  'username' => 'root',
+  'password' => 'root',
+  'hostport' => '3306',
+  'params' => 
+  array (
+  ),
+  'charset' => 'utf8',
+  'prefix' => 'lsiten_',
+  'debug' => true,
+  'deploy' => 0,
+  'rw_separate' => false,
+  'master_num' => 1,
+  'slave_no' => '',
+  'fields_strict' => true,
+  'auto_timestamp' => false,
+  'resultset_type' => 'array',
+  'sql_explain' => false,
+)
+[ info ] [ DB ] CONNECT: mysql:dbname=laychat;host=127.0.0.1;port=3306;charset=utf8
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+[ sql ] [ SQL ] SELECT * FROM `lsiten_doguser` WHERE  `accessToken` = '{e510261d-5ea3-8345-60b4-0419d3ab0a6f}' LIMIT 1    [ RunTime:0.000777s ]
+
+[ 2017-11-24T23:06:35+08:00 ] 192.168.1.62 192.168.1.20 GET /api.php/api/videoList?accessToken=11dsdf&page=0
+[ log ] 192.168.1.62/api.php/api/videoList?accessToken=11dsdf&page=0 [运行时间：0.022601s][吞吐率：44.25req/s] [内存消耗：967.52kb] [文件加载：33]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'videoList',
+    2 => NULL,
+  ),
+)
+[ info ] [ LANG ] /Users/lsiten/project/workman/chat-tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-24T23:06:57+08:00 ] 192.168.1.62 192.168.1.20 POST /api.php/api/index/signature
+[ log ] 192.168.1.62/api.php/api/index/signature [运行时间：0.053185s][吞吐率：18.80req/s] [内存消耗：1,910.02kb] [文件加载：47]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'index',
+    2 => 'signature',
+  ),
+)
+[ info ] [ RUN ] /**
+  * 获取图床的signatrue
+  *@params $request
+  *return 响应内容
+  */
+Method [ <user> public method signature ] {
+  @@ /Users/lsiten/project/workman/chat-tp5/app/api/controller/Index.php 29 - 63
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ DB ] INIT mysql:array (
+  'type' => 'mysql',
+  'dsn' => '',
+  'hostname' => '127.0.0.1',
+  'database' => 'laychat',
+  'username' => 'root',
+  'password' => 'root',
+  'hostport' => '3306',
+  'params' => 
+  array (
+  ),
+  'charset' => 'utf8',
+  'prefix' => 'lsiten_',
+  'debug' => true,
+  'deploy' => 0,
+  'rw_separate' => false,
+  'master_num' => 1,
+  'slave_no' => '',
+  'fields_strict' => true,
+  'auto_timestamp' => false,
+  'resultset_type' => 'array',
+  'sql_explain' => false,
+)
+[ info ] [ DB ] CONNECT: mysql:dbname=laychat;host=127.0.0.1;port=3306;charset=utf8
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+[ sql ] [ SQL ] SELECT * FROM `lsiten_doguser` WHERE  `accessToken` = '{e510261d-5ea3-8345-60b4-0419d3ab0a6f}' LIMIT 1    [ RunTime:0.000740s ]
+
+[ 2017-11-24T23:07:35+08:00 ] 192.168.1.62 192.168.1.20 GET /api.php/api/videoList?accessToken=11dsdf&page=0
+[ log ] 192.168.1.62/api.php/api/videoList?accessToken=11dsdf&page=0 [运行时间：0.026952s][吞吐率：37.10req/s] [内存消耗：967.52kb] [文件加载：33]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'videoList',
+    2 => NULL,
+  ),
+)
+[ info ] [ LANG ] /Users/lsiten/project/workman/chat-tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-24T23:08:30+08:00 ] 192.168.1.62 192.168.1.20 POST /api.php/api/index/signature
+[ log ] 192.168.1.62/api.php/api/index/signature [运行时间：0.052216s][吞吐率：19.15req/s] [内存消耗：1,910.02kb] [文件加载：47]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'index',
+    2 => 'signature',
+  ),
+)
+[ info ] [ RUN ] /**
+  * 获取图床的signatrue
+  *@params $request
+  *return 响应内容
+  */
+Method [ <user> public method signature ] {
+  @@ /Users/lsiten/project/workman/chat-tp5/app/api/controller/Index.php 29 - 63
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ DB ] INIT mysql:array (
+  'type' => 'mysql',
+  'dsn' => '',
+  'hostname' => '127.0.0.1',
+  'database' => 'laychat',
+  'username' => 'root',
+  'password' => 'root',
+  'hostport' => '3306',
+  'params' => 
+  array (
+  ),
+  'charset' => 'utf8',
+  'prefix' => 'lsiten_',
+  'debug' => true,
+  'deploy' => 0,
+  'rw_separate' => false,
+  'master_num' => 1,
+  'slave_no' => '',
+  'fields_strict' => true,
+  'auto_timestamp' => false,
+  'resultset_type' => 'array',
+  'sql_explain' => false,
+)
+[ info ] [ DB ] CONNECT: mysql:dbname=laychat;host=127.0.0.1;port=3306;charset=utf8
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+[ sql ] [ SQL ] SELECT * FROM `lsiten_doguser` WHERE  `accessToken` = '{e510261d-5ea3-8345-60b4-0419d3ab0a6f}' LIMIT 1    [ RunTime:0.000850s ]
+
+[ 2017-11-24T23:10:44+08:00 ] 192.168.1.62 192.168.1.20 GET /api.php/api/videoList?accessToken=11dsdf&page=0
+[ log ] 192.168.1.62/api.php/api/videoList?accessToken=11dsdf&page=0 [运行时间：0.025475s][吞吐率：39.25req/s] [内存消耗：967.52kb] [文件加载：33]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'videoList',
+    2 => NULL,
+  ),
+)
+[ info ] [ LANG ] /Users/lsiten/project/workman/chat-tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-24T23:10:59+08:00 ] 192.168.1.62 192.168.1.20 POST /api.php/api/index/signature
+[ log ] 192.168.1.62/api.php/api/index/signature [运行时间：0.050024s][吞吐率：19.99req/s] [内存消耗：1,910.02kb] [文件加载：47]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'index',
+    2 => 'signature',
+  ),
+)
+[ info ] [ RUN ] /**
+  * 获取图床的signatrue
+  *@params $request
+  *return 响应内容
+  */
+Method [ <user> public method signature ] {
+  @@ /Users/lsiten/project/workman/chat-tp5/app/api/controller/Index.php 29 - 63
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ DB ] INIT mysql:array (
+  'type' => 'mysql',
+  'dsn' => '',
+  'hostname' => '127.0.0.1',
+  'database' => 'laychat',
+  'username' => 'root',
+  'password' => 'root',
+  'hostport' => '3306',
+  'params' => 
+  array (
+  ),
+  'charset' => 'utf8',
+  'prefix' => 'lsiten_',
+  'debug' => true,
+  'deploy' => 0,
+  'rw_separate' => false,
+  'master_num' => 1,
+  'slave_no' => '',
+  'fields_strict' => true,
+  'auto_timestamp' => false,
+  'resultset_type' => 'array',
+  'sql_explain' => false,
+)
+[ info ] [ DB ] CONNECT: mysql:dbname=laychat;host=127.0.0.1;port=3306;charset=utf8
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+[ sql ] [ SQL ] SELECT * FROM `lsiten_doguser` WHERE  `accessToken` = '{e510261d-5ea3-8345-60b4-0419d3ab0a6f}' LIMIT 1    [ RunTime:0.000854s ]
+
+[ 2017-11-24T23:11:27+08:00 ] 192.168.1.62 192.168.1.20 GET /api.php/api/videoList?accessToken=11dsdf&page=0
+[ log ] 192.168.1.62/api.php/api/videoList?accessToken=11dsdf&page=0 [运行时间：0.022889s][吞吐率：43.69req/s] [内存消耗：967.52kb] [文件加载：33]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'videoList',
+    2 => NULL,
+  ),
+)
+[ info ] [ LANG ] /Users/lsiten/project/workman/chat-tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-24T23:11:28+08:00 ] 192.168.1.62 192.168.1.20 GET /api.php/api/coment?accessToken=11dsdf&page=0&vid=500000200009062983
+[ log ] 192.168.1.62/api.php/api/coment?accessToken=11dsdf&page=0&vid=500000200009062983 [运行时间：0.025151s][吞吐率：39.76req/s] [内存消耗：967.63kb] [文件加载：33]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'coment',
+    2 => NULL,
+  ),
+)
+[ info ] [ LANG ] /Users/lsiten/project/workman/chat-tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-24T23:31:39+08:00 ] 192.168.1.62 192.168.1.62 GET /api.php/api/videoList?accessToken=11dsdf&page=0
+[ log ] 192.168.1.62/api.php/api/videoList?accessToken=11dsdf&page=0 [运行时间：0.051859s][吞吐率：19.28req/s] [内存消耗：969.30kb] [文件加载：33]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'videoList',
+    2 => NULL,
+  ),
+)
+[ info ] [ LANG ] /Users/lsiten/project/workman/chat-tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+
