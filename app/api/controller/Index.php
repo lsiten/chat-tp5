@@ -33,7 +33,6 @@ class Index extends Base
       $type = $request->put('type');
       //获取七牛token
       $data = getQiniuToken($type);
-      print_r($data);
       $this->return['obj'] = [
               "signature"=>$data["token"],
               "key"=>$data["key"]
