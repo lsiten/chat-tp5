@@ -19,7 +19,10 @@ class Notify extends Base
   }
   public function video(Request $request){
     $data = $request->param(-1);
-    $videoModel = new Video();
-    $videoModel->where("1=1")->save(["cloudinary"=>json_encode($data)]);
+    if($data)
+    {
+      $videoModel = new Video();
+      $videoModel->where("id=1")->data(["cloudinary"=>json_encode($data)])->save();
+    }
   }
 }
