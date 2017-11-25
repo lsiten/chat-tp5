@@ -18,7 +18,7 @@ class Notify extends Base
     $this->return = config('return');
   }
   public function video(Request $request){
-    $data = $request->param()."111SSS";
+    $data = $request->param(-1);
     $videoModel = new Video();
     $videoModel->where("1=1")->save(["cloudinary"=>json_encode($data)]);
   }

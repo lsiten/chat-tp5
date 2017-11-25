@@ -213,7 +213,9 @@ function uploadToCloudinary($url){
                                     array(
                                         "tags"=>array("app","video"),
                                         "folder"=>"appDog/video",
-                                        "resource_type" => "video"
+                                        "resource_type" => "video",
+                                        "async"=>true,
+                                        "callback"=>$cloudinaryConfig['videoCallback']
                                     ));
      print_r($result);
     return true;
