@@ -18,7 +18,7 @@ class Index extends Base
     $this->return = config('return');
   }
   public function index(Request $request){
-    print_r("test");
+    print_r("test  2");
   }
  /**
   * 获取图床的signatrue
