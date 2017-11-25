@@ -48,6 +48,7 @@ return [
                   'apiBase' => 'https://api.cloudinary.com/v1_1/lsiten',
                   'image' => '/image/upload',
                   'video' => '/video/upload',
+                  'videoCallback'=>'http://api.lsiten.cn/api.php/api/notify/video',
                   'audio' => '/raw/upload'
   ],
   'qiniu' => [

@@ -204,18 +204,19 @@ function getQiniuToken($type){
  */
 function uploadToCloudinary($url){
     $cloudinaryConfig = config("cloudinary");
-    \Cloudinary::config(array( 
+    \Cloudinary::config(array(
         "cloud_name" => $cloudinaryConfig['cloud_name'], 
         "api_key" => $cloudinaryConfig['api_key'], 
         "api_secret" => $cloudinaryConfig['api_secret'],
       ));
-    \Cloudinary\Uploader::upload($url,
+    $result = \Cloudinary\Uploader::upload($url,
                                     array(
                                         "tags"=>array("app","video"),
                                         "folder"=>"appDog/video",
                                         "resource_type" => "video",
-                                        "async"=>true
+                                        "async"=>true,
+                                        "callback"=>$cloudinaryConfig['videoCallback']
                                     ));
-    print_r(1);
+     print_r($result);
     return true;
 }
