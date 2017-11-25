@@ -369,3 +369,65 @@ Method [ <user> public method signature ] {
   ),
 )
 
+[ 2017-11-25T17:58:09+08:00 ] ::1 ::1 GET /api.php/api/index/signature
+[ log ] localhost/api.php/api/index/signature [运行时间：0.054139s][吞吐率：18.47req/s] [内存消耗：1,177.91kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'index',
+    2 => 'signature',
+  ),
+)
+[ info ] [ RUN ] /**
+  * 获取图床的signatrue
+  *@params $request
+  *return 响应内容
+  */
+Method [ <user> public method signature ] {
+  @@ /Users/lsiten/project/workman/chat-tp5/app/api/controller/Index.php 28 - 62
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-25T17:58:19+08:00 ] ::1 ::1 GET /api.php/api/index/signature
+[ log ] localhost/api.php/api/index/signature [运行时间：0.032529s][吞吐率：30.74req/s] [内存消耗：1,178.09kb] [文件加载：37]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'index',
+    2 => 'signature',
+  ),
+)
+[ info ] [ RUN ] /**
+  * 获取图床的signatrue
+  *@params $request
+  *return 响应内容
+  */
+Method [ <user> public method signature ] {
+  @@ /Users/lsiten/project/workman/chat-tp5/app/api/controller/Index.php 28 - 62
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+

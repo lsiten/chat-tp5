@@ -28,6 +28,7 @@ class Index extends Base
   public function signature(Request $request){
     hasToken();
     $cloud = $request->put('cloud');
+    return $this->return;
     if("qiniu"==$cloud)
     {
       $type = $request->put('type');
