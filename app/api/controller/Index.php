@@ -18,7 +18,7 @@ class Index extends Base
     $this->return = config('return');
   }
   public function index(Request $request){
-    print_r("test  2");
+ 
   }
  /**
   * 获取图床的signatrue
@@ -28,12 +28,12 @@ class Index extends Base
   public function signature(Request $request){
     hasToken();
     $cloud = $request->put('cloud');
-    return $this->return;
     if("qiniu"==$cloud)
     {
       $type = $request->put('type');
       //获取七牛token
       $data = getQiniuToken($type);
+      print_r($data);
       $this->return['obj'] = [
               "signature"=>$data["token"],
               "key"=>$data["key"]
