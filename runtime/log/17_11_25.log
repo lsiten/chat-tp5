@@ -93,3 +93,176 @@
   ),
 )
 
+[ 2017-11-25T00:23:54+08:00 ] 192.168.1.62 192.168.1.20 GET /api.php/api/videoList?accessToken=11dsdf&page=0
+[ log ] 192.168.1.62/api.php/api/videoList?accessToken=11dsdf&page=0 [运行时间：0.050183s][吞吐率：19.93req/s] [内存消耗：968.02kb] [文件加载：33]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'videoList',
+    2 => NULL,
+  ),
+)
+[ info ] [ LANG ] /Users/lsiten/project/workman/chat-tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-25T00:24:07+08:00 ] 192.168.1.62 192.168.1.20 POST /api.php/api/index/signature
+[ log ] 192.168.1.62/api.php/api/index/signature [运行时间：0.070771s][吞吐率：14.13req/s] [内存消耗：1,910.02kb] [文件加载：47]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'index',
+    2 => 'signature',
+  ),
+)
+[ info ] [ RUN ] /**
+  * 获取图床的signatrue
+  *@params $request
+  *return 响应内容
+  */
+Method [ <user> public method signature ] {
+  @@ /Users/lsiten/project/workman/chat-tp5/app/api/controller/Index.php 29 - 63
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ DB ] INIT mysql:array (
+  'type' => 'mysql',
+  'dsn' => '',
+  'hostname' => '127.0.0.1',
+  'database' => 'laychat',
+  'username' => 'root',
+  'password' => 'root',
+  'hostport' => '3306',
+  'params' => 
+  array (
+  ),
+  'charset' => 'utf8',
+  'prefix' => 'lsiten_',
+  'debug' => true,
+  'deploy' => 0,
+  'rw_separate' => false,
+  'master_num' => 1,
+  'slave_no' => '',
+  'fields_strict' => true,
+  'auto_timestamp' => false,
+  'resultset_type' => 'array',
+  'sql_explain' => false,
+)
+[ info ] [ DB ] CONNECT: mysql:dbname=laychat;host=127.0.0.1;port=3306;charset=utf8
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+[ sql ] [ SQL ] SELECT * FROM `lsiten_doguser` WHERE  `accessToken` = '{e510261d-5ea3-8345-60b4-0419d3ab0a6f}' LIMIT 1    [ RunTime:0.001078s ]
+
+[ 2017-11-25T00:24:44+08:00 ] 192.168.1.62 192.168.1.20 GET /api.php/api/videoList?accessToken=11dsdf&page=0
+[ log ] 192.168.1.62/api.php/api/videoList?accessToken=11dsdf&page=0 [运行时间：0.031628s][吞吐率：31.62req/s] [内存消耗：967.52kb] [文件加载：33]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'videoList',
+    2 => NULL,
+  ),
+)
+[ info ] [ LANG ] /Users/lsiten/project/workman/chat-tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-25T10:34:03+08:00 ] ::1 ::1 GET /api.php/api/video
+[ log ] localhost/api.php/api/video [运行时间：0.074632s][吞吐率：13.40req/s] [内存消耗：1,481.61kb] [文件加载：44]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'video',
+    2 => NULL,
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method index ] {
+  @@ /Users/lsiten/project/workman/chat-tp5/app/api/controller/Video.php 11 - 19
+}
+
+[ info ] [ LANG ] /Users/lsiten/project/workman/chat-tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /Users/lsiten/project/workman/chat-tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+[ error ] [0]致命错误 : Call to undefined function app\api\controller\vump()[/Users/lsiten/project/workman/chat-tp5/app/api/controller/Video.php:18]
+
+[ 2017-11-25T10:34:27+08:00 ] ::1 ::1 GET /api.php/api/video
+[ log ] localhost/api.php/api/video [运行时间：0.045971s][吞吐率：21.75req/s] [内存消耗：1,481.73kb] [文件加载：44]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'video',
+    2 => NULL,
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method index ] {
+  @@ /Users/lsiten/project/workman/chat-tp5/app/api/controller/Video.php 11 - 19
+}
+
+[ info ] [ LANG ] /Users/lsiten/project/workman/chat-tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /Users/lsiten/project/workman/chat-tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+[ error ] [0]致命错误 : Undefined constant 'Cloudinary'[/Users/lsiten/project/workman/chat-tp5/app/api/controller/Video.php:18]
+
+[ 2017-11-25T10:35:40+08:00 ] ::1 ::1 GET /api.php/api/video
+[ log ] localhost/api.php/api/video [运行时间：0.044780s][吞吐率：22.33req/s] [内存消耗：1,397.69kb] [文件加载：38]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'video',
+    2 => NULL,
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method index ] {
+  @@ /Users/lsiten/project/workman/chat-tp5/app/api/controller/Video.php 11 - 20
+}
+
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+
