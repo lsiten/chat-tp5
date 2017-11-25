@@ -18,7 +18,7 @@ class Video extends Base{
     }
     public function saveInfo(Request $request){
         hasToken();
-        $video = $request->put("video");
+        $video = json_decode($request->put("video"),true);
         $src = $request->put("videoSrc");
         $user = session("user");
         if(!$video && !$video["key"])
