@@ -266,3 +266,106 @@ Method [ <user> public method signature ] {
   ),
 )
 
+[ 2017-11-25T16:15:51+08:00 ] ::1 ::1 GET /api.php/api
+[ log ] localhost/api.php/api [运行时间：0.060410s][吞吐率：16.55req/s] [内存消耗：1,316.97kb] [文件加载：42]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method index ] {
+  @@ /Users/lsiten/project/workman/chat-tp5/app/api/controller/Index.php 20 - 23
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ LANG ] /Users/lsiten/project/workman/chat-tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /Users/lsiten/project/workman/chat-tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+[ error ] [0]类型错误 : Too few arguments to function getQiniuToken(), 0 passed in /Users/lsiten/project/workman/chat-tp5/app/api/controller/Index.php on line 21 and exactly 1 expected[/Users/lsiten/project/workman/chat-tp5/app/helper.php:173]
+
+[ 2017-11-25T16:16:13+08:00 ] ::1 ::1 GET /api.php/api/user/index
+[ log ] localhost/api.php/api/user/index [运行时间：0.036678s][吞吐率：27.26req/s] [内存消耗：1,325.12kb] [文件加载：42]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'user',
+    2 => 'index',
+  ),
+)
+[ info ] [ LANG ] /Users/lsiten/project/workman/chat-tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-25T16:16:26+08:00 ] ::1 ::1 GET /api.php/api/
+[ log ] localhost/api.php/api/ [运行时间：0.036500s][吞吐率：27.40req/s] [内存消耗：1,316.53kb] [文件加载：42]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method index ] {
+  @@ /Users/lsiten/project/workman/chat-tp5/app/api/controller/Index.php 20 - 23
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ LANG ] /Users/lsiten/project/workman/chat-tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /Users/lsiten/project/workman/chat-tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+[ error ] [0]类型错误 : Too few arguments to function getQiniuToken(), 0 passed in /Users/lsiten/project/workman/chat-tp5/app/api/controller/Index.php on line 21 and exactly 1 expected[/Users/lsiten/project/workman/chat-tp5/app/helper.php:173]
+
+[ 2017-11-25T16:16:51+08:00 ] ::1 ::1 GET /api.php/api/
+[ log ] localhost/api.php/api/ [运行时间：0.034540s][吞吐率：28.95req/s] [内存消耗：1,168.22kb] [文件加载：36]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method index ] {
+  @@ /Users/lsiten/project/workman/chat-tp5/app/api/controller/Index.php 20 - 22
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+

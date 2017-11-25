@@ -18,8 +18,7 @@ class Index extends Base
     $this->return = config('return');
   }
   public function index(Request $request){
-    $token = getQiniuToken();
-    print_r($token);
+    
   }
  /**
   * 获取图床的signatrue
