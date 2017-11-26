@@ -199,24 +199,27 @@ function getQiniuToken($type){
 
 /**
  * 上传到cloudinary
- * @params 上传视频的url
+ * @params $url 上传视频的url
+ * @params $public_id cloudinary的public_id
  * @return 
  */
-function uploadToCloudinary($url){
+function uploadToCloudinary($url,$public_id=0){
     $cloudinaryConfig = config("cloudinary");
     \Cloudinary::config(array(
         "cloud_name" => $cloudinaryConfig['cloud_name'], 
         "api_key" => $cloudinaryConfig['api_key'], 
         "api_secret" => $cloudinaryConfig['api_secret'],
       ));
-    $result = \Cloudinary\Uploader::upload($url,
-                                    array(
-                                        "tags"=>array("app","video"),
-                                        "folder"=>"appDog/video",
-                                        "resource_type" => "video",
-                                        "async"=>true,
-                                        "callback"=>$cloudinaryConfig['videoCallback']
-                                    ));
+      $optins =  array(
+        "tags"=>array("app","video"),
+        "folder"=>"appDog/video",
+        "resource_type" => "video",
+        "async"=>true,
+        "callback"=>$cloudinaryConfig['videoCallback']
+      );
+      if($public_id)
+            $optins["public_id"]=$public_id;
+    $result = \Cloudinary\Uploader::upload($url,$optins);
      print_r($result);
     return true;
 }

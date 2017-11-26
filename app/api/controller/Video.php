@@ -44,7 +44,7 @@ class Video extends Base{
         $this->return["obj"] = ["video"=>$videoData];
 
         //将视频上传到cloudinary
-        uploadToCloudinary($src);
+        uploadToCloudinary($src,$video["key"]);
         return $this->return;
 
     }

@@ -7,7 +7,7 @@
  */
 namespace app\api\controller;
 use app\api\controller\Base;
-use app\api\model\Video;
+use app\api\model\Video as VideoModel;
 use think\Request;
 
 class Notify extends Base
@@ -18,11 +18,11 @@ class Notify extends Base
     $this->return = config('return');
   }
   public function video(Request $request){
-    $data = $request->param(-1);
+    $data = $request->param();
     if($data)
     {
-      $videoModel = new Video();
-      $videoModel->where("id=1")->data(["cloudinary"=>json_encode($data)])->save();
+      $videoModel = new VideoModel();
+      $videoModel->data(["cloudinary"=>json_encode($data)])->save();
     }
   }
 }
