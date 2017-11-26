@@ -64,7 +64,7 @@ function sendMessageByLuosimao($code,$phone){
     curl_setopt($ch, CURLOPT_USERPWD  , 'api:key-5f1db12aa6cc3f4dd0b8065a80d7e9a7');
     
     curl_setopt($ch, CURLOPT_POST, TRUE);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, array('mobile' => $phone,'message' => '验证码：'.$code.'【雷诗城】'));
+    curl_setopt($ch, CURLOPT_POSTFIELDS, array('mobile' => $phone,'message' => '您的验证码为：'.$code.'【雷诗城】'));
     $res = curl_exec( $ch );
     curl_close( $ch );
     return $res;
