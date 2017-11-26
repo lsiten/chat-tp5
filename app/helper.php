@@ -213,12 +213,17 @@ function uploadToCloudinary($url,$public_id=0){
       $optins =  array(
         "tags"=>array("app","video"),
         "folder"=>"appDog/video",
-        "resource_type" => "video",
-        "async"=>true,
-        "callback"=>$cloudinaryConfig['videoCallback']
+        "resource_type" => "video"
+        // "async"=>true,
+        // "callback"=>$cloudinaryConfig['videoCallback']
       );
       if($public_id)
             $optins["public_id"]=$public_id;
-    $result = \Cloudinary\Uploader::upload($url,$optins);
+        else
+           return false;
+      $result = \Cloudinary\Uploader::upload($url,$optins);
+      $videoModel = new app\api\model\Video();
+      $videoData = $videoModel->where('qiniu_key', $public_id)
+                              ->update(["cloudinary"=>$result['public_id']]);
     return true;
 }
