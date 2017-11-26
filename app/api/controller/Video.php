@@ -46,7 +46,7 @@ class Video extends Base{
         $this->return["obj"] = ["video"=>$videoData];
 
         //将视频上传到cloudinary
-        uploadToCloudinary($src,$video["key"]);
+        //uploadToCloudinary($src,$video["key"]);
         return $this->return;
 
     }
@@ -54,6 +54,7 @@ class Video extends Base{
     public function saveCloudinaryInfo(Request $request){
         hasToken();
         $qiniu_key = $request->put("qiniu_key");
+        $src = $request->put("src");
         //将视频上传到cloudinary
         $video = uploadToCloudinary($src,$qiniu_key);
         $this->return["obj"] = $video?["video"=>$video]:["message"=>"no data"];
