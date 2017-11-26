@@ -225,5 +225,5 @@ function uploadToCloudinary($url,$public_id=0){
       $videoModel = new app\api\model\Video();
       $videoData = $videoModel->where('qiniu_key', $public_id)
                               ->update(["cloudinary"=>$result['public_id']]);
-    return true;
+    return $videoData;
 }
