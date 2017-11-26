@@ -220,6 +220,5 @@ function uploadToCloudinary($url,$public_id=0){
       if($public_id)
             $optins["public_id"]=$public_id;
     $result = \Cloudinary\Uploader::upload($url,$optins);
-     print_r($result);
     return true;
 }
