@@ -60,4 +60,10 @@ class Video extends Base{
         $this->return["obj"] = $video?["video"=>$video]:["message"=>"no data"];
         return $this->return;
     }
+
+    //合并视频音频
+    public function MergeVideo(){
+        hasToken();
+        $audio = json_decode($request->put("audio"),true);
+    }
 }
