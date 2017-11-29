@@ -150,18 +150,22 @@ function getCloudinaryToken($timestamp,$type){
       case 'image':
         $folder = "appDog/image";
         $tags = "appDog,image";
+        $key .=".jpeg";
       break;
       case 'avatar':
         $folder = "appDog/avatar";
         $tags = "appDog,avatar";
+        $key .=".jpeg";
       break;
       case 'video':
         $folder = "appDog/video";
         $tags = "appDog,video";
+        $key .=".mp3";
       break;
       case 'audio':
         $folder = "appDog/audio";
         $tags = "appDog,audio";
+        $key .=".mp4";
       break;
     }
     $cloudinary = config('cloudinary');
