@@ -75,7 +75,7 @@ class Video extends Base{
         $audio_public_id = str_replace("/",":",$audio["public_id"]);
         $videoName = str_replace("/","_",$audio["video_public_id"]).".mp4";
         //合并视频音频
-        $videoUrl = "http://res.cloudinary.com/lsiten/video/upload/e_volume:-100/e_volume:1200,l_video:".$audio_public_id."/".$audio["video_public_id"].".mp4";
+        $videoUrl = "http://res.cloudinary.com/lsiten/video/upload/e_volume:-100/e_volume:600,l_video:".$audio_public_id."/".$audio["video_public_id"].".mp4";
         $thumbName = str_replace("/","_",$audio["video_public_id"]).".jpg";
         $thumbUrl = "http://res.cloudinary.com/lsiten/video/upload/".$audio["video_public_id"].".jpg";
         //同步到七牛
