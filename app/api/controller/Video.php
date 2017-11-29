@@ -83,6 +83,8 @@ class Video extends Base{
         $thumbInfo = saveToQiniu($thumbUrl,$thumbName);
         if($videoinfo["status"] || $thumbInfo["status"])
         {
+            print_r($videoUrl."\n");
+            print_r($thumbUrl."\n");
             $this->return["code"] = 4030;
             $this->return["success"] = false;
             $this->return["obj"] = ["errorMsg"=>"视频同步出错，请重新录音"];
