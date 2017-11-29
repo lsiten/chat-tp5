@@ -96,7 +96,7 @@ class Video extends Base{
                 "qiniu_final_key"=>$videoinfo["message"],
                 "qiniu_final_poster"=>$thumbInfo["message"]
             ];
-            $where = ['qiniu_key'=>$audio["video_public_id"]];
+            $where = ['qiniu_key'=>$audio["video_public_id"].".mp4"];
             $videoModel->where($where)->update($data);
             $this->return["obj"] = [
                                     "video_key"=>$videoinfo["message"],
