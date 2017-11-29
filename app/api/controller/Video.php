@@ -73,6 +73,11 @@ class Video extends Base{
         $thumbName = str_replace("/","_",$audio["video_public_id"]).".jpg";
         $thumbUrl = "http://res.cloudinary.com/lsiten/video/upload/".$audio["video_public_id"].".jpg";
         //同步到七牛
+        print_r($videoUrl);
+        print_r($videoName);
+        print_r($thumbUrl);
+        print_r($thumbName);
+        exit;
         $videoinfo = saveToQiniu($videoUrl,$videoName);
         $thumbInfo = saveToQiniu($thumbUrl,$thumbName);
         if($videoinfo["status"] || $thumbInfo["status"])
@@ -92,7 +97,6 @@ class Video extends Base{
             ];
             $where = ['qiniu_key'=>$audio["video_public_id"]];
             $videoModel->allowField(true)->save($data,$where);
-            print_r($videoModel->getData());
             $this->return["obj"] = [
                                     "video_key"=>$videoinfo["message"],
                                     "poster_key"=>$videoinfo["message"]
