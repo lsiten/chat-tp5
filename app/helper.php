@@ -3,6 +3,7 @@ require ROOT_PATH.'/vendor/qiniu/autoload.php';
 use think\Request;
 use app\api\model\Doguser;
 use \Qiniu\Auth;
+use \Qiniu\Storage\BucketManager;
 /**
  * 生成用户唯一标识
  * @params $isNeed 是否需要用{}扩起来 
@@ -141,6 +142,8 @@ function hasToken(){
 function getCloudinaryToken($timestamp,$type){
     $folder = "";
     $tags = "";
+    // 生成上传Token
+    $key = uuid(false);
     //匹配市那种类型，选择folder，tags
     switch($type)
     {
@@ -168,6 +171,7 @@ function getCloudinaryToken($timestamp,$type){
         "signature"=>$signature,
         "folder"=>$folder,
         "tags"=>$tags,
+        "key"=>$key,
     ];
 }
 

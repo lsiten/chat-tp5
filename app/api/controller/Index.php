@@ -56,6 +56,7 @@ class Index extends Base
                               "signature"=>$tokenData["signature"],
                               "folder"=>$tokenData["folder"],
                               "tags"=>$tokenData["tags"],
+                              "key"=>$tokenData["key"]
                             ];
       return $this->return;
     }

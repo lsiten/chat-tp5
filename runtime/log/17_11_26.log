@@ -1,0 +1,415 @@
+[ 2017-11-26T09:14:33+08:00 ] ::1 ::1 GET /api.php/api
+[ log ] localhost/api.php/api [运行时间：0.047139s][吞吐率：21.21req/s] [内存消耗：1,168.73kb] [文件加载：36]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method index ] {
+  @@ /Users/lsiten/project/workman/chat-tp5/app/api/controller/Index.php 20 - 22
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-26T09:14:53+08:00 ] ::1 ::1 GET /api.php/api/notify/video
+[ log ] localhost/api.php/api/notify/video [运行时间：0.030193s][吞吐率：33.12req/s] [内存消耗：1,165.20kb] [文件加载：36]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'notify',
+    2 => 'video',
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method video ] {
+  @@ /Users/lsiten/project/workman/chat-tp5/app/api/controller/Notify.php 20 - 27
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-26T09:14:55+08:00 ] ::1 ::1 GET /api.php/api/notify/video
+[ log ] localhost/api.php/api/notify/video [运行时间：0.024905s][吞吐率：40.15req/s] [内存消耗：1,165.37kb] [文件加载：36]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'notify',
+    2 => 'video',
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method video ] {
+  @@ /Users/lsiten/project/workman/chat-tp5/app/api/controller/Notify.php 20 - 27
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-26T09:15:10+08:00 ] ::1 ::1 GET /api.php/api/notify/video?callback=asklk
+[ log ] localhost/api.php/api/notify/video?callback=asklk [运行时间：0.031959s][吞吐率：31.29req/s] [内存消耗：1,165.97kb] [文件加载：36]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'notify',
+    2 => 'video',
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method video ] {
+  @@ /Users/lsiten/project/workman/chat-tp5/app/api/controller/Notify.php 20 - 27
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-26T09:15:34+08:00 ] ::1 ::1 GET /api.php/api/notify/video?callback=asklk
+[ log ] localhost/api.php/api/notify/video?callback=asklk [运行时间：0.026690s][吞吐率：37.47req/s] [内存消耗：1,166.14kb] [文件加载：36]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'notify',
+    2 => 'video',
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method video ] {
+  @@ /Users/lsiten/project/workman/chat-tp5/app/api/controller/Notify.php 20 - 27
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-26T09:16:20+08:00 ] ::1 ::1 GET /api.php/api/notify/video?callback=asklk
+[ log ] localhost/api.php/api/notify/video?callback=asklk [运行时间：0.029051s][吞吐率：34.42req/s] [内存消耗：1,166.14kb] [文件加载：36]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'notify',
+    2 => 'video',
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method video ] {
+  @@ /Users/lsiten/project/workman/chat-tp5/app/api/controller/Notify.php 20 - 27
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-26T09:18:53+08:00 ] ::1 ::1 GET /api.php/api/notify/video?callback=asklk
+[ log ] localhost/api.php/api/notify/video?callback=asklk [运行时间：0.036299s][吞吐率：27.55req/s] [内存消耗：1,166.15kb] [文件加载：36]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'notify',
+    2 => 'video',
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method video ] {
+  @@ /Users/lsiten/project/workman/chat-tp5/app/api/controller/Notify.php 20 - 28
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-26T09:18:55+08:00 ] ::1 ::1 GET /api.php/api/notify/video?callback=asklk
+[ log ] localhost/api.php/api/notify/video?callback=asklk [运行时间：0.026358s][吞吐率：37.94req/s] [内存消耗：1,166.32kb] [文件加载：36]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'notify',
+    2 => 'video',
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method video ] {
+  @@ /Users/lsiten/project/workman/chat-tp5/app/api/controller/Notify.php 20 - 28
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-11-26T09:19:21+08:00 ] ::1 ::1 GET /api.php/api/notify/video?callback=asklk
+[ log ] localhost/api.php/api/notify/video?callback=asklk [运行时间：0.048620s][吞吐率：20.57req/s] [内存消耗：1,791.27kb] [文件加载：48]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'notify',
+    2 => 'video',
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method video ] {
+  @@ /Users/lsiten/project/workman/chat-tp5/app/api/controller/Notify.php 20 - 28
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ DB ] INIT mysql:array (
+  'type' => 'mysql',
+  'dsn' => '',
+  'hostname' => '127.0.0.1',
+  'database' => 'laychat',
+  'username' => 'root',
+  'password' => '2012.lei',
+  'hostport' => '3306',
+  'params' => 
+  array (
+  ),
+  'charset' => 'utf8',
+  'prefix' => 'lsiten_',
+  'debug' => true,
+  'deploy' => 0,
+  'rw_separate' => false,
+  'master_num' => 1,
+  'slave_no' => '',
+  'fields_strict' => true,
+  'auto_timestamp' => false,
+  'resultset_type' => 'array',
+  'sql_explain' => false,
+)
+[ info ] [ LANG ] /Users/lsiten/project/workman/chat-tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /Users/lsiten/project/workman/chat-tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+[ error ] [0]method not exist:think\db\Query->data[/Users/lsiten/project/workman/chat-tp5/thinkphp/library/think/db/Query.php:89]
+
+[ 2017-11-26T09:20:23+08:00 ] ::1 ::1 GET /api.php/api/notify/video?callback=asklk
+[ log ] localhost/api.php/api/notify/video?callback=asklk [运行时间：0.046801s][吞吐率：21.37req/s] [内存消耗：1,791.27kb] [文件加载：48]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'notify',
+    2 => 'video',
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method video ] {
+  @@ /Users/lsiten/project/workman/chat-tp5/app/api/controller/Notify.php 20 - 28
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ DB ] INIT mysql:array (
+  'type' => 'mysql',
+  'dsn' => '',
+  'hostname' => '127.0.0.1',
+  'database' => 'laychat',
+  'username' => 'root',
+  'password' => '2012.lei',
+  'hostport' => '3306',
+  'params' => 
+  array (
+  ),
+  'charset' => 'utf8',
+  'prefix' => 'lsiten_',
+  'debug' => true,
+  'deploy' => 0,
+  'rw_separate' => false,
+  'master_num' => 1,
+  'slave_no' => '',
+  'fields_strict' => true,
+  'auto_timestamp' => false,
+  'resultset_type' => 'array',
+  'sql_explain' => false,
+)
+[ info ] [ LANG ] /Users/lsiten/project/workman/chat-tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /Users/lsiten/project/workman/chat-tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+[ error ] [0]method not exist:think\db\Query->data[/Users/lsiten/project/workman/chat-tp5/thinkphp/library/think/db/Query.php:89]
+
+[ 2017-11-26T09:21:13+08:00 ] ::1 ::1 GET /api.php/api/notify/video?callback=asklk
+[ log ] localhost/api.php/api/notify/video?callback=asklk [运行时间：0.046251s][吞吐率：21.62req/s] [内存消耗：1,791.27kb] [文件加载：48]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'notify',
+    2 => 'video',
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method video ] {
+  @@ /Users/lsiten/project/workman/chat-tp5/app/api/controller/Notify.php 20 - 28
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ DB ] INIT mysql:array (
+  'type' => 'mysql',
+  'dsn' => '',
+  'hostname' => '127.0.0.1',
+  'database' => 'laychat',
+  'username' => 'root',
+  'password' => '2012.lei',
+  'hostport' => '3306',
+  'params' => 
+  array (
+  ),
+  'charset' => 'utf8',
+  'prefix' => 'lsiten_',
+  'debug' => true,
+  'deploy' => 0,
+  'rw_separate' => false,
+  'master_num' => 1,
+  'slave_no' => '',
+  'fields_strict' => true,
+  'auto_timestamp' => false,
+  'resultset_type' => 'array',
+  'sql_explain' => false,
+)
+[ info ] [ LANG ] /Users/lsiten/project/workman/chat-tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LANG ] /Users/lsiten/project/workman/chat-tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+[ error ] [0]method not exist:think\db\Query->data[/Users/lsiten/project/workman/chat-tp5/thinkphp/library/think/db/Query.php:89]
+
+[ 2017-11-26T09:21:29+08:00 ] ::1 ::1 GET /api.php/api/notify/video?callback=asklk
+[ log ] localhost/api.php/api/notify/video?callback=asklk [运行时间：0.061189s][吞吐率：16.34req/s] [内存消耗：1,859.09kb] [文件加载：45]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'notify',
+    2 => 'video',
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method video ] {
+  @@ /Users/lsiten/project/workman/chat-tp5/app/api/controller/Notify.php 20 - 28
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ DB ] INIT mysql:array (
+  'type' => 'mysql',
+  'dsn' => '',
+  'hostname' => '127.0.0.1',
+  'database' => 'laychat',
+  'username' => 'root',
+  'password' => '2012.lei',
+  'hostport' => '3306',
+  'params' => 
+  array (
+  ),
+  'charset' => 'utf8',
+  'prefix' => 'lsiten_',
+  'debug' => true,
+  'deploy' => 0,
+  'rw_separate' => false,
+  'master_num' => 1,
+  'slave_no' => '',
+  'fields_strict' => true,
+  'auto_timestamp' => false,
+  'resultset_type' => 'array',
+  'sql_explain' => false,
+)
+[ info ] [ DB ] CONNECT: mysql:dbname=laychat;host=127.0.0.1;port=3306;charset=utf8
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/Users/lsiten/project/workman/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+[ sql ] [ SQL ] INSERT INTO `lsiten_video` (`cloudinary` , `updateAt` , `createAt`) VALUES ('{\"callback\":\"asklk\"}' , '1511659289' , '1511659289')     [ RunTime:0.003675s ]
+
