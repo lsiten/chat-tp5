@@ -65,7 +65,13 @@ class Video extends Base{
     public function MergeVideo(Request $request){
         hasToken();
         $audio = json_decode($request->put("audio"),true);
-        print_r($audio);
+        if(!$audio["public_id"] || !$audio["video_public_id"])
+        {
+            $this->return["code"] = 4020;
+            $this->return["success"] = false;
+            $this->return["obj"] = ["errorMsg"=>"视频同步出错，请重新录音"];
+            return $this->return;
+        }
         $audio_public_id = str_replace("/",":",$audio["public_id"]);
         $videoName = str_replace("/","_",$audio["video_public_id"]).".mp4";
         //合并视频音频
