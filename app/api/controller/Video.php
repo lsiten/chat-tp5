@@ -65,5 +65,38 @@ class Video extends Base{
     public function MergeVideo(){
         hasToken();
         $audio = json_decode($request->put("audio"),true);
+        $audio_public_id = str_replace("/",":",$audio["public_id"]);
+        $videoName = str_replace("/","_",$audio["video_public_id"]).".mp4";
+        //合并视频音频
+        $videoUrl = "http://res.cloudinary.com/lsiten/video/upload/e_volume:-100/e_volume:400,l_video: ".$audio_public_id."/".$audio["video_public_id"].".mp4";
+        $thumbName = str_replace("/","_",$audio["video_public_id"]).".jpg";
+        $thumbUrl = "http://res.cloudinary.com/lsiten/video/upload/".$audio["video_public_id"].".jpg";
+        //同步到七牛
+        $videoinfo = saveToQiniu($videoUrl,$videoName);
+        $thumbInfo = saveToQiniu($thumbUrl,$thumbName);
+        if($videoinfo["status"] || $thumbInfo["status"])
+        {
+            $this->return["code"] = 4030;
+            $this->return["success"] = false;
+            $this->return["obj"] = ["errorMsg"=>"视频同步出错，请重新录音"];
+            return $this->return;
+        }
+        else
+        {
+            $videoModel = new VideoModel();
+            $data = [
+                "audio_public_id"=>$audio["public_id"],
+                "qiniu_final_key"=>$videoinfo["message"],
+                "qiniu_final_poster"=>$thumbInfo["message"]
+            ];
+            $where = ['qiniu_key'=>$audio["video_public_id"]];
+            $videoModel->allowField(true)->save($data,$where);
+            print_r($videoModel->getData());
+            $this->return["obj"] = [
+                                    "video_key"=>$videoinfo["message"],
+                                    "poster_key"=>$videoinfo["message"]
+                                ];
+            return $this->return;
+        }
     }
 }

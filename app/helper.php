@@ -230,3 +230,20 @@ function uploadToCloudinary($url,$public_id=0){
         "public_id"=>$result["public_id"]
     ];
 }
+/**
+ * 同步到七牛
+ * @params $url 上传视频的url
+ * @params $name 七牛key
+ * @return Array 资源获取状态和最终视频信息
+ */
+function saveToQiniu($url,$name){
+    $qiniuConfig = config('qiniu');
+    $auth = new Auth($qiniuConfig['AK'], $qiniuConfig['SK']);
+    $bucketManager = new BucketManager($auth);
+    list($ret, $err) = $bucketManager->fetch($url, $qiniuConfig['bucket'], $name);
+    if ($err !== null) {
+        return ["status"=>false,"message"=>$err['error']];
+    } else {
+        return ["status"=>true,"message"=>$ret['key']];
+    }
+}
