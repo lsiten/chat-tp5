@@ -53,7 +53,7 @@ class Index extends Base
       }
       $token = getCloudinaryToken($timestamp,$type);
       $this->return['obj'] = [
-                              "signature"=>$signature,
+                              "signature"=>$token,
                               "folder"=>$folder,
                               "tags"=>$tags,
                             ];
