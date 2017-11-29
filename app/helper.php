@@ -250,13 +250,7 @@ function saveToQiniu($url,$name){
     $qiniuConfig = config('qiniu');
     $auth = new Auth($qiniuConfig['AK'], $qiniuConfig['SK']);
     $bucketManager = new BucketManager($auth);
-    try{
-        list($ret, $err) = $bucketManager->fetch($url, $qiniuConfig['bucket'], $name);
-    }
-    catch(Exception $e){
-        print_r($url);
-        var_dump($e);
-    }
+    list($ret, $err) = $bucketManager->fetch($url, $qiniuConfig['bucket'], $name);
     if ($err !== null) {
         return ["status"=>false,"message"=>$err['error']];
     } else {
