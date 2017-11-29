@@ -65,7 +65,7 @@ class Video extends Base{
     public function MergeVideo(Request $request){
         hasToken();
         $audio = json_decode($request->put("audio"),true);
-        if(!$audio["public_id"] || !$audio["video_public_id"])
+        if(!$audio["public_id"] || !$audio["video_public_id"]|| !$audio["qiniu_key"])
         {
             $this->return["code"] = 4020;
             $this->return["success"] = false;
@@ -96,7 +96,7 @@ class Video extends Base{
                 "qiniu_final_key"=>$videoinfo["message"],
                 "qiniu_final_poster"=>$thumbInfo["message"]
             ];
-            $where = ['qiniu_key'=>$audio["video_public_id"].".mp4"];
+            $where = ['qiniu_key'=>$audio["qiniu_key"]];
             $videoModel->where($where)->update($data);
             $this->return["obj"] = [
                                     "video_key"=>$videoinfo["message"],
