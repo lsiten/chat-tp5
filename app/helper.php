@@ -228,7 +228,7 @@ function uploadToCloudinary($url,$public_id=0){
         // "callback"=>$cloudinaryConfig['videoCallback']
       );
       if($public_id)
-            $optins["public_id"]=substr(strrchr($public_id, '.'), 1);
+            $optins["public_id"]=basename($public_id,".mp4");
         else
            return false;
       $result = \Cloudinary\Uploader::upload($url,$optins);
