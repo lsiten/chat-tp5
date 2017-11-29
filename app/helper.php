@@ -254,10 +254,11 @@ function saveToQiniu($url,$name){
     $qiniuConfig = config('qiniu');
     $auth = new Auth($qiniuConfig['AK'], $qiniuConfig['SK']);
     $bucketManager = new BucketManager($auth);
-    list($ret, $err) = $bucketManager->fetch($url, $qiniuConfig['bucket'], $name);
-    if ($err !== null) {
-        return ["status"=>false,"message"=>$err['error']];
-    } else {
-        return ["status"=>true,"message"=>$ret['key']];
-    }
+    $data = $bucketManager->fetch($url, $qiniuConfig['bucket'], $name);
+    print_r($data);
+    // if ($err !== null) {
+    //     return ["status"=>false,"message"=>$err['error']];
+    // } else {
+    //     return ["status"=>true,"message"=>$ret['key']];
+    // }
 }
