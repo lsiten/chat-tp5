@@ -100,7 +100,7 @@ class Video extends Base{
             $videoModel->allowField(true)->save($data,$where);
             $this->return["obj"] = [
                                     "video_key"=>$videoinfo["message"],
-                                    "poster_key"=>$videoinfo["message"]
+                                    "poster_key"=>$thumbInfo["message"]
                                 ];
             return $this->return;
         }
