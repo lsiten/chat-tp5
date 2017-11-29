@@ -163,7 +163,12 @@ function getCloudinaryToken($timestamp,$type){
     }
     $cloudinary = config('cloudinary');
     $signature = "folder=".$folder."&tags=".$tags."&timestamp=".$timestamp.$cloudinary['api_secret'];
-    return $signature = sha1($signature);
+    $signature = sha1($signature);
+    return [
+        "signature"=>$signature,
+        "folder"=>$folder,
+        "tags"=>$tags,
+    ];
 }
 
 /*

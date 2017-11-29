@@ -51,11 +51,11 @@ class Index extends Base
         $this->return['obj'] = ['errorMsg'=>"参数不全，请确认参数！"];
         return $this->return;
       }
-      $token = getCloudinaryToken($timestamp,$type);
+      $tokenData = getCloudinaryToken($timestamp,$type);
       $this->return['obj'] = [
-                              "signature"=>$token,
-                              "folder"=>$folder,
-                              "tags"=>$tags,
+                              "signature"=>$tokenData["signature"],
+                              "folder"=>$tokenData["folder"],
+                              "tags"=>$tokenData["tags"],
                             ];
       return $this->return;
     }
