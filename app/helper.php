@@ -175,7 +175,7 @@ function getCloudinaryToken($timestamp,$type){
         "signature"=>$signature,
         "folder"=>$folder,
         "tags"=>$tags,
-        "key"=>$key,
+        "key"=>$key
     ];
 }
 
