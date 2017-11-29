@@ -150,26 +150,26 @@ function getCloudinaryToken($timestamp,$type){
       case 'image':
         $folder = "appDog/image";
         $tags = "appDog,image";
-        // $key .=".jpeg";
+        $key .=".jpeg";
       break;
       case 'avatar':
         $folder = "appDog/avatar";
         $tags = "appDog,avatar";
-        // $key .=".jpeg";
+        $key .=".jpeg";
       break;
       case 'video':
         $folder = "appDog/video";
         $tags = "appDog,video";
-        // $key .=".mp4";
+        $key .=".mp4";
       break;
       case 'audio':
         $folder = "appDog/audio";
         $tags = "appDog,audio";
-        // $key .=".mp3";
+         $key .=".mp3";
       break;
     }
     $cloudinary = config('cloudinary');
-    $signature = "public_id=".$key."&folder=".$folder."&tags=".$tags."&timestamp=".$timestamp.$cloudinary['api_secret'];
+    $signature = "folder=".$folder."&tags=".$tags."&timestamp=".$timestamp.$cloudinary['api_secret'];
     $signature = sha1($signature);
 
     return [
