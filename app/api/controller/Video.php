@@ -120,7 +120,7 @@ class Video extends Base{
         }
         $video =  new VideoModel();
         $creationModel = new Creation();
-        $videoData = $video->where(["qiniu_key"=>$qiniu_key])->find();
+        $videoData = $video->where(["qiniu_key"=>$qiniu_key])->find()->toArray();
           print_r($videoData);       
         if(!$videoData["audio_public_id"] || $videoData["qiniu_final_key"] || !$videoData["qiniu_final_poster"])
         {
@@ -130,7 +130,7 @@ class Video extends Base{
             return $this->return;
         }
         //去重
-       $creationData = $creationModel->where(["audio_public_id"=>$videoData["audio_public_id"],"video_qiniu_key"=>$videoData["qiniu_final_key"]])->find();
+       $creationData = $creationModel->where(["audio_public_id"=>$videoData["audio_public_id"],"video_qiniu_key"=>$videoData["qiniu_final_key"]])->find()->toArray();
        print_r($creationData);
        if(!$creationData)
        {
