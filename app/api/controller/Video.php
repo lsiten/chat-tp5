@@ -206,7 +206,14 @@ class Video extends Base{
         $isLike = $request->get("isLike");
         $user = session("user");
         $isUpdate = true;
-        if(!$videoid || !$isLike)
+        if(!$videoid)
+        {
+            $this->return["code"] = 4020;
+            $this->return["success"] = false;
+            $this->return["obj"] = ["errorMsg"=>"参数错误！"];
+            return $this->return;
+        }
+        if($isLike !=0 && $isLike!=1)
         {
             $this->return["code"] = 4020;
             $this->return["success"] = false;
