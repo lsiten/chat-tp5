@@ -165,8 +165,6 @@ class Video extends Base{
     public function videoList(Request $request){
         $page = intval($request->get("page"));
         $page = $page>0?$page:1;
-        print_r($request->get("page"));
-        print_r($page);
         $count = 5;
         $offset = ($page-1)*$count;
         //用户信息
@@ -176,6 +174,7 @@ class Video extends Base{
         $VideolikeModel = new Videolike();
         $creationModel = new Creation();
         $total = $creationModel->count();
+        $hasMore = $page*$count<$total?true:false;
         $videoData =Creation::with('userdata,likecount')
                             ->limit($count)
                             ->page($page)
@@ -193,7 +192,8 @@ class Video extends Base{
             $this->return["data"][]= $videolist;
         }
         $this->return["obj"] = [
-                        "total" => $total
+                        "total" => $total,
+                        "hasMore"=> $hasMore
                     ];
                     return $this->return;
         
