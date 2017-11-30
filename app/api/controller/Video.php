@@ -3,6 +3,7 @@ namespace app\api\controller;
 use app\api\controller\Base;
 use think\Request;
 use app\api\model\Video as VideoModel;
+use app\api\model\Creation;
 class Video extends Base{
     public function _initialize(){
         parent::_initialize();
@@ -104,5 +105,54 @@ class Video extends Base{
                                 ];
             return $this->return;
         }
+    }
+
+    public function creation(Request $request){
+        hasToken();
+        $qiniu_key = $request->put("qiniu_key");
+        $title = $request->put("title");
+        if(!$qiniu_key || !$title)
+        {
+            $this->return["code"] = 4020;
+            $this->return["success"] = false;
+            $this->return["obj"] = ["errorMsg"=>"创意创建出错，请稍后重新创建！"];
+            return $this->return;
+        }
+        $video =  new VideoModel();
+        $creationModel = new Creation();
+        $videoData = $video->where(["qiniu_key"=>$qiniu_key])->find();
+        if(!$videoData["audio_public_id"] || $videoData["qiniu_final_key"] || !$videoData["qiniu_final_poster"])
+        {
+            $this->return["code"] = 4031;
+            $this->return["success"] = false;
+            $this->return["obj"] = ["errorMsg"=>"视频源出错，请重新录制，再上传！"];
+            return $this->return;
+        }
+        //去重
+       $creationData = $creationModel->where(["audio_public_id"=>$videoData["audio_public_id"],"video_qiniu_key"=>$videoData["qiniu_final_key"]])->find();
+       print_r($creationData);
+       if(!$creationData)
+       {
+            $this->return["code"] = 4032;
+            $this->return["success"] = false;
+            $this->return["obj"] = ["errorMsg"=>"视频发布重复！"];
+            return $this->return; 
+       } 
+       $data = [
+            "title"=>$title,
+            "videoid"=>$videoData["id"],
+            "user"=>$videoData["user"],
+            "audio_public_id"=>$videoData["audio_public_id"],
+            "video_qiniu_key"=>$videoData["qiniu_final_key"],
+            "video_qiniu_thumb"=>$videoData["qiniu_final_poster"]
+        ];
+        $creationModel->data($data)->save();
+        print_r($creationModel);
+        print_r($creationModel->getData());
+        $this->return["obj"] = [
+            "videoid"=>$videoData["id"],
+            "video_qiniu_key"=>$videoData["qiniu_final_key"]
+        ];
+        return $this->return;
     }
 }
