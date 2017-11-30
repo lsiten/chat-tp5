@@ -181,8 +181,8 @@ class Video extends Base{
         foreach($videoData as $videoitem)
         {
             $videolist["id"] = $videoitem->id;
-            $videolist["thumb"] = $qiniuConfig."/".$videoitem->video_qiniu_thumb;
-            $videolist["video"] = $qiniuConfig."/".$videoitem->video_qiniu_key;
+            $videolist["thumb"] = $qiniuConfig["base"]."/".$videoitem->video_qiniu_thumb;
+            $videolist["video"] = $qiniuConfig["base"]."/".$videoitem->video_qiniu_key;
             $videolist["title"] = $videoitem->title;
             $videolist["isLike"] = $VideolikeModel->where(["userid",$user["id"]])->count()?1:0;
             $videolist["author"]["avatar"] = $videoitem->userdata->avatar;
