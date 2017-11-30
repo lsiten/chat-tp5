@@ -18,7 +18,7 @@ class Creation extends Model{
      }
      public function likecount()
      {
-         return $this->hasMany('Videolike',"id","videoid")->count();
+         return $this->hasMany('Videolike',"id","videoid")->liketotal($this->id);
      }
 
 }

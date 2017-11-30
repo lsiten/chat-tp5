@@ -12,5 +12,15 @@ class Videolike extends Model{
      // 定义时间戳字段名
      protected $createTime = 'createAt';
      protected $updateTime = 'updateAt';
+     public function liketotal($id=0){
+        if(0==$id)
+        {
+          return $this->count();
+        }
+        else
+        {
+            return $this->where("videoid",$id)->count();
+        }
+     }
 
 }
