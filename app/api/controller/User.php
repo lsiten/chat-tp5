@@ -82,7 +82,6 @@ class User extends Base{
                 $this->return['success'] = false;
                 $this->return['code'] = 4011;
             }
-
          return $this->return;
     }
 

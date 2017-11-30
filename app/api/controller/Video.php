@@ -186,7 +186,7 @@ class Video extends Base{
             $videolist["thumb"] = $qiniuConfig["base"]."/".$videoitem->video_qiniu_thumb;
             $videolist["video"] = $qiniuConfig["base"]."/".$videoitem->video_qiniu_key;
             $videolist["title"] = $videoitem->title;
-            $videolist["isLike"] = $VideolikeModel->where(["userid"=>$user["id"]])->count()?1:0;
+            $videolist["isLike"] = $VideolikeModel->where(["userid"=>$user["id"],"isLike"=>1])->count()?1:0;
             $videolist["author"]["avatar"] = $videoitem->userdata->avatar;
             $videolist["author"]["nickname"] = $videoitem->userdata->nickname;
             $this->return["data"][]= $videolist;
@@ -198,4 +198,53 @@ class Video extends Base{
                     return $this->return;
         
     }
+
+    //点赞功能
+    public function like(){
+        hasToken();
+        $videoid = $request->get("videoid");
+        $isLike = $request->get("isLike");
+        $user = session("user");
+        $isUpdate = true;
+        if(!$videoid || !$isLike)
+        {
+            $this->return["code"] = 4020;
+            $this->return["success"] = false;
+            $this->return["obj"] = ["errorMsg"=>"参数错误！"];
+            return $this->return;
+        }
+        $VideolikeModel = new Videolike();
+        $data = $VideolikeModel ->where(["videoid"=>$videoid,"userid"=>$user["id"]])
+                        ->find();
+        if($data)
+        {
+            $sqlData = [
+                "id"=>$data->id,
+                "isLike"=>$isLike
+            ];
+        }
+        else
+        {
+            $sqlData = [
+                "isLike"=>$isLike,
+                "videoid"=>$videoid,
+                "userid"=>$user["id"]
+            ];
+            $isUpdate = false;
+        }
+        $id = $VideolikeModel->isUpdate($isUpdate)->save($sqlData);
+        if($id)
+        {
+            $this->return["obj"] = ["isLike"=>$isLike]; 
+        }
+        else
+        {
+            //数据库更改或者插入失败
+            $this->return['success'] = false;
+            $this->return['code'] = 4011;
+            $this->return["obj"] = ["errorMsg"=>"点赞失败，请重试！"];
+        }
+        return $this->return; 
+    }
+
 }
