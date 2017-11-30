@@ -71,7 +71,10 @@ class User extends Base{
                     $this->return['code'] = 4001;
                     $this->return['obj'] = ['errorMsg'=>$this->smsConfig['errorMap'][$res['error']]];
                 }
-                
+                //更新用户积分
+                if(!$isUpdate){
+                    updateScore("USER_REGISTER");
+                }
             }
             else
             {

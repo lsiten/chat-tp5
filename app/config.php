@@ -4,6 +4,12 @@ return [
   'default_return_type'=>'json',
   // 扩展函数文件
   'extra_file_list'    => [ APP_PATH . 'helper.php', THINK_PATH . 'helper.php'],
+  //用户积分设置
+  'score_code' => [
+    "VIDEO_PUBLISH" =>30, //发布创意视频
+    "USER_REGISTER" =>20, //注册
+    "USER_SIGIN" =>5 //签到
+  ],
   //响应配置
   //数据返回模版
   'return' => [

@@ -257,3 +257,33 @@ function saveToQiniu($url,$name){
         return ["status"=>true,"message"=>$ret['key']];
     }
 }
+
+
+/**
+ * 更新用户积分
+ * @params $type 积分更新类型，不同积分积分数不同
+ * @params $callback 回调函数
+ * @params $params 回调函数的参数
+ * @return void
+ */
+function updateScore($type,$callback=false,$params=[]){
+    $user = session("user");
+    $scoreConfig = config('score_code');
+    $userModel = new Doguser();
+    $userModel->where('id', $user["id"])->setInc('score', $scoreConfig[$type]);
+    if($callback){
+        //回调函数使用
+        call_user_func_array($callback,$params);
+    }
+}
+
+/**
+ * 更新视频增加数
+ * @params $num 视频增加数量
+ * @return void
+ */
+function videoNumberAdd($num=1){
+    $user = session("user");
+    $userModel = new Doguser();
+    $userModel->where('id', $user["id"])->setInc('videonum', $num);
+}
