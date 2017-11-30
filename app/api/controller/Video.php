@@ -129,7 +129,7 @@ class Video extends Base{
             return $this->return;
         }
         //去重
-       $creationData = $creationModel->where(["audio_public_id"=>$videoData["audio_public_id"],"video_qiniu_key"=>$videoData["qiniu_final_key"]])->find()->toArray();
+       $creationData = $creationModel->where(["audio_public_id"=>$videoData["audio_public_id"],"video_qiniu_key"=>$videoData["qiniu_final_key"]])->find();
        if(!$creationData)
        {
             $this->return["code"] = 4032;
