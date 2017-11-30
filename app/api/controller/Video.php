@@ -171,7 +171,8 @@ class Video extends Base{
                             ->limit($count)
                             ->page($page)
                             ->order('createAt', 'desc')
-                            ->select();
+                            ->select()
+                            ->toArray();
         print_r($videoData);
         $this->return["obj"] = [
                         "total" => $total
