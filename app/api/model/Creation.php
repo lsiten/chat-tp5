@@ -14,11 +14,11 @@ class Creation extends Model{
      protected $updateTime = 'updateAt';
      public function userdata()
      {
-         return $this->hasOne('Doguser','id',"user")->field('id,avatar,nickname');;
+         return $this->hasOne('Doguser','id',"user")->field('id,avatar,nickname')->toArray();
      }
      public function likecount()
      {
-         return $this->hasMany('Videolike',"videoid","id");
+         return $this->hasMany('Videolike',"videoid")->toArray();
      }
 
 }
