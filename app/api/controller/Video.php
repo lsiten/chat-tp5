@@ -171,6 +171,7 @@ class Video extends Base{
         //七牛配置
         $qiniuConfig = config('qiniu');
         $VideolikeModel = new Videolike();
+        $creationModel = new Creation();
         $total = $creationModel->count();
         $videoData =Creation::with('userdata,likecount')
                             ->limit($count)
