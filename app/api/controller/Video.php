@@ -164,7 +164,7 @@ class Video extends Base{
     public function videoList(Request $request){
         $page = intval($request->get("page")) || 1;
         $count = 5;
-        $offset = ($page-1)*$conut;
+        $offset = ($page-1)*$count;
         $creationModel = new Creation();
         $total = $creationModel->count();
         $videoData =Creation::with('userdata,likecount')
