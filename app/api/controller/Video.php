@@ -80,7 +80,7 @@ class Video extends Base{
         //合并视频音频
         $videoUrl = "http://res.cloudinary.com/lsiten/video/upload/e_volume:-100/e_volume:600,l_video:".$audio_public_id."/".$audio["video_public_id"].".mp4";
         $thumbName = str_replace("/","_",$audio["video_public_id"]).".jpg";
-        $thumbUrl = "http://res.cloudinary.com/lsiten/video/upload/".$audio["video_public_id"].".jpg";
+        $thumbUrl = "http://res.cloudinary.com/lsiten/video/upload/ar_9:16,c_fill/c_scale,w_auto,dpr_auto/".$audio["video_public_id"].".jpg";
         //同步到七牛
         $videoinfo = saveToQiniu($videoUrl,$videoName);
         $thumbInfo = saveToQiniu($thumbUrl,$thumbName);
