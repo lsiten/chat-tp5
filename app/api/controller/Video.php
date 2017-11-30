@@ -148,7 +148,7 @@ class Video extends Base{
         $creationModel->data($data)->save();
 
         //更新视频发布状态
-        $creationModel->where('id',$videoData["id"])->update(["isPublish"=>1]);
+        $video->where('id',$videoData["id"])->update(["isPublish"=>1]);
         //更新用户视频发布数以及其分数
         updateScore("VIDEO_PUBLISH","videoNumberAdd",[1]);
         $this->return["obj"] = [
