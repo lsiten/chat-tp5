@@ -164,6 +164,7 @@ class Video extends Base{
     //视频列表
     public function videoList(Request $request){
         $page = intval($request->get("page")) || 1;
+        print_r($request->get("page"));
         $count = 5;
         $offset = ($page-1)*$count;
         //用户信息
