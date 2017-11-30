@@ -200,7 +200,7 @@ class Video extends Base{
     }
 
     //点赞功能
-    public function like(){
+    public function like(Request $request){
         hasToken();
         $videoid = $request->get("videoid");
         $isLike = $request->get("isLike");
