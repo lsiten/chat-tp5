@@ -5,6 +5,7 @@ use think\Request;
 use app\api\model\Video as VideoModel;
 use app\api\model\Creation;
 use app\api\model\Videolike;
+use app\api\model\Videocoment;
 class Video extends Base{
     public function _initialize(){
         parent::_initialize();
@@ -195,7 +196,7 @@ class Video extends Base{
                         "total" => $total,
                         "hasMore"=> $hasMore
                     ];
-                    return $this->return;
+         return $this->return;
         
     }
 
@@ -253,5 +254,88 @@ class Video extends Base{
         }
         return $this->return; 
     }
+    //获取评论列表
+    public function coment(Request $request){
+        hasToken();
+        $videoid = $request->get("videoid");
+        if(!$videoid)
+        {
+            $this->return["code"] = 4020;
+            $this->return["success"] = false;
+            $this->return["obj"] = ["errorMsg"=>"参数错误！"];
+            return $this->return;
+        }
+        $page = intval($request->get("page"));
+        $page = $page>0?$page:1;
+        $count = 10;
+        $offset = ($page-1)*$count;
+        $where = ["video" => $videoid,"reply"=>0];
+        //用户信息
+        $user = session("user");
+        $VideocomentModel = new Videocoment();
+        $total = $VideocomentModel->where($where)->count();
+        $hasMore = $page*$count<$total?true:false;
+        $comentData =$VideocomentModel
+                            ->where($where)
+                            ->limit($count)
+                            ->page($page)
+                            ->order('createAt', 'desc')
+                            ->select();
+        foreach($comentData as $comentItem)
+        {
+            $comentList["id"] = $comentItem->id;
+            $comentList["content"] = $comentItem->content;
+            $comentList["reply"]["avatar"] = $comentItem->fromuseravater;
+            $comentList["reply"]["nickname"] = $comentItem->fromusername;
+            $this->return["data"][]= $comentList;
+        }
+        $this->return["obj"] = [
+            "total" => $total,
+            "hasMore"=> $hasMore
+        ];
+        return $this->return;
+    }
 
+    //提交评论处理
+    public function subComent(Request $request){
+        hasToken();
+        $content = $request->put("content");
+        $videoId = $request->put("vid");
+        if(!$videoId || !$content)
+        {
+            $this->return["code"] = 4020;
+            $this->return["success"] = false;
+            $this->return["obj"] = ["errorMsg"=>"参数错误！"];
+            return $this->return;
+        }
+        //用户信息
+        $user = session("user");
+        $VideocomentModel = new Videocoment();
+        $saveData = [
+            "content"=>$content,
+            "video"=>$videoId,
+            "fromuser"=>$user["id"],
+            "fromusername"=>$user["nickname"],
+            "fromuseravater"=>$user["avatar"],
+        ];
+        if($VideocomentModel->data($saveData)->save())
+        {
+            $item = [
+                "id"=>$VideocomentModel->id,
+                "content"=>$VideocomentModel->content,
+                "reply"=>[
+                            "avatar"=>$VideocomentModel->fromuseravater,
+                            "nickname"=>$VideocomentModel->fromusername
+                        ]
+                ];
+            $this->return["obj"] = ["item"=>$item];
+        }
+        else
+        {
+            $this->return["code"] = 4011;
+            $this->return["success"] = false;
+            $this->return["obj"] = ["errorMsg"=>"评论出错，请稍后重试"];
+        }
+        return $this->return;
+    }
 }
