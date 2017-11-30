@@ -165,6 +165,7 @@ class Video extends Base{
     //视频列表
     public function videoList(Request $request){
         $page = intval($request->get("page"));
+        $userid = $request->get("userid");
         $page = $page>0?$page:1;
         $count = 5;
         $offset = ($page-1)*$count;
@@ -174,9 +175,13 @@ class Video extends Base{
         $qiniuConfig = config('qiniu');
         $VideolikeModel = new Videolike();
         $creationModel = new Creation();
-        $total = $creationModel->count();
+        $where = [];
+        if($userid)
+            $where = ["user"=>$userid];
+        $total = $creationModel->where($where)->count();
         $hasMore = $page*$count<$total?true:false;
         $videoData =Creation::with('userdata,likecount')
+                            ->where($where)
                             ->limit($count)
                             ->page($page)
                             ->order('createAt', 'desc')
