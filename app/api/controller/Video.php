@@ -107,6 +107,7 @@ class Video extends Base{
         }
     }
 
+    //创意发布
     public function creation(Request $request){
         hasToken();
         $qiniu_key = $request->put("qiniu_key");
@@ -157,5 +158,25 @@ class Video extends Base{
             "video_qiniu_key"=>$videoData["qiniu_final_key"]
         ];
         return $this->return;
+    }
+
+    //视频列表
+    public function videoList(Request $request){
+        $page = intval($request->get("page")) || 1;
+        $count = 5;
+        $offset = ($page-1)*$conut;
+        $creationModel = new Creation();
+        $total = $creationModel->count();
+        $videoData =Creation::with('userdata,likecount')
+                            ->limit($count)
+                            ->page($page)
+                            ->order('createAt', 'desc')
+                            ->select();
+        print_r($videoData);
+        $this->return["obj"] = [
+                        "total" => $total
+                    ];
+                    return $this->return;
+        
     }
 }

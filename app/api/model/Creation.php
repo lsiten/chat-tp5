@@ -12,5 +12,13 @@ class Creation extends Model{
      // 定义时间戳字段名
      protected $createTime = 'createAt';
      protected $updateTime = 'updateAt';
+     public function userdata()
+     {
+         return $this->hasOne('Doguser','user')->field('id,avatar,nickname');;
+     }
+     public function likecount()
+     {
+         return $this->hasMany('Videolike',"id","videoid")->count();
+     }
 
 }
