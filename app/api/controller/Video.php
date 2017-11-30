@@ -184,7 +184,7 @@ class Video extends Base{
             $videolist["thumb"] = $qiniuConfig["base"]."/".$videoitem->video_qiniu_thumb;
             $videolist["video"] = $qiniuConfig["base"]."/".$videoitem->video_qiniu_key;
             $videolist["title"] = $videoitem->title;
-            $videolist["isLike"] = $VideolikeModel->where(["userid",$user["id"]])->count()?1:0;
+            $videolist["isLike"] = $VideolikeModel->where(["userid"=>$user["id"]])->count()?1:0;
             $videolist["author"]["avatar"] = $videoitem->userdata->avatar;
             $videolist["author"]["nickname"] = $videoitem->userdata->nickname;
             $this->return["data"][]= $videolist;
