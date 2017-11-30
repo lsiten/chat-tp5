@@ -4,6 +4,7 @@ use app\api\controller\Base;
 use think\Request;
 use app\api\model\Video as VideoModel;
 use app\api\model\Creation;
+use app\api\model\Videolike;
 class Video extends Base{
     public function _initialize(){
         parent::_initialize();
@@ -165,15 +166,28 @@ class Video extends Base{
         $page = intval($request->get("page")) || 1;
         $count = 5;
         $offset = ($page-1)*$count;
-        $creationModel = new Creation();
+        //用户信息
+        $user = session("user");
+        //七牛配置
+        $qiniuConfig = config('qiniu');
+        $VideolikeModel = new Videolike();
         $total = $creationModel->count();
         $videoData =Creation::with('userdata,likecount')
                             ->limit($count)
                             ->page($page)
                             ->order('createAt', 'desc')
-                            ->select()
-                            ->toArray();
-        print_r($videoData);
+                            ->select();
+        foreach($videoData as $videoitem)
+        {
+            $videolist["id"] = $videoitem->id;
+            $videolist["thumb"] = $qiniuConfig."/".$videoitem->video_qiniu_thumb;
+            $videolist["video"] = $qiniuConfig."/".$videoitem->video_qiniu_key;
+            $videolist["title"] = $videoitem->title;
+            $videolist["isLike"] = $VideolikeModel->where(["userid",$user["id"]])->count()?1:0;
+            $videolist["author"]["avatar"] = $videoitem->userdata->avatar;
+            $videolist["author"]["nickname"] = $videoitem->userdata->nickname;
+            $this->return["data"][]= $videolist;
+        }
         $this->return["obj"] = [
                         "total" => $total
                     ];

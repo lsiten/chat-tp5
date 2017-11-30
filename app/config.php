@@ -62,6 +62,7 @@ return [
   ],
   'qiniu' => [
             "bucket"=>"dogapp",
+            "base"=>"http://data.lsiten.cn",
             "AK"=>"-tVa9-F1avUf-usuodBBzjNiliLTTIwkmO9zjV5l",
             "SK"=>"jRLU5QK0rNg-IdkcNXx9hIrjVdAg5A1PMuFTYsRu"
   ]
