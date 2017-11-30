@@ -146,9 +146,9 @@ class Video extends Base{
             "video_qiniu_thumb"=>$videoData["qiniu_final_poster"]
         ];
         $creationModel->data($data)->save();
-        print_r($creationModel);
-        print_r($creationModel->getData());
+        print_r($creationModel->id);
         $this->return["obj"] = [
+            "id"=>$creationModel->id,
             "videoid"=>$videoData["id"],
             "video_qiniu_key"=>$videoData["qiniu_final_key"]
         ];
