@@ -117,6 +117,8 @@ class User extends Base{
             $this->return['obj'] = [
                 'accessToken'=>$userData['accessToken'],
                 'avatar'=>$userData['avatar'],
+                'score'=>$userData['score'],
+                'videonum'=>$userData['videonum'],
                 'nickname'=>$userData['nickname'],
                 'id'=>$userData['id']
             ];
