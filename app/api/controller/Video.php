@@ -121,6 +121,7 @@ class Video extends Base{
         $video =  new VideoModel();
         $creationModel = new Creation();
         $videoData = $video->where(["qiniu_key"=>$qiniu_key])->find();
+          print_r($creationData);       
         if(!$videoData["audio_public_id"] || $videoData["qiniu_final_key"] || !$videoData["qiniu_final_poster"])
         {
             $this->return["code"] = 4031;
