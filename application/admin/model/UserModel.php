@@ -24,8 +24,8 @@ class UserModel extends Model
      */
     public function getUsersByWhere($where, $offset, $limit)
     {
-        return $this->field('snake_user.*,rolename')
-            ->join('snake_role', 'snake_user.typeid = snake_role.id')
+        return $this->field('lsiten_user.*,rolename')
+            ->join('lsiten_role', 'lsiten_user.typeid = lsiten_role.id')
             ->where($where)->limit($offset, $limit)->order('id desc')->select();
     }
 
