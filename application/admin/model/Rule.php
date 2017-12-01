@@ -14,7 +14,7 @@ use think\Model;
 
 class Rule extends Model
 {
-    protected $table = 'snake_rule';
+    protected $table = 'lsiten_rule';
 
     /**
      * 根据搜索条件获取采集规则列表信息

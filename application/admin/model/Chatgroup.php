@@ -14,7 +14,7 @@ use think\Model;
 
 class Chatgroup extends Model
 {
-    protected $table = 'snake_chatgroup';
+    protected $table = 'lsiten_chatgroup';
 
     /**
      * 根据搜索条件获去用户组列表信息

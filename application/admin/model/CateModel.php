@@ -14,7 +14,7 @@ use think\Model;
 
 class CateModel extends Model
 {
-    protected $table = 'snake_category';
+    protected $table = 'lsiten_category';
 
     /**
      * 分页获取不同分组下的类别信息

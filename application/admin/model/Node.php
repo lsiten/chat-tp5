@@ -15,7 +15,7 @@ use think\Model;
 class Node extends Model
 {
 
-    protected $table = "snake_node";
+    protected $table = "lsiten_node";
 
     /**
      * 获取节点数据

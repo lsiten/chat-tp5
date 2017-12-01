@@ -14,7 +14,7 @@ use think\Model;
 
 class Groupdetail extends Model
 {
-    protected $table = 'snake_groupdetail';
+    protected $table = 'lsiten_groupdetail';
 
     /**
      * 根据搜索条件获去用户列表信息

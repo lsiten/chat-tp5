@@ -14,7 +14,7 @@ use think\Model;
 
 class Chatuser extends Model
 {
-    protected $table = 'snake_chatuser';
+    protected $table = 'lsiten_chatuser';
 
     /**
      * 根据搜索条件获去用户列表信息

@@ -14,7 +14,7 @@ use think\Model;
 
 class UserModel extends Model
 {
-    protected $table = 'snake_user';
+    protected $table = 'lsiten_user';
 
     /**
      * 根据搜索条件获取用户列表信息
