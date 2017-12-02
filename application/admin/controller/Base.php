@@ -11,10 +11,12 @@
 namespace app\admin\controller;
 
 use app\admin\model\Node;
+use think\Config;
 use think\Controller;
 
 class Base extends Controller
 {
+    protected $prefix = '';
     public function _initialize()
     {
         if(empty(session('username'))){
@@ -22,6 +24,7 @@ class Base extends Controller
             $this->redirect(url('login/index'));
         }
 
+        $this->prefix = Config::get('database.prefix');
         //检测权限
         $control = request()->controller();
         $action = request()->action();

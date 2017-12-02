@@ -19,7 +19,8 @@
         "php": ">=5.4.0",
         "topthink/framework": "*",
         "topthink/think-captcha": "dev-master",
-        "cloudinary/cloudinary_php": "dev-master"
+        "cloudinary/cloudinary_php": "dev-master",
+        "electrolinux/phpquery": "dev-master"
     },
     "extra": {
         "think-path": "thinkphp"

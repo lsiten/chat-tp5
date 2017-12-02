@@ -55,7 +55,7 @@ class Node extends Model
         $where = empty($nodeStr) ? 'is_menu = 2' : 'is_menu = 2 and id in('.$nodeStr.')';
 
         $result = db('node')->field('id,node_name,typeid,control_name,action_name,style')
-            ->where($where)->select();
+            ->where($where)->order("sort desc")->select();
         $menu = prepareMenu($result);
 
         return $menu;

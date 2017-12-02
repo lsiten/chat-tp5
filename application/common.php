@@ -78,8 +78,8 @@ function prepareMenu($param)
 
     foreach($param as $key=>$vo){
 
-        if($vo['typeid'] == 0){
-            $vo['href'] = '#';
+        if($vo['typeid'] == 0 ){
+            $vo['href'] = !$vo["style"]? url($vo['control_name'] .'/'. $vo['action_name']):'#';
             $parent[] = $vo;
         }else{
             $vo['href'] = url($vo['control_name'] .'/'. $vo['action_name']); //跳转地址
