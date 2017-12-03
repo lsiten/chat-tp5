@@ -10,18 +10,18 @@ use think\Controller;
 use think\Db;
 use think\Request;
 
-class Article extends Base
+class Product extends Base
 {
     /*
      * 产品表
      */
-    private static $_table = 'article';
+    private static $_table = 'product';
 
     public function __construct()
     {
         parent::__construct();
         //分类
-        $catgeroy = Db::name('category')->field('id,pid,name')->where('modelid', 1)->select();
+        $catgeroy = Db::name('category')->field('id,pid,name')->where('modelid', 3)->select();
         $this->assign('category', create_tree($catgeroy));
     }
 
@@ -52,13 +52,13 @@ class Article extends Base
                 $where['cid'] =  $param['cat_id'];
             }
             $selectResult = Db::field('p.id,p.title,p.publishtime,p.cid,p.click,p.flag,c.name')
-                ->table($this->prefix.'article p,'.$this->prefix.'category c')
+                ->table($this->prefix.'product p,'.$this->prefix.'category c')
                 ->where('p.cid = c.id')
                 ->where('p.status',0)
                 ->order('p.flag DESC,p.publishtime DESC');
             $selectResult = $selectResult->where($where)->limit($offset,$limit)->select();
             $return['total'] =  Db::field('p.id,p.title,p.publishtime,p.cid,p.click,p.flag,c.name')
-                                ->table($this->prefix.'article p,'.$this->prefix.'category c')
+                                ->table($this->prefix.'product p,'.$this->prefix.'category c')
                                 ->where('p.cid = c.id')
                                 ->where('p.status',0)
                                 ->order('p.flag DESC,p.publishtime DESC')
@@ -68,7 +68,7 @@ class Article extends Base
                 if($vo['flag']==1)
                 {
                     $operate = [
-                        '编辑'=> url('article/edit',['id' => $vo['id']]),
+                        '编辑'=> url('product/edit',['id' => $vo['id']]),
                         '取消置顶'=> "javascript:topit('".$vo['id']."',0)",
                         '删除' => "javascript:del('".$vo['id']."')"
                     ];
@@ -77,13 +77,13 @@ class Article extends Base
                 else{
                     $selectResult[$key]['title'].="</a>";
                     $operate = [
-                        '编辑'=> url('article/edit',['id' => $vo['id']]),
+                        '编辑'=> url('product/edit',['id' => $vo['id']]),
                         '置顶'=> "javascript:topit('".$vo['id']."',1)",
                         '删除' => "javascript:del('".$vo['id']."')"
                     ];
                 }
                 
-                $selectResult[$key]['name'] =  "<a href='".url('article/index',['id' => $vo['cid']])."' target='_blank'>".$vo['name']."</a>";
+                $selectResult[$key]['name'] =  "<a href='".url('product/index',['id' => $vo['cid']])."' target='_blank'>".$vo['name']."</a>";
                 $selectResult[$key]['publishtime'] =  date('Y年m月d日 H:i:s', $vo['publishtime']);
                 $selectResult[$key]['operate'] = showOperate($operate);
             }
@@ -96,7 +96,7 @@ class Article extends Base
     }
 
     /**
-     * 添加文章
+     * 添加产品
      *
      */
     public function add()
@@ -201,72 +201,6 @@ class Article extends Base
         }
     }
 
-    /*
-     * 移动分类
-     */
-   public function move(){
-       $params = input('param.');
-       $cid = $params['new_cat_id'];
-       $ids = $params['checkbox'];
-
-       $flag = Db::name(self::$_table)->where('id','in',$ids)->update(['cid' => $cid]);
-       if ($flag) {
-            echo '操作成功';
-       } else {
-            echo '操作失败';
-       }
-   }
-
-    /**
-     * 转载文章 暂只支持csdn
-     */
-    public function copy(){
-        if(request()->isAjax()){
-            $url = input('post.url');
-            $cid = input('post.cid');
-
-            if(!$url || !substr_count($url, 'csdn')){
-                return json( ['code' => -1, 'data' => '', 'msg' => '请输入csdn博客文章地址'] );
-            }
-
-           if(!$cid){
-              return json( ['code' => -1, 'data' => '', 'msg' => '请先选择分类'] );
-            }
-           
-           
-            try {
-                \phpQuery::newDocumentFile($url);
-                $title = pq('.link_title a')->text();
-                if (!$title) {
-                    $title = pq('.list_c_t a')->text();
-                }
-                $content = pq('#article_content')->html();
-                //如果抓取不到主内容
-                if(!$content){
-                     throw new Exception("文章不存在或禁止爬虫");
-                }
-                $params['cid'] = $cid;
-                $params['content'] = $content;
-                $params['title'] = $title;
-                $params['publishtime'] = time();
-                $params['description'] = mb_substr(trim(strip_tags($content)), 0, 180, 'utf-8');
-                $params['copyfrom'] = $url;
-                $flag = Db::name(self::$_table)->insert($params);
-                if ($flag) {
-                     return json( ['code' => 1, 'data' => '', 'msg' => '转载成功'] );
-                } else {
-                    return json( ['code' => 1, 'data' => '', 'msg' => '转载失败'] );
-                }
-            }
-            catch (Exception $e){
-                return json( ['code' => 0, 'data' => '', 'msg' => '添加失败：'.$e->getMessage()] );
-            }
-        }else{
-            return $this->fetch();
-        }
-
-    }
-
      /**
      * 上传图片方法
      * @param $param
@@ -282,7 +216,7 @@ class Article extends Base
             $info = $file->move(ROOT_PATH . 'public' . DS . 'uploads');
             if($info){
                 // 成功上传后 获取上传信息
-                $param['litpic'] =  '/uploads' . '/' . date('Ymd') . '/' . $info->getFilename();
+                $param['pictureurls'] = $param['litpic'] = '/uploads' . '/' . date('Ymd') . '/' . $info->getFilename();
             }else{
                 // 上传失败获取错误信息
                 echo $file->getError();

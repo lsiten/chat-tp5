@@ -12,13 +12,23 @@
     <link href="/static/admin/css/style.min.css?v=4.1.0" rel="stylesheet">
     <link href="/static/admin/css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
     <link href="/static/admin/js/plugins/jquerydatetimepicker/jquery.datetimepicker.css" rel="stylesheet">
+    <style>
+        .padding-style{
+            padding: 0px 20px;
+        }
+    </style>
 </head>
 <body class="gray-bg">
 <div class="wrapper wrapper-content animated fadeInRight">
     <!-- Panel Other -->
     <div class="ibox float-e-margins">
         <div class="ibox-title">
-            <h5>文章列表</h5>
+            <div class="row padding-style">
+                <h5>文章列表</h5>
+                <div class="form-group pull-right">
+                    <a href="{:url('article/add',['cid'=>$id])}" class="btn btn-outline btn-primary addBanner" type="button">添加文章</a>
+                </div>
+            </div>
         </div>
         <div class="ibox-content">
              <!--搜索框开始-->
@@ -47,7 +57,6 @@
                                 {/if}
                                 {/volist}
                             </select>
-
                         </div>
                         <div class="form-group">
                             <button class="btn btn-primary" type="button" style="margin-top:5px" id="search"><strong>搜 索</strong>
@@ -55,6 +64,7 @@
                         </div>
                     </div>
             </form>
+           
             <div class="hr-line-dashed"></div>
             <div class="example-wrap">
                 <div class="example">
@@ -145,13 +155,32 @@
 
     //     });
     // }
-
+    
+//置顶
+    function topit(id,flag){
+        var index = '';
+        prex=flag?"置顶":"取消置顶";
+        index = layer.load(0, {shade: false}); //0代表加载的风格，支持0-2
+        $.getJSON('/index.php/admin/article/topit', {'id' : id,'flag':flag}, function(res){
+                layer.close( index );
+                if(res.code == 1){
+                    layer.msg(prex+'成功',{
+                        icon: 1,
+                        time: 1000 //2秒关闭（如果不配置，默认是3秒）
+                    }, function(){
+                        initTable();
+                    });
+                }else{
+                    layer.msg(prex+'失败');
+                }
+            });
+    }
     function del(id){
 
 
-        layer.confirm('确认删除此留言?', {icon: 3, title:'提示'}, function(index){
+        layer.confirm('确认删除此文章?', {icon: 3, title:'提示'}, function(index){
             //do something
-            $.getJSON('./dele', {'id' : id}, function(res){
+            $.getJSON('/index.php/admin/article/dele', {'id' : id}, function(res){
                 if(res.code == 1){
 
                     layer.alert('删除成功', function(){

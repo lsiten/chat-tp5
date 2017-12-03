@@ -9,6 +9,8 @@
 // | Author: liu21st <liu21st@gmail.com>
 // +----------------------------------------------------------------------
 // $Id$
+$root = request()->root();
+define('__ROOT__',str_replace('/index.php','',$root));
 return [
 
     //模板参数替换

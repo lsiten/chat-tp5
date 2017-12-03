@@ -1,10 +1,10 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:90:"/Users/lsiten/project/workman/chat-tp5/public/../application/admin/view/article/index.html";i:1512282324;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:90:"/Users/lsiten/project/workman/chat-tp5/public/../application/admin/view/product/index.html";i:1512282304;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>文章列表</title>
+    <title>产品列表</title>
     <link rel="shortcut icon" href="favicon.ico">
     <link href="/static/admin/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
     <link href="/static/admin/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
@@ -25,9 +25,9 @@
     <div class="ibox float-e-margins">
         <div class="ibox-title">
             <div class="row padding-style">
-                <h5>文章列表</h5>
+                <h5>产品列表</h5>
                 <div class="form-group pull-right">
-                    <a href="<?php echo url('article/add',['cid'=>$id]); ?>" class="btn btn-outline btn-primary addBanner" type="button">添加文章</a>
+                    <a href="<?php echo url('product/add',['cid'=>$id]); ?>" class="btn btn-outline btn-primary addBanner" type="button">添加产品</a>
                 </div>
             </div>
         </div>
@@ -37,7 +37,7 @@
                     <div class="content clearfix m-b">
                         <div class="form-group">
                             <label>关键字：</label>
-                            <input type="text" placeholder="文章名称" class="form-control" id="title" name="title">
+                            <input type="text" placeholder="产品名称" class="form-control" id="title" name="title">
                             <input type="text" placeholder="开始时间" class="form-control date-picker" id="start_time" name="start_time">
                             <input type="text" placeholder="结束时间" class="form-control date-picker" id="end_time" name="end_time">
                             <select class="form-control" name="cat_id" id="cat_id">
@@ -66,10 +66,10 @@
                     <table id="cusTable" data-height="850">
                         <thead>
                         <th data-field="id">编号</th>
-                        <th data-field="title">文章名称</th>
+                        <th data-field="title">产品名称</th>
                         <th data-field="click">点击量</th>
-                        <th data-field="name">文章分类</th>
-                        <th data-field="publishtime">日期</th>
+                        <th data-field="name">产品分类</th>
+                        <th data-field="publishtime">添加日期</th>
                         <th data-field="operate">操作</th>
                         </thead>
                     </table>
@@ -156,7 +156,7 @@
         var index = '';
         prex=flag?"置顶":"取消置顶";
         index = layer.load(0, {shade: false}); //0代表加载的风格，支持0-2
-        $.getJSON('/index.php/admin/article/topit', {'id' : id,'flag':flag}, function(res){
+        $.getJSON('/index.php/admin/product/topit', {'id' : id,'flag':flag}, function(res){
                 layer.close( index );
                 if(res.code == 1){
                     layer.msg(prex+'成功',{
@@ -173,9 +173,9 @@
     function del(id){
 
 
-        layer.confirm('确认删除此文章?', {icon: 3, title:'提示'}, function(index){
+        layer.confirm('确认删除此产品?', {icon: 3, title:'提示'}, function(index){
             //do something
-            $.getJSON('/index.php/admin/article/dele', {'id' : id}, function(res){
+            $.getJSON('/index.php/admin/product/dele', {'id' : id}, function(res){
                 if(res.code == 1){
 
                     layer.alert('删除成功', function(){

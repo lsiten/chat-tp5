@@ -1,16 +1,5 @@
 <?php
-/**
- *产品模型
- */
-
 namespace app\admin\controller;
-
-use think\Config;
-use think\Controller;
-use think\Db;
-use think\Request;
-use think\Session;
-
 class Main extends Base
 {
 
@@ -22,7 +11,7 @@ class Main extends Base
         if (!input('?param.act')) {
             $file = request()->file('pic_url');
 
-            $info = $file->validate(['size'=> 1024*1024*2,'ext'=>['jpg', 'png', 'jpeg', 'gif', 'bmp']])->move(ROOT_PATH . 'public/uploads');
+            $info = $file->validate(['size'=> 1024*1024*2,'ext'=>'jpg,png,jpeg,gif,bmp'])->move(ROOT_PATH . 'public/uploads');
             
             if ($info) {
                 // 成功上传后 获取上传信息
@@ -59,7 +48,7 @@ class Main extends Base
 
     public function uploadEditor(){
         $file = request()->file('editormd-image-file');
-        $info = $file->validate(['size'=> 1024*1024*2,'ext'=>['jpg', 'png', 'jpeg', 'gif', 'bmp']])->move(ROOT_PATH . 'public/uploads');
+        $info = $file->validate(['size'=> 1024*1024*2,'ext'=>'jpg,png,jpeg,gif,bmp'])->move(ROOT_PATH . 'public/uploads');
         if ($info) {
             // 成功上传后 获取上传信息
             $path = $info->getPath();
