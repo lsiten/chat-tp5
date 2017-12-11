@@ -42,6 +42,7 @@ class Wx extends Controller
          //检测token是否合法
          $tk = input('get.token');
          if ($tk != self::$_token) {
+             print_r( $tk);
              die('token error');
          }
          //缓存微信API模型类
