@@ -20,7 +20,11 @@ return [
         '__IMG__' => '/static/admin/images',
         '__COMMON__' => '/static'
     ),
-
+    //微信关键字类型
+    'wx_keyword_type'=>[
+        '1' => '纯文本',
+        '2' => '单图文'
+    ],
     //管理员状态
     'user_status' => [
         '1' => '正常',

@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:84:"/Users/lsiten/project/workman/chat-tp5/public/../application/admin/view/nav/add.html";i:1512274118;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:1:{s:84:"/Users/lsiten/project/workman/chat-tp5/public/../application/admin/view/nav/add.html";i:1512274247;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -234,19 +234,6 @@
         errorClass: "help-block m-b-none",
         validClass: "help-block m-b-none"
     });
-$(document).ready(function(){
-    $("select[name='modelid']").change(function(){
-        var typeid = $(this).val();
-        var radio = $("input[name='type']");
-        if(typeid == 7){
-            $("#type_0").attr("checked","checked");
-            $("#type_1").removeAttr("checked");
-        }else{
-            $("#type_1").attr("checked","checked");
-            $("#type_0").removeAttr("checked");          
-        }
-    });
-})
 </script>
 </body>
 </html>

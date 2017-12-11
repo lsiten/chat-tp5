@@ -343,4 +343,17 @@ function get_system_value($name=''){
 }
 
 
+/**
+ * UTF-8错误信息输出
+ * @param  string $msg 错误名称
+ * @return null
+ * @author App <2094157689@qq.com>
+ */
+function utf8error($msg)
+{
+    header("Content-type: text/html; charset=utf-8");
+    die($msg);
+}
+
+
 

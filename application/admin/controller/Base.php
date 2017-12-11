@@ -17,6 +17,9 @@ use think\Controller;
 class Base extends Controller
 {
     protected $prefix = '';
+    protected static $SYS; //系统级全局静态变量
+    protected static $CMS; //CMS全局静态变量
+    protected static $SHOP; //Shop变量全局设置
     public function _initialize()
     {
         if(empty(session('username'))){
@@ -25,6 +28,12 @@ class Base extends Controller
         }
 
         $this->prefix = Config::get('database.prefix');
+        //刷新系统全局配置
+        self::$SYS['set'] = $_SESSION['SYS']['set'] = $this->checkSysSet();
+        //刷新CMS全局配置
+        self::$CMS['set'] = $_SESSION['CMS']['set'] = $this->checkSet();
+        //刷新SHOP全局配置
+        self::$SHOP['set'] = $_SESSION['SHOP']['set'] = $this->checkShopSet();
         //检测权限
         $control = request()->controller();
         $action = request()->action();
@@ -46,5 +55,28 @@ class Base extends Controller
             'rolename' => session('role')
         ]);
 
+    }
+
+
+    //返回系统全局配置
+    public function checkSysSet()
+    {
+        $set = model('Set')->find();
+        return $set ? $set : utf8error('系统还未配置！');
+    }
+
+     //返回CMS全局配置
+    public function checkSet()
+    {
+        $set = model('Cms_set')->find()->toArray();
+        return $set ? $set : utf8error('系统还未配置！');
+    }
+
+    // 返回Shop商城名称
+    public function checkShopSet()
+    {
+        $set = model('Shop_set')->find()->toArray();
+        $_SESSION['CMS']['set']['name'] = $set['name'];
+        return $set ? $set : utf8error('系统还未配置！');
     }
 }
