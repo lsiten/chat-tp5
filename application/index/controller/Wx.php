@@ -40,7 +40,7 @@ class Wx extends Controller
          self::$_url = self::$_set['wxurl'];
          self::$_token = self::$_set['wxtoken'];
          //检测token是否合法
-         $tk = $_GET['token'];
+         $tk = input('get.token');
          if ($tk != self::$_token) {
              die('token error');
          }
