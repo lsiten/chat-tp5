@@ -818,7 +818,7 @@ class Wx extends Controller
     public function updateUser($openid)
     {
         $old = self::$_ppvip->where(array('openid' => $openid))->find();
-        file_put_contents('./Data/app_debug.txt', '收到请求:' . date('Y-m-d H:i:s') . PHP_EOL . '通知信息:updateUser '.implode(',',$old). PHP_EOL . PHP_EOL . PHP_EOL, FILE_APPEND);                        
+        file_put_contents('./Data/app_debug.txt', '收到请求:' . date('Y-m-d H:i:s') . PHP_EOL . '通知信息:updateUser '.$old. PHP_EOL . PHP_EOL . PHP_EOL, FILE_APPEND);                        
         
         if ($old) {
             file_put_contents('./Data/app_debug.txt', '收到请求:' . date('Y-m-d H:i:s') . PHP_EOL . '通知信息:updateUser 222'. PHP_EOL . PHP_EOL . PHP_EOL, FILE_APPEND);                        
