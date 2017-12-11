@@ -31,7 +31,7 @@ class Wx extends Controller
      // 自动计算模型
      public static $_demployee;
  
-     public function _initialize($options)
+     public function _initialize()
      {
          // 读取商城全局配置
          self::$_shop = model('Shop_set')->find();
