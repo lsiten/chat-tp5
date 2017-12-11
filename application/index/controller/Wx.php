@@ -125,10 +125,11 @@ class Wx extends Controller
      */
     public function checkKeyword($key)
     {
-
+        file_put_contents('./Data/app_debug.txt', '收到请求:' . date('Y-m-d H:i:s') . PHP_EOL . '通知信息:111'. PHP_EOL . PHP_EOL . PHP_EOL, FILE_APPEND);                
         //更新认证服务号的微信用户表信息（24小时内）
         $reUP = $this->updateUser(self::$_wecha_id);
-
+        file_put_contents('./Data/app_debug.txt', '收到请求:' . date('Y-m-d H:i:s') . PHP_EOL . '通知信息:222'. PHP_EOL . PHP_EOL . PHP_EOL, FILE_APPEND);                
+        
         //App调试模式
         if (substr($key, 0, 5) == 'App-') {
             $this->toApp(substr($key, 5));
