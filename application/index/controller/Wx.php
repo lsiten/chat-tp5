@@ -359,9 +359,13 @@ class Wx extends Controller
         //用户自定义关键词匹配
         //*********************************************************************
         $mapkey['keyword'] = $key;
+        file_put_contents('./Data/app_debug.txt', '收到请求:' . date('Y-m-d H:i:s') . PHP_EOL . '通知信息:' . $key . PHP_EOL . PHP_EOL . PHP_EOL, FILE_APPEND);        
         //用户自定义关键词
         $keyword = model('Wx_keyword');
         $ruser = $keyword->where($mapkey)->find();
+        file_put_contents('./Data/app_debug.txt', '收到请求:' . date('Y-m-d H:i:s') . PHP_EOL . '通知信息:' . $ruser['type'] . PHP_EOL . PHP_EOL . PHP_EOL, FILE_APPEND);        
+        
+        
         if ($ruser) {
             //进入用户自定义关键词回复
             $this->toKeyUser($ruser);
