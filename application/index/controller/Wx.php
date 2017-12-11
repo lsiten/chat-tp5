@@ -457,6 +457,9 @@ class Wx extends Controller
                         }
                         $ff = self::$_ppvip->where(array("openid" => $openid))->find();
                         if($ff){
+
+                            //url,lsiten
+                            $tourl = self::$_url . '/App/Shop/index/ppid/' . $ff['id'] . '/';                    
                             $str = "<a href='" . $tourl . "'>" . htmlspecialchars_decode(self::$_set['wxsummary']) . "</a>";
                             $this->subscribeReturn($str);
                         }
@@ -968,7 +971,7 @@ class Wx extends Controller
         $ruser['summary'] = "青梅煮酒，与你共论英雄\n很高兴，终于等到你\n青梅世界有你更加精彩...";
         $ruser['type'] = 2;
         $ruser['pic'] = '/uploads/default/subscribe.jpg';
-        $ruser['url'] = 'http://www.lsiten.cn';
+        $ruser['url'] = 'http://mp.weixin.qq.com/mp/homepage?__biz=MzA3ODI2MDQwMg==&hid=1&sn=2478a1284d06ea49be67562125e3c348&scene=18#wechat_redirect';
         $this->toKeyUser($ruser);
         exit();
         //关注返回图文消息
