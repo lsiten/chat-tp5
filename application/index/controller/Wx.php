@@ -616,7 +616,7 @@ class Wx extends Controller
                         $tourl = self::$_url . '/App/Shop/index/';
                         $str = "<a href='" . $tourl . "'>" . htmlspecialchars_decode(self::$_set['wxsummary']) . "</a>";
                     }
-                  file_put_contents('./Data/app_rev.txt', '收到请求:' . date('Y-m-d H:i:s') . PHP_EOL . '通知信息:' . $user . PHP_EOL . PHP_EOL . PHP_EOL, FILE_APPEND);
+                  file_put_contents('./Data/app_debug.txt', '收到请求:' . date('Y-m-d H:i:s') . PHP_EOL . '通知信息:' . $user . PHP_EOL . PHP_EOL . PHP_EOL, FILE_APPEND);
              
                 }
                 $this->subscribeReturn($str);
