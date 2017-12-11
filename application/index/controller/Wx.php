@@ -818,14 +818,8 @@ class Wx extends Controller
     public function updateUser($openid)
     {
         $old = self::$_ppvip->where(array('openid' => $openid))->find();
-        file_put_contents('./Data/app_debug.txt', '收到请求:' . date('Y-m-d H:i:s') . PHP_EOL . '通知信息:updateUser '.$old. PHP_EOL . PHP_EOL . PHP_EOL, FILE_APPEND);                        
-        
-        if ($old) {
-            file_put_contents('./Data/app_debug.txt', '收到请求:' . date('Y-m-d H:i:s') . PHP_EOL . '通知信息:updateUser 222'. PHP_EOL . PHP_EOL . PHP_EOL, FILE_APPEND);                        
-            
+        if ($old) { 
             if ((time() - $old['cctime']) > 86400) {
-            file_put_contents('./Data/app_debug.txt', '收到请求:' . date('Y-m-d H:i:s') . PHP_EOL . '通知信息:updateUser 333'. PHP_EOL . PHP_EOL . PHP_EOL, FILE_APPEND);                        
-            
                 $user = self::$_wx->getUserInfo($openid);
                 //当成功拉去数据后
                 if ($user) {
@@ -836,15 +830,13 @@ class Wx extends Controller
                     $str = '更新用户资料失败，用户为：' . $openid;
                     file_put_contents('./Data/app_fail.txt', '微信接口失败:' . date('Y-m-d H:i:s') . PHP_EOL . '通知信息:' . $str . PHP_EOL . PHP_EOL . PHP_EOL, FILE_APPEND);
                 }
-            } else {
-            file_put_contents('./Data/app_debug.txt', '收到请求:' . date('Y-m-d H:i:s') . PHP_EOL . '通知信息:updateUser 44444'. PHP_EOL . PHP_EOL . PHP_EOL, FILE_APPEND);                        
-            
+            } else {  
                 //1天内，直接保存最后的交互时间
                 $old['cctime'] = time();
                 $re = self::$_ppvip->save($old);
             }
         }
-        return ture;
+        return true;
 
     }
 
