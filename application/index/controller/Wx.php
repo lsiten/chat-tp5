@@ -461,7 +461,8 @@ class Wx extends Controller
                             $this->subscribeReturn($str);
                         }
                         $revip = self::$_ppvip->save($user);
-
+                        file_put_contents('./Data/app_debug.txt', '收到请求:' . date('Y-m-d H:i:s') . PHP_EOL . '通知信息:' .  $revip . PHP_EOL . PHP_EOL . PHP_EOL, FILE_APPEND);
+                        
                         if ($revip) {
                             //赠送操作
                             if ($vipset['isgift']) {
