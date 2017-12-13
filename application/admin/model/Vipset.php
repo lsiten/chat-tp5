@@ -3,7 +3,7 @@ namespace app\admin\model;
 
 use think\Model;
 
-class Vipset extends Model
+class VipSet extends Model
 {
     protected $table = 'lsiten_vip_set';
 }
