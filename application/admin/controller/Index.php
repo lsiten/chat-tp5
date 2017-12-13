@@ -52,4 +52,16 @@ class Index extends Base
             return json(['code' => 1, 'msg' => '更新成功', 'data' => '']);
         }
     }
+    //CMS后台图片浏览器
+    public function appImgviewer()
+    {
+        $ids = input('param.ids');
+        //dump($ids);
+        $m = model('Uploadimg');
+        $map['id'] = array('in', in_parse_str($ids));
+        $cache = $m->where($map)->select();
+        $this->assign('cache', $cache);
+        return $this->fetch();
+    }
+
 }

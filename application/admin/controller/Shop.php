@@ -80,596 +80,484 @@ class Shop extends Base
     //CMS后台商城分组
     public function goods()
     {
-        //设置面包导航，主加载器请配置
-        $bread = array(
-            '0' => array(
-                'name' => '商城首页',
-                'url' => U('Admin/Shop/index'),
-            ),
-            '1' => array(
-                'name' => '商品管理',
-                'url' => U('Admin/Shop/goods'),
-            ),
-        );
-        $this->assign('breadhtml', $this->getBread($bread));
-        //绑定搜索条件与分页
-        $m = model('Shop_goods');
-        $p = $_GET['p'] ? $_GET['p'] : 1;
-        $name = I('name') ? I('name') : '';
-        if ($name) {
-            $map['name'] = array('like', "%$name%");
-            $this->assign('name', $name);
-        }
-        $psize = self::$CMS['set']['pagesize'] ? self::$CMS['set']['pagesize'] : 20;
-        $cache = $m->where($map)->page($p, $psize)->select();
-        $count = $m->where($map)->count();
-        $this->getPage($count, $psize, 'App-loader', '商品管理', 'App-search');
-        $this->assign('cache', $cache);
-        $this->display();
-    }
 
-    //CMS后台商品设置
-    public function goodsSet()
-    {
-        $id = I('id');
-        $m = model('Shop_goods');
-        //dump($m);
-        //设置面包导航，主加载器请配置
-        $bread = array(
-            '0' => array(
-                'name' => '商城首页',
-                'url' => U('Admin/Shop/index'),
-            ),
-            '1' => array(
-                'name' => '商品管理',
-                'url' => U('Admin/Shop/goods'),
-            ),
-            '2' => array(
-                'name' => '商品设置',
-                'url' => $id ? U('Admin/Shop/goodsSet', array('id' => $id)) : U('Admin/Md/mdSet'),
-            ),
-        );
-        $this->assign('breadhtml', $this->getBread($bread));
-        //处理POST提交
-        if (IS_POST) {
-            //die('aa');
-            $data = I('post.');
-            $data['content'] = trimUE($data['content']);
-            if ($id) {
-                $re = $m->save($data);
-                if (FALSE !== $re) {
-                    $info['status'] = 1;
-                    $info['msg'] = '设置成功！';
-                } else {
-                    $info['status'] = 0;
-                    $info['msg'] = '设置失败！';
-                }
-            } else {
-                $re = $m->add($data);
-                if ($re) {
-                    $info['status'] = 1;
-                    $info['msg'] = '设置成功！';
-                } else {
-                    $info['status'] = 0;
-                    $info['msg'] = '设置失败！';
-                }
+        if(request()->isAjax()){
+
+            $param = input('param.');
+
+            $limit = $param['pageSize'];
+            $offset = ($param['pageNumber'] - 1) * $limit;
+
+            $where = [];
+            if (isset($param['searchText']) && !empty($param['searchText'])) {
+                $where['name'] = ['like', '%' . $param['searchText'] . '%'];
             }
-            $this->ajaxReturn($info);
+            //绑定搜索条件与分页
+            $goods = model('Shop_goods');
+            $return['total'] = $goods->where($where)->count(); //总数据
+            $selectResult = $goods->where($where)->limit($offset,$limit)->select();
+
+            foreach($selectResult as $key=>$vo){  
+                
+                if($vo['status'] == 1)
+                {
+                    $selectResult[$key]['status_html'] = '<a class="btn btn-danger btn-xs status" href="javascript:setGoodsStatus('.$vo['id'].','.$vo['status'].')"><i class="fa fa-arrow-down"></i>下架</a>';    
+                }
+                else{
+                    $selectResult[$key]['status_html'] = '<a class="btn btn-success btn-xs status" href="javascript:setGoodsStatus('.$vo['id'].','.$vo['status'].')"><i class="fa fa-arrow-up"></i>上架</a>';                     
+                }
+
+                if($vo['issku'] == 1)
+                {
+                    $selectResult[$key]['issku_html'] = '<a class="btn btn-azure btn-xs status" href="'.url('/Admin/Shop/sku',array('id'=>$vo['id'])).'"><i class="fa fa-edit"></i>管理</a>';    
+                }
+                else{
+                    $selectResult[$key]['issku_html'] = '未启用SKU';                     
+                }
+                $operate = [
+                    '管理' => url('/admin/Shop/goodsedit/',array('id'=>$vo['id'])),
+                    '删除' => "javascript:goodsdel('".$vo['id']."')"
+                ];
+
+                $selectResult[$key]['operate'] = showOperate($operate);
+
+            }
+            $return['rows'] = $selectResult;
+
+            return json($return);
         }
-        //读取标签
-        $label = model('Shop_label')->select();
-        $this->assign('label', $label);
-        //AppTree快速无限分类
-        $field = array("id", "pid", "name", "sorts", "concat(path,'-',id) as bpath");
-        $cate = appTree(model('Shop_cate'), 0, $field);
-        $this->assign('cate', $cate);
-        //处理编辑界面
-        if ($id) {
-            $cache = $m->where('id=' . $id)->find();
-            $this->assign('cache', $cache);
-        }
-        $this->display();
+        return $this->fetch();
     }
 
-    public function goodsDel()
+    public function goodsadd(){
+        if (request()->isPost()) {
+            $goods = model('Shop_goods');
+            //新增处理
+            $params = input('post.');
+            $this->_getUpGoodsFile($params);
+            $flag = $goods->insertData( $params );
+
+            if( 1 != $flag['code'] ){
+                return json( ['code' => -6, 'data' => '', 'msg' => '添加失败'] );
+            }
+            return json( ['code' => 1, 'data' => "", 'msg' => '添加成功'] );
+        }else{
+            $cate = model('Shop_cate');
+             //AppTree快速无限分类
+            $field = array("id", "pid", "name", "sorts", "concat(path,'-',id) as bpath");
+            $cateData = appTree("Shop_cate",0,$field);
+            $this->assign('cate', $cateData);
+            $label = model('Shop_label')->select();
+            $this->assign('label', $label);
+            return $this->fetch();
+        }
+    }
+
+    public function goodsedit(){
+        $goods = model('Shop_goods');
+        if (request()->isPost()) {
+            //新增处理
+            $params = input('post.');
+            $this->_getUpGoodsFile($params);
+            $flag = $goods->editData( $params );
+
+            if( 1 != $flag['code'] ){
+                return json( ['code' => -6, 'data' => '', 'msg' => '修改失败'] );
+            }
+            return json( ['code' => 1, 'data' => "", 'msg' => '修改成功'] );
+        }else{
+            $cate = model('Shop_cate');
+            $id = input('param.id');
+             //AppTree快速无限分类
+            $field = array("id", "pid", "name", "sorts", "concat(path,'-',id) as bpath");
+            $cateData = appTree("Shop_cate",0,$field);
+            $this->assign('cate', $cateData);
+            $label = model('Shop_label')->select();
+            $this->assign('label', $label);
+            $this->assign('item', $goods->getOneData($id));
+            return $this->fetch();
+        }
+    }
+
+    public function goodsdel()
     {
-        $id = $_GET['id']; //必须使用get方法
+        $id = input('get.id'); //必须使用get方法
         $m = model('Shop_goods');
         if (!$id) {
-            $info['status'] = 0;
-            $info['msg'] = 'ID不能为空!';
-            $this->ajaxReturn($info);
+            $return['code'] = 0;
+            $return['msg'] = 'ID不能为空!';
+            return json($return);
         }
-        $re = $m->delete($id);
+        $re = $m->where('id',$id)->delete();
         if ($re) {
-            $info['status'] = 1;
-            $info['msg'] = '删除成功!';
+            $return['code'] = 1;
+            $return['msg'] = '删除成功!';
         } else {
-            $info['status'] = 0;
-            $info['msg'] = '删除失败!';
+            $return['code'] = 0;
+            $return['msg'] = '删除失败!';
         }
-        $this->ajaxReturn($info);
+        return json($return);
     }
 
     public function goodsStatus()
     {
         $m = model('Shop_goods');
-        $now = I('status') ? 0 : 1;
-        $map['id'] = I('id');
+        $now = input('param.status') ? 0 : 1;
+        $map['id'] = input('param.id');
         $re = $m->where($map)->setField('status', $now);
         if ($re) {
-            $info['status'] = 1;
-            $info['msg'] = '设置成功!';
+            $return['code'] = 1;
+            $return['msg'] = '设置成功!';
         } else {
-            $info['status'] = 0;
-            $info['msg'] = '设置失败!';
+            $return['code'] = 0;
+            $return['msg'] = '设置失败!';
         }
-        $this->ajaxReturn($info);
+        return json($return);
     }
 
+    //获取子分类
+    private function getCateChilds(&$data,$child){
+        foreach($child as $vo){
+            $operate = [
+                '编辑' => "javascript:cateedit('".$vo['id']."')",
+                '删除' => "javascript:catedel('".$vo['id']."')"
+            ];
+            $repeat = $vo['lv']-1;
+            $vo['name'] = str_repeat("&nbsp;",$repeat).'└'.$vo['name'];
+            $vo['operate'] = showOperate($operate);
+            $data[] = $vo;
+            if(isset($vo['child']) && is_array($vo['child']))
+            {
+                $this->getCateChilds($data,$vo['child']);
+            } 
+        }
+    }
     //CMS后台商城分类
     public function cate()
     {
-        //设置面包导航，主加载器请配置
-        $bread = array(
-            '0' => array(
-                'name' => '商城首页',
-                'url' => U('Admin/Shop/index'),
-            ),
-            '1' => array(
-                'name' => '商城分类',
-                'url' => U('Admin/Shop/cate'),
-            ),
-        );
-        $this->assign('breadhtml', $this->getBread($bread));
-        //绑定搜索条件与分页
-        $m = model('Shop_cate');
-        $p = $_GET['p'] ? $_GET['p'] : 1;
-        $name = I('name') ? I('name') : '';
-        if ($name) {
-            $map['name'] = array('like', "%$name%");
-            $this->assign('name', $name);
-        }
-        //AppTree快速无限分类
-        $field = array("id", "pid", "lv", "name", "summary", "soncate", "sorts", "concat(path,'-',id) as bpath");
-        $cache = appTree($m, 0, $field);
-        $this->assign('cache', $cache);
-        $this->display();
-    }
+         if(request()->isAjax()){
 
-    //CMS后台商城分类设置
-    public function cateSet()
-    {
-        $id = I('id');
-        $m = model('Shop_cate');
-        //设置面包导航，主加载器请配置
-        $bread = array(
-            '0' => array(
-                'name' => '商城首页',
-                'url' => U('Admin/Shop/index'),
-            ),
-            '1' => array(
-                'name' => '商城分类',
-                'url' => U('Admin/Shop/cate'),
-            ),
-            '2' => array(
-                'name' => '分类设置',
-                'url' => $id ? U('Admin/Shop/cateSet', array('id' => $id)) : U('Admin/Shop/cateSet'),
-            ),
-        );
-        $this->assign('breadhtml', $this->getBread($bread));
-        //处理POST提交
-        if (IS_POST) {
-            //die('aa');
-            $data = I('post.');
-            if ($id) {
-                //保存时判断
-                $old = $m->where('id=' . $id)->limit(1)->find();
-                if ($old['pid'] != $data['pid']) {
-                    $hasson = $m->where('pid=' . $id)->limit(1)->find();
-                    if ($hasson) {
-                        $info['status'] = 0;
-                        $info['msg'] = '此分类有子分类，不可以移动！';
-                        $this->ajaxReturn($info);
-                    }
-                }
-                if ($data['pid']) {
-                    //更新Path，强制处理
-                    $path = setPath($m, $data['pid']);
-                    $data['path'] = $path['path'];
-                    $data['lv'] = $path['lv'];
-                } else {
-                    $data['path'] = 0;
-                    $data['lv'] = 1;
-                }
-                $re = $m->save($data);
-                if (FALSE !== $re) {
-                    //更新新老父级，暂不做错误处理
-                    if ($old['pid'] != $data['pid']) {
-                        $re = setSoncate($m, $data['pid']);
-                        $rold = setSoncate($m, $old['pid']);
-                        $info['status'] = 1;
-                        $info['msg'] = $old['pid'];
-                        $this->ajaxReturn($info);
-                    } else {
-                        $re = setSoncate($m, $data['pid']);
-                    }
-                    $info['status'] = 1;
-                    $info['msg'] = '设置成功！';
-                } else {
-                    $info['status'] = 0;
-                    $info['msg'] = '设置失败！';
-                }
-            } else {
-                if ($data['pid']) {
-                    //更新父级，强制处理
-                    $path = setPath($m, $data['pid']);
-                    $data['path'] = $path['path'];
-                    $data['lv'] = $path['lv'];
-                } else {
-                    $data['path'] = 0;
-                    $data['lv'] = 1;
-                }
-                $re = $m->add($data);
-                if ($re) {
-                    //更新父级，暂不做错误处理
-                    if ($data['pid']) {
-                        $re = setSoncate($m, $data['pid']);
-                    }
-                    $info['status'] = 1;
-                    $info['msg'] = '设置成功！';
-                } else {
-                    $info['status'] = 0;
-                    $info['msg'] = '设置失败！';
+            $param = input('param.');
+
+            $limit = $param['pageSize'];
+            $offset = ($param['pageNumber'] - 1) * $limit;
+
+            $where = [];
+            if (isset($param['searchText']) && !empty($param['searchText'])) {
+                $where['name'] = ['like', '%' . $param['searchText'] . '%'];
+            }
+            //绑定搜索条件与分页
+            $cate = model('Shop_cate');
+            $return['total'] = $cate->where($where)->count(); //总数据
+            $selectResult = $cate->getTreeCate($where,$limit,$offset,"sorts DESC");
+            $dataResult = [];
+            foreach($selectResult as $key=>$vo){
+                $operate = [
+                    '编辑' => "javascript:cateedit('".$vo['id']."')",
+                    '删除' => "javascript:catedel('".$vo['id']."')"
+                ];
+                $vo['operate'] = showOperate($operate);
+                $dataResult[] = $vo;
+                if(isset($vo['child']) && is_array($vo['child']))
+                {
+                    $this->getCateChilds($dataResult,$vo['child']);
                 }
             }
-            $this->ajaxReturn($info);
+            $return['rows'] = $dataResult;
+
+            return json($return);
         }
-        //处理编辑界面
-        if ($id) {
-            $cache = $m->where('id=' . $id)->find();
-            $this->assign('cache', $cache);
+        return $this->fetch();
+    }
+    //CMS后台商城分类增加
+    public function cateadd(){
+        $cate = model('Shop_cate');
+        if (request()->isPost()) {
+            //新增处理
+            $params = input('post.');
+
+            $this->_getUpCateFile($params);
+            $flag = $cate->insertData( $params );
+
+            if( 1 != $flag['code'] ){
+                return json( ['code' => -6, 'data' => '', 'msg' => '添加失败'] );
+            }
+            return json( ['code' => 1, 'data' => "", 'msg' => '添加成功'] );
+        }else{
+            $cateData = $cate->where('pid',0)->order("sorts ASC")->select();
+            $this->assign('cate', $cateData);
+            return $this->fetch();
         }
-        //AppTree快速无限分类
-        $field = array("id", "pid", "name", "sorts", "concat(path,'-',id) as bpath");
-        $map = array('lv' => 1);
-        $cate = appTree($m, 0, $field, $map);
-        $this->assign('cate', $cate);
-        $this->display();
+    }
+   //CMS后台商城分类编辑
+    public function cateedit(){
+        $cate = model('Shop_cate');
+        if (request()->isPost()) {
+            //新增处理
+            $params = input('post.');
+            $this->_getUpCateFile($params);
+            $flag = $cate->editData( $params );
+
+            if( 1 != $flag['code'] ){
+                return json( ['code' => -6, 'data' => '', 'msg' => '修改失败'] );
+            }
+            return json( ['code' => 1, 'data' => "", 'msg' => '修改成功'] );
+        }else{
+            $id = input('param.id');
+            $cateData = $cate->where('pid',0)->order("sorts ASC")->select();            
+            $this->assign([
+                'item' => $cate->getOneData($id),
+                'cate'=> $cateData
+            ]);
+            return $this->fetch();
+        }
     }
 
-    public function cateDel()
+   //CMS后台商城分类删除
+    public function catedel()
     {
-        $id = $_GET['id']; //必须使用get方法
-        $m = model('Shop_cate');
-        if (!$id) {
-            $info['status'] = 0;
-            $info['msg'] = 'ID不能为空!';
-            $this->ajaxReturn($info);
+        $id = input('param.id');
+        $cate = model('Shop_cate');
+        $flag = $cate->delData( $id );
+
+        if( 1 != $flag['code'] ){
+            return json( ['code' => -6, 'data' => '', 'msg' => '删除失败'] );
         }
-        //删除时判断
-        $self = $m->where('id=' . $id)->limit(1)->find();
-        // 存在子类不删除
-        // if($self['soncate']){
-        // 	$info['status']=0;
-        // 	$info['msg']='不能删除，存在子分类！';
-        // 	$this->ajaxReturn($info);
-        // }
-        $re = $m->delete($id);
-        // 删除所有子类
-        $tempList = split(',', $self['soncate']);
-        foreach ($tempList as $k => $v) {
-            $res = $m->delete($v);
-        }
-        if ($re) {
-            //更新上级soncate
-            if ($self['pid']) {
-                $re = setSoncate($m, $self['pid']);
-            }
-            $info['status'] = 1;
-            $info['msg'] = '删除成功!';
-        } else {
-            $info['status'] = 0;
-            $info['msg'] = '删除失败!';
-            $this->ajaxReturn($info);
-        }
-        $this->ajaxReturn($info);
+        return json( ['code' => 1, 'data' => "", 'msg' => '删除成功'] );
     }
 
     //CMS后台商城分组
     public function group()
     {
-        //设置面包导航，主加载器请配置
-        $bread = array(
-            '0' => array(
-                'name' => '商城首页',
-                'url' => U('Admin/Shop/index'),
-            ),
-            '1' => array(
-                'name' => '商城分组',
-                'url' => U('Admin/Shop/group'),
-            ),
-        );
-        $this->assign('breadhtml', $this->getBread($bread));
-        //绑定搜索条件与分页
-        $m = model('Shop_group');
-        $p = $_GET['p'] ? $_GET['p'] : 1;
-        $name = I('name') ? I('name') : '';
-        if ($name) {
-            $map['name'] = array('like', "%$name%");
-            $this->assign('name', $name);
-        }
-        $psize = self::$CMS['set']['pagesize'] ? self::$CMS['set']['pagesize'] : 20;
-        $cache = $m->where($map)->page($p, $psize)->select();
-        $count = $m->where($map)->count();
-        $this->getPage($count, $psize, 'App-loader', '商城分组', 'App-search');
-        $this->assign('cache', $cache);
-        $this->display();
-    }
+        if(request()->isAjax()){
 
-    //CMS后台分组设置
-    public function groupSet()
-    {
-        $id = I('id');
-        $m = model('Shop_group');
-        //设置面包导航，主加载器请配置
-        $bread = array(
-            '0' => array(
-                'name' => '商城首页',
-                'url' => U('Admin/Shop/index'),
-            ),
-            '1' => array(
-                'name' => '商城分组',
-                'url' => U('Admin/Shop/group'),
-            ),
-            '2' => array(
-                'name' => '分组设置',
-                'url' => $id ? U('Admin/Shop/groupSet', array('id' => $id)) : U('Admin/Shop/groupSet'),
-            ),
-        );
-        $this->assign('breadhtml', $this->getBread($bread));
-        //处理POST提交
-        if (IS_POST) {
-            //die('aa');
-            $data = I('post.');
-            if ($id) {
-                $re = $m->save($data);
-                if (FALSE !== $re) {
-                    $info['status'] = 1;
-                    $info['msg'] = '设置成功！';
-                } else {
-                    $info['status'] = 0;
-                    $info['msg'] = '设置失败！';
-                }
-            } else {
-                $re = $m->add($data);
-                if ($re) {
-                    $info['status'] = 1;
-                    $info['msg'] = '设置成功！';
-                } else {
-                    $info['status'] = 0;
-                    $info['msg'] = '设置失败！';
-                }
+            $param = input('param.');
+
+            $limit = $param['pageSize'];
+            $offset = ($param['pageNumber'] - 1) * $limit;
+
+            $where = [];
+            if (isset($param['searchText']) && !empty($param['searchText'])) {
+                $where['name'] = ['like', '%' . $param['searchText'] . '%'];
             }
-            $this->ajaxReturn($info);
+            //绑定搜索条件与分页
+            $group = model('Shop_group');;
+            $return['total'] = $group->where($where)->count(); //总数据
+            $selectResult = $group->where($where)->limit($offset,$limit)->order('id DESC')->select();
+
+            foreach($selectResult as $key=>$vo){
+                if(!$vo['status'])
+                {
+                    $selectResult[$key]['name'] = "<a href='javascript:selectStatus(".$vo['id'].")' class='btn btn-danger btn-xs'>".$vo['name']."</a>";
+                }
+                else{
+                    $selectResult[$key]['name'] = $vo['name']."(已选择)";                    
+                }
+               $operate = [
+                    '编辑' => "javascript:groupedit('".$vo['id']."')",
+                    '删除' => "javascript:groupdel('".$vo['id']."')"
+                ];
+
+                $selectResult[$key]['operate'] = showOperate($operate);
+
+            }
+            $return['rows'] = $selectResult;
+
+            return json($return);
         }
-        //处理编辑界面
-        if ($id) {
-            $cache = $m->where('id=' . $id)->find();
-            $this->assign('cache', $cache);
+        return $this->fetch();
+    }
+    //CMS后台商城分类增加
+    public function groupadd(){
+        $group = model('Shop_group');
+        if (request()->isPost()) {
+            //新增处理
+            $params = input('post.');
+            $this->_getUpGroupFile($params);
+            $flag = $group->insertData( $params );
+
+            if( 1 != $flag['code'] ){
+                return json( ['code' => -6, 'data' => '', 'msg' => '添加失败'] );
+            }
+            return json( ['code' => 1, 'data' => "", 'msg' => '添加成功'] );
+        }else{
+            return $this->fetch();
         }
-        $this->display();
+    }
+   //CMS后台商城分类编辑
+    public function groupedit(){
+        $group = model('Shop_group');
+        if (request()->isPost()) {
+            //新增处理
+            $params = input('post.');
+            $this->_getUpGroupFile($params);
+            $flag = $group->editData( $params );
+
+            if( 1 != $flag['code'] ){
+                return json( ['code' => -6, 'data' => '', 'msg' => '修改失败'] );
+            }
+            return json( ['code' => 1, 'data' => "", 'msg' => '修改成功'] );
+        }else{
+            $id = input('param.id');         
+            $this->assign([
+                'item' => $group->getOneData($id),
+            ]);
+            return $this->fetch();
+        }
     }
 
     // 设置分组显示
     public function setGroup()
     {
-        $id = $_GET['id']; //必须使用get方法
+        $id = input('get.id'); //必须使用get方法
         $m = model('Shop_group');
-        if (!id) {
-            $info['status'] = 0;
-            $info['msg'] = 'ID不能为空!';
-            $this->ajaxReturn($info);
+        if (!$id) {
+            $return['code'] = 0;
+            $return['msg'] = 'ID不能为空!';
+            return json($return);
         }
         // 撤销原有分组
-        $ree = $m->where(array('status' => 1))->save(array('status' => 0));
-        $re = $m->where(array('id' => $id))->save(array('status' => 1));
+        $ree = $m->save(['status' => 0],['status' => 1]);
+        $re = $m->save(['status' => 1],['id' => $id]);
         if ($re) {
-            $info['status'] = 1;
-            $info['msg'] = '分组显示更新成功!';
+            $return['code'] = 1;
+            $return['msg'] = '分组显示更新成功!';
         } else {
-            $info['status'] = 0;
-            $info['msg'] = '设置失败!';
+            $return['code'] = 0;
+            $return['msg'] = '设置失败!';
         }
-        $this->ajaxReturn($info);
+        return json($return);
     }
 
     public function groupDel()
     {
-        $id = $_GET['id']; //必须使用get方法
+        $id = input('get.id'); //必须使用get方法
         $m = model('Shop_group');
-        if (!id) {
-            $info['status'] = 0;
-            $info['msg'] = 'ID不能为空!';
-            $this->ajaxReturn($info);
+        if (!$id) {
+            $return['code'] = 0;
+            $return['msg'] = 'ID不能为空!';
+            return json($return);
         }
-        $re = $m->delete($id);
+        $re = $m->where("id",$id)->delete();
         if ($re) {
-            $info['status'] = 1;
-            $info['msg'] = '删除成功!';
+            $return['code'] = 1;
+            $return['msg'] = '删除成功!';
         } else {
-            $info['status'] = 0;
-            $info['msg'] = '删除失败!';
+            $return['code'] = 0;
+            $return['msg'] = '删除失败!';
         }
-        $this->ajaxReturn($info);
+        return json($return);
     }
 
     //CMS后台SKU属性
     public function skuattr()
     {
-        //设置面包导航，主加载器请配置
-        $bread = array(
-            '0' => array(
-                'name' => '商城首页',
-                'url' => U('Admin/Shop/index'),
-            ),
-            '1' => array(
-                'name' => 'SKU属性',
-                'url' => U('Admin/Shop/skuattr'),
-            ),
-        );
-        $this->assign('breadhtml', $this->getBread($bread));
-        //绑定搜索条件与分页
-        $m = model('Shop_skuattr');
-        $p = $_GET['p'] ? $_GET['p'] : 1;
-        $name = I('name') ? I('name') : '';
-        if ($name) {
-            $map['name'] = array('like', "%$name%");
-            $this->assign('name', $name);
-        }
-        $psize = self::$CMS['set']['pagesize'] ? self::$CMS['set']['pagesize'] : 20;
-        $cache = $m->where($map)->page($p, $psize)->select();
-        $count = $m->where($map)->count();
-        $this->getPage($count, $psize, 'App-loader', 'SKU属性', 'App-search');
-        $this->assign('cache', $cache);
-        $this->display();
-    }
 
-    //CMS后台SKU属性设置
-    public function skuattrSet()
-    {
-        $id = I('id');
-        $m = model('Shop_skuattr');
-        //设置面包导航，主加载器请配置
-        $bread = array(
-            '0' => array(
-                'name' => '商城首页',
-                'url' => U('Admin/Shop/index'),
-            ),
-            '1' => array(
-                'name' => '商城分组',
-                'url' => U('Admin/Shop/skuattr'),
-            ),
-            '2' => array(
-                'name' => 'SKU属性设置',
-                'url' => $id ? U('Admin/Shop/skuattrSet', array('id' => $id)) : U('Admin/Shop/skuattrSet'),
-            ),
-        );
-        $this->assign('breadhtml', $this->getBread($bread));
-        //处理POST提交
-        if (IS_POST) {
-            //die('aa');
-            $data = I('post.');
-            if ($id) {
-                $re = $m->save($data);
-                if (FALSE !== $re) {
-                    if ($data['newitem']) {
-                        $mitem = model('Shop_skuattr_item');
-                        $dit['pid'] = $id;
-                        $items = array_filter(explode(',', $data['newitem']));
-                        foreach ($items as $v) {
-                            $dit['name'] = $v;
-                            $rit = $mitem->add($dit);
-                            if ($rit) {
-                                $rr['path'] = $id . $rit;
-                                $rerr = $mitem->where('id=' . $rit)->save($rr);
-                            }
-                        }
-                        $son = $mitem->where('pid=' . $id)->field('name,path')->select();
-                        $dson['items'] = "";
-                        $dson['itemspath'] = "";
-                        foreach ($son as $v) {
-                            $dson['items'] = $dson['items'] . $v['name'] . ',';
-                            $dson['itemspath'] = $dson['itemspath'] . $v['path'] . ',';
-                        }
-                        $rfather = $m->where('id=' . $id)->save($dson);
-                    }
-                    $info['status'] = 1;
-                    $info['msg'] = '设置成功！';
-                } else {
-                    $info['status'] = 0;
-                    $info['msg'] = '设置失败！';
-                }
-            } else {
-                $dt['name'] = $data['name'];
-                $dt['cctime'] = time();
-                $re = $m->add($dt);
-                if ($re) {
-                    if ($data['newitem']) {
-                        $mitem = model('Shop_skuattr_item');
-                        $dit['pid'] = $re;
-                        $items = array_filter(explode(',', $data['newitem']));
-                        foreach ($items as $v) {
-                            $dit['name'] = $v;
-                            $rit = $mitem->add($dit);
-                            if ($rit) {
-                                $rr['path'] = $re . $rit;
-                                $rerr = $mitem->where('id=' . $rit)->save($rr);
-                            }
-                        }
-                        $son = $mitem->where('pid=' . $re)->field('name,path')->select();
-                        $dson['items'] = "";
-                        $dson['itemspath'] = "";
-                        foreach ($son as $v) {
-                            $dson['items'] = $dson['items'] . $v['name'] . ',';
-                            $dson['itemspath'] = $dson['itemspath'] . $v['path'] . ',';
-                        }
-                        $rfather = $m->where('id=' . $re)->save($dson);
-                    }
-                    $info['status'] = 1;
-                    $info['msg'] = '设置成功！';
-                } else {
-                    $info['status'] = 0;
-                    $info['msg'] = '设置失败！';
-                }
+        if(request()->isAjax()){
+
+            $param = input('param.');
+
+            $limit = $param['pageSize'];
+            $offset = ($param['pageNumber'] - 1) * $limit;
+
+            $where = [];
+            if (isset($param['searchText']) && !empty($param['searchText'])) {
+                $where['name|items'] = ['like', '%' . $param['searchText'] . '%'];
             }
-            $this->ajaxReturn($info);
+            //绑定搜索条件与分页
+            $skuattr = model('Shop_skuattr');;
+            $return['total'] = $skuattr->where($where)->count(); //总数据
+            $selectResult = $skuattr->where($where)->limit($offset,$limit)->order('id DESC')->select();
+
+            foreach($selectResult as $key=>$vo){
+               $operate = [
+                    '编辑' => "javascript:skuedit('".$vo['id']."')",
+                    '删除' => "javascript:skudel('".$vo['id']."')"
+                ];
+
+                $selectResult[$key]['operate'] = showOperate($operate);
+
+            }
+            $return['rows'] = $selectResult;
+
+            return json($return);
         }
-        //处理编辑界面
-        if ($id) {
-            $cache = $m->where('id=' . $id)->find();
-            $this->assign('cache', $cache);
-        }
-        $this->display();
+        return $this->fetch();
     }
 
-    public function skuattrDel()
+    public function skuattradd(){
+        $skuattr = model('Shop_skuattr');
+        if (request()->isPost()) {
+            //新增处理
+            $params = input('post.');
+            $flag = $skuattr->insertData( $params );
+
+            if( 1 != $flag['code'] ){
+                return json( ['code' => -6, 'data' => '', 'msg' => '添加失败'] );
+            }
+            return json( ['code' => 1, 'data' => "", 'msg' => '添加成功'] );
+        }else{
+            return $this->fetch();
+        }
+    }
+    //CMS后台SKU属性编辑
+    public function skuattredit(){
+        $skuattr = model('Shop_skuattr');
+        if (request()->isPost()) {
+            //新增处理
+            $params = input('post.');
+            $flag = $skuattr->editData( $params );
+
+            if( 1 != $flag['code'] ){
+                return json( ['code' => -6, 'data' => '', 'msg' => '修改失败'] );
+            }
+            return json( ['code' => 1, 'data' => "", 'msg' => '修改成功'] );
+        }else{
+            $id = input('param.id');         
+            $this->assign([
+                'item' => $skuattr->getOneData($id),
+            ]);
+            return $this->fetch();
+        }
+    }
+
+    public function skuattrdel()
     {
-        $id = $_GET['id']; //必须使用get方法
+        $id = input('get.id'); //必须使用get方法
         $m = model('Shop_skuattr');
-        if (!id) {
-            $info['status'] = 0;
-            $info['msg'] = 'ID不能为空!';
-            $this->ajaxReturn($info);
+        if (!$id) {
+            $return['code'] = 0;
+            $return['msg'] = 'ID不能为空!';
+            return json($return);
         }
-        $re = $m->delete($id);
+        $re = $m->where('id',$id)->delete();
         if ($re) {
-            $info['status'] = 1;
-            $info['msg'] = '删除成功!';
+            $return['code'] = 1;
+            $return['msg'] = '删除成功!';
         } else {
-            $info['status'] = 0;
-            $info['msg'] = '删除失败!';
+            $return['code'] = 0;
+            $return['msg'] = '删除失败!';
         }
-        $this->ajaxReturn($info);
+        return json($return);
     }
 
     //用于SKUINFO保存
     public function skuattrSave()
     {
-        $id = $_GET['id']; //必须使用get方法
+        $id = input('param.id'); //必须使用get方法
         if (!$id) {
-            $info['status'] = 0;
-            $info['msg'] = '商品ID不能为空!';
-            $this->ajaxReturn($info);
+            $return['code'] = 0;
+            $return['msg'] = '商品ID不能为空!';
+            return json($return);
         }
         //处理skuattr
-        $data = I('data');
+        $data = input('param.data');
         if (!$data) {
-            $info['status'] = 0;
-            $info['msg'] = "您还没有选择任何属性！";
-            $this->ajaxReturn($info);
+            $return['code'] = 0;
+            $return['msg'] = "您还没有选择任何属性！";
+            return json($return);
         }
-        $list;
+        $list=[];
         $arr = array_filter(explode(';', $data));
         foreach ($arr as $k => $v) {
             $arr2 = array_filter(explode('-', $v));
@@ -693,39 +581,39 @@ class Shop extends Base
         //$this->ajaxReturn($info);
         $m = model('Shop_goods');
         $skuinfo['skuinfo'] = serialize($list);
-        $re = $m->where('id=' . $id)->save($skuinfo);
+        $re = $m->save($skuinfo,['id'=>$id]);
         if ($re !== FALSE) {
-            $info['status'] = 1;
-            $info['msg'] = 'SKU属性保存成功!如有变更请及时更新所有SKU!';
+            $return['code'] = 1;
+            $return['msg'] = 'SKU属性保存成功!如有变更请及时更新所有SKU!';
         } else {
-            $info['status'] = 0;
-            $info['msg'] = 'SKU属性保存失败!请重新尝试!';
+            $return['code'] = 0;
+            $return['msg'] = 'SKU属性保存失败!请重新尝试!';
         }
-        $this->ajaxReturn($info);
+        return json($return);
     }
 
     //用于SKU生成
     public function skuattrMake()
     {
-        $id = $_GET['id']; //必须使用get方法
+        $id = input('param.id'); //必须使用get方法
         if (!$id) {
-            $info['status'] = 0;
-            $info['msg'] = '商品ID不能为空!';
-            $this->ajaxReturn($info);
+            $return['code'] = 0;
+            $return['msg'] = '商品ID不能为空!';
+            return json($return);
         }
         $m = model('Shop_goods');
         $goods = $m->where('id=' . $id)->find();
         $skuinfo = unserialize($goods['skuinfo']);
         //dump($skuinfo);
         if (!$skuinfo) {
-            $info['status'] = 0;
-            $info['msg'] = '您还未设置或保存SKU属性!';
-            $this->ajaxReturn($info);
+            $return['code'] = 0;
+            $return['msg'] = '您还未设置或保存SKU属性!';
+            return json($return);
         }
-        $cacheattrs = array(); //缓存所有属性表
-        $cache; //缓存skupath列表
-        $tmpsku; //缓存零时sku
-        $tmpskuattrs; //sku属性对照表
+        $cacheattrs = []; //缓存所有属性表
+        $cache = []; //缓存skupath列表
+        $tmpsku = []; //缓存零时sku
+        $tmpskuattrs = []; //sku属性对照表
         foreach ($skuinfo as $k => $v) {
             $cacheattrs = $cacheattrs + $skuinfo[$k]['items'];
             $cache[$k] = array_filter(explode(',', $v['checked']));
@@ -735,7 +623,7 @@ class Shop extends Base
             //快速排列
             $tmp = Descartes($cache);
             foreach ($tmp as $k => $v) {
-                $sttr;
+                $sttr = [];
                 foreach ($v as $kk => $vv) {
                     $sttr[$kk] = $cacheattrs[$vv];
                 }
@@ -751,8 +639,6 @@ class Shop extends Base
                 $tmpskuattrs[$sk] = $cacheattrs[$v];
             }
         }
-        //dump($tmpskuattrs);
-        //dump($tmpsku);
 
         $fftmpsku = array_flip($tmpsku);
         //处理原始sku
@@ -763,12 +649,10 @@ class Shop extends Base
                 //如果已经建立,判断状态
                 if (!in_array($v['sku'], $tmpsku)) {
                     //如果不存在，禁用该sku
-                    $v['status'] = 0;
-                    $ro = $msku->save($v);
+                    $msku->where('id', $v->id)->setField('status',0);
                 } else {
                     //如果已经存在，开启该sku
-                    $v['status'] = 1;
-                    $ro = $msku->save($v);
+                    $msku->where('id', $v->id)->setField('status',1);                    
                     //移除fftmpsku对应项目
                     unset($fftmpsku[$v['sku']]);
                 }
@@ -792,261 +676,269 @@ class Shop extends Base
             //强制重新排序
             sort($dsku);
             //计算总库存
-            $re = $msku->addAll($dsku);
+            $re = $msku->saveAll($dsku);
             if ($re) {
-                $totalnum = $msku->where(array('goodsid' => $id, 'status' => 1))->sumodel('num');
+                $totalnum = $msku->where(array('goodsid' => $id, 'status' => 1))->sum('num');
                 if ($totalnum) {
                     $rgg = $m->where('id=' . $id)->setField('num', $totalnum);
                 }
                 //计算总库存
-                $info['status'] = 1;
-                $info['msg'] = 'SKU更新成功!';
+                $return['code'] = 1;
+                $return['msg'] = 'SKU更新成功!';
             } else {
-                $info['status'] = 0;
-                $info['msg'] = 'SKU更新失败!请重新尝试!';
+                $return['code'] = 0;
+                $return['msg'] = 'SKU更新失败!请重新尝试!';
             }
         } else {
-            $totalnum = $msku->where(array('goodsid' => $id, 'status' => 1))->sumodel('num');
+            $totalnum = $msku->where(array('goodsid' => $id, 'status' => 1))->sum('num');
             if ($totalnum) {
                 $rgg = $m->where('id=' . $id)->setField('num', $totalnum);
             }
-            $info['status'] = 1;
-            $info['msg'] = 'SKU更新成功!没有新增SKU!';
+            $return['code'] = 1;
+            $return['msg'] = 'SKU更新成功!没有新增SKU!';
         }
-        $this->ajaxReturn($info);
+        return json($return);
     }
 
     //CMS后台SKU管理
     public function sku()
     {
-        //设置面包导航，主加载器请配置
-        $bread = array(
-            '0' => array(
-                'name' => '商城首页',
-                'url' => U('Admin/Shop/index'),
-            ),
-            '1' => array(
-                'name' => '商品管理',
-                'url' => U('Admin/Shop/goods'),
-            ),
-            '1' => array(
-                'name' => '商品SKU管理',
-                'url' => U('Admin/Shop/skuattr', array('id' => $_GET['id'])),
-            ),
-        );
-        $this->assign('breadhtml', $this->getBread($bread));
-        $goodsid = I('id');
-        $this->assign('goodsid', $goodsid);
+        $goodsid = input('param.id');
         //绑定商品和skuinfo
         $goods = model('Shop_goods')->where('id=' . $goodsid)->find();
-        $this->assign('goods', $goods);
-        if ($goods['skuinfo']) {
-            $skuinfo = unserialize($goods['skuinfo']);
-            $skm = model('Shop_skuattr_item');
-            foreach ($skuinfo as $k => $v) {
-                $checked = explode(',', $v['checked']);
-                $attr = $skm->field('path,name')->where('pid=' . $v['attrid'])->select();
-                foreach ($attr as $kk => $vv) {
-                    $attr[$kk]['checked'] = in_array($vv['path'], $checked) ? 1 : '';
+        if(request()->isAjax()){
+            $type = input('param.type');
+            if($type==1)
+            {
+                if ($goods['skuinfo']) {
+                    $skuinfo = unserialize($goods['skuinfo']);
+                    $skm = model('Shop_skuattr_item');
+                    foreach ($skuinfo as $k=> $v) {
+                        $checked = array_filter(explode(',', $v['checked']));
+                        $attr = $skm->field('path,name')->where('pid',$v['attrid'])->select();
+                        $html_arr = [];
+                        foreach ($attr as $kk => $vv) {
+                            $checkedStr= in_array($vv['path'],$checked) ? "checked" : '';
+                            $html_arr[$kk] = '<label>';
+                            $html_arr[$kk] .= '<input type="checkbox" class="colored-blue App-check" '.$checkedStr.'  value="'.$vv['path'].'" data-label = "'.$vv['name'].'"><span class="text">'.$vv['name'].'</span>';
+                            $html_arr[$kk] .= '</label>';
+                        }
+                        
+                        $skuinfo[$k]['attrlabel'] = $v["attrlabel"]."<input type='hidden' class='dataskuid' value='".$v["attrid"]."'/><input type='hidden' class='dataskulabel' value='".$v["attrlabel"]."'/>";
+                        $skuinfo[$k]['items_list'] ='<div class="checkbox" style="margin-bottom: 0px; margin-top: 0px;">'.join('',$html_arr).'</div>';
+                        $skuinfo[$k]['operate'] = '<button class="App-skuattr-del btn btn-xs btn-darkorange" data-id="'.$v['attrid'].'" data-type="remove">移除此属性</button>';
+                    
+                    }
+                    $return['total'] = count($skuinfo);
+                    $return['rows'] = $skuinfo;
+                    $return['type'] = $type;
+                    return json($return);
                 }
-                $skuinfo[$k]['allitems'] = $attr;
+                else{
+                    $return['rows'] = [];
+                    $return['type'] = $type;
+                    return json($return);
+                }
+
+            }
+            else{
+                $param = input('param.');
+
+                $limit = $param['pageSize'];
+                $offset = ($param['pageNumber'] - 1) * $limit;
+                $where['goodsid'] = $goodsid;
+                $where['status'] = 1;
+                if (isset($param['searchText']) && !empty($param['searchText'])) {
+                    $where['skuattr'] = ['like', '%' . $param['searchText'] . '%'];
+                }
+                //绑定搜索条件与分页
+                $goodsSku = db('shop_goods_sku');;
+                $return['total'] = $goodsSku->where($where)->count(); //总数据
+                $selectResult = $goodsSku->where($where)->limit($offset,$limit)->order('id DESC')->select();
+                foreach($selectResult as $key=>$vo){
+                $operate = [
+                        '编辑' => "javascript:skuedit('".$vo['id']."')",
+                    ];
+
+                    $selectResult[$key]['operate'] = showOperate($operate);
+
+                }
+                $return['rows'] = $selectResult;
+                $return['type'] = $type;
+                return json($return);
             }
         }
-        //dump($skuinfo);
-
-        $this->assign('skuinfo', $skuinfo);
-        //绑定搜索条件与分页
-        $m = model('Shop_goods_sku');
-        //追入商品条件
-        $map['goodsid'] = $goodsid;
-        $p = $_GET['p'] ? $_GET['p'] : 1;
-        $name = I('name') ? I('name') : '';
-        $map['status'] = 1;
-        if ($name) {
-            $map['skuattr'] = array('like', "%$name%");
-            $this->assign('name', $name);
-        }
-        //$psize=self::$CMS['set']['pagesize']?self::$CMS['set']['pagesize']:20;
-        $psize = 50;
-        $cache = $m->where($map)->page($p, $psize)->select();
-        $count = $m->where($map)->count();
-        $this->getPage($count, $psize, 'App-loader', '商品SKU管理', 'App-search');
-        $this->assign('cache', $cache);
-        $this->display();
+         $this->assign('goodsid', $goodsid);
+         $this->assign('goodsname', $goods['name']);
+         
+         return $this->fetch();
     }
 
     //CMS后台sku设置
-    public function skuSet()
+    public function skuset()
     {
-        $id = I('id');
+        $id = input('param.id');
         $m = model('Shop_goods_sku');
         //处理编辑界面
-        $cache = $m->where('id=' . $id)->find();
-        $this->assign('cache', $cache);
-        //设置面包导航，主加载器请配置
-        $bread = array(
-            '0' => array(
-                'name' => '商城首页',
-                'url' => U('Admin/Shop/index'),
-            ),
-            '1' => array(
-                'name' => '商品SKU管理',
-                'url' => U('Admin/Shop/sku', array('id' => $cache['goodsid'])),
-            ),
-            '2' => array(
-                'name' => '商品SKU设置',
-                'url' => U('Admin/Shop/skuSet', array('id' => $id)),
-            ),
-        );
-        $this->assign('breadhtml', $this->getBread($bread));
+        $item = $m->where('id=' . $id)->find();
         //处理POST提交
-        if (IS_POST) {
+        if (request()->isPost()) {
             //只有保存模式
-            $data = I('post.');
-            $re = $m->where('id=' . $id)->save($data);
+            $data = input('post.');
+            $re = $m->save($data,["id"=>$id]);
             if (FALSE !== $re) {
                 //重新计算总库存
-                $totalnum = $m->where(array('goodsid' => $cache['goodsid'], 'status' => 1))->sumodel('num');
+                $totalnum = $m->where(array('goodsid' => $item['goodsid'], 'status' => 1))->sum('num');
                 if ($totalnum) {
-                    $rgg = model('Shop_goods')->where('id=' . $cache['goodsid'])->setField('num', $totalnum);
+                    $rgg = model('Shop_goods')->where('id=' . $item['goodsid'])->setField('num', $totalnum);
                 }
-                $info['status'] = 1;
-                $info['msg'] = '设置成功！';
+                $return['code'] = 1;
+                $return['msg'] = '设置成功！';
             } else {
-                $info['status'] = 0;
-                $info['msg'] = '设置失败！';
+                $return['code'] = 0;
+                $return['msg'] = '设置失败！';
             }
-            $this->ajaxReturn($info);
+            return json($return);
+        }
+        else
+        {
+            
+            $this->assign('item', $item);
+            return $this->fetch();
         }
 
-        $this->display();
     }
 
     //CMS后台SKU查找带回管理器
     public function skuLoader()
     {
         $m = model('Shop_skuattr');
-        $findback = I('fbid');
-        $this->assign('findback', $findback);
-        $map['id'] = array('not in', I('ids'));
-        $cache = $m->where($map)->select();
-        $this->assign('cache', $cache);
-        $this->ajaxReturn($this->fetch());
+        $map['id'] = array('not in', input('param.ids'));
+        $items = $m->where($map)->select();
+        $this->assign('items', $items);
+        return $this->fetch();
     }
 
     //CMS后台SKU查找带回模板
-    public function skuFindback()
+    public function skufindback()
     {
-        if (IS_AJAX) {
+        if (request()->isAjax()) {
             $m = model('Shop_skuattr');
-            $id = I('id');
-            $this->assign('findback', $findback);
+            $id = input('param.id');
             $map['id'] = $id;
-            $cache = $m->where($map)->limit(1)->find();
-            $this->assign('cache', $cache);
+            $attrItems = $m->where($map)->limit(1)->find();
             $items = model('Shop_skuattr_item')->where('pid=' . $id)->select();
-            $this->assign('items', $items);
-            $this->ajaxReturn($this->fetch());
+            $return['attr'] = $attrItems;
+            $return['attr_item'] = $items;
+            $return['code'] = 1;
+            $return['msg'] = "添加成功！";            
+            return json($return);
         } else {
-            utf8error('非法访问！');
+            $return['code'] = 0;
+            $return['msg'] = "非法访问！";
+            return json($return);
         }
     }
 
     //CMS后台广告分组
     public function ads()
     {
-        //绑定搜索条件与分页
-        $m = model('Shop_ads');
-        $p = $_GET['p'] ? $_GET['p'] : 1;
-        $name = I('name') ? I('name') : '';
-        if ($name) {
-            $map['name'] = array('like', "%$name%");
-            $this->assign('name', $name);
-        }
-        $psize = self::$CMS['set']['pagesize'] ? self::$CMS['set']['pagesize'] : 20;
-        $cache = $m->where($map)->page($p, $psize)->select();
-        foreach ($cache as $k => $v) {
-            $listpic = $this->getPic($v['pic']);
-            $cache[$k]['imgurl'] = $listpic['imgurl'];
-        }
-        $count = $m->where($map)->count();
-        $this->getPage($count, $psize, 'App-loader', '商城广告', 'App-search');
-        $this->assign('cache', $cache);
-        $this->display();
-    }
 
-    //CMS后台广告设置
-    public function adsSet()
-    {
-        $id = I('id');
-        $m = model('Shop_ads');
-        //设置面包导航，主加载器请配置
-        $bread = array(
-            '0' => array(
-                'name' => '商城首页',
-                'url' => U('Admin/Shop/index'),
-            ),
-            '1' => array(
-                'name' => '商城广告',
-                'url' => U('Admin/Shop/ads'),
-            ),
-            '2' => array(
-                'name' => '广告设置',
-                'url' => $id ? U('Admin/Shop/adsSet', array('id' => $id)) : U('Admin/Shop/adsSet'),
-            ),
-        );
-        $this->assign('breadhtml', $this->getBread($bread));
-        //处理POST提交
-        if (IS_POST) {
-            //die('aa');
-            $data = I('post.');
-            if ($id) {
-                $re = $m->save($data);
-                if (FALSE !== $re) {
-                    $info['status'] = 1;
-                    $info['msg'] = '设置成功！';
-                } else {
-                    $info['status'] = 0;
-                    $info['msg'] = '设置失败！';
-                }
-            } else {
-                $re = $m->add($data);
-                if ($re) {
-                    $info['status'] = 1;
-                    $info['msg'] = '设置成功！';
-                } else {
-                    $info['status'] = 0;
-                    $info['msg'] = '设置失败！';
-                }
+        if(request()->isAjax()){
+
+            $param = input('param.');
+
+            $limit = $param['pageSize'];
+            $offset = ($param['pageNumber'] - 1) * $limit;
+
+            $where = [];
+            if (isset($param['searchText']) && !empty($param['searchText'])) {
+                $where['name'] = ['like', '%' . $param['searchText'] . '%'];
             }
-            $this->ajaxReturn($info);
+            //绑定搜索条件与分页
+            $ads = model('Shop_ads');
+            $return['total'] = $ads->where($where)->count(); //总数据
+            $selectResult = $ads->where($where)->limit($offset,$limit)->order('id DESC')->select();
+
+            foreach($selectResult as $key=>$vo){
+                $selectResult[$key]['imgurl_img'] = "<img src='".$vo['pic']."' width='80px' height='40px'>";                
+                $operate = [
+                    '编辑' => "javascript:adsedit('".$vo['id']."')",
+                    '删除' => "javascript:adsDel('".$vo['id']."')"
+                ];
+
+                $selectResult[$key]['operate'] = showOperate($operate);
+
+            }
+            $return['rows'] = $selectResult;
+
+            return json($return);
         }
-        //处理编辑界面
-        if ($id) {
-            $cache = $m->where('id=' . $id)->find();
-            $this->assign('cache', $cache);
+        return $this->fetch();
+    }
+    //CMS后台关键词添加
+    public function adsadd(){
+        if (request()->isPost()) {
+            $ads = model('Shop_ads');
+            //新增处理
+            $params = input('post.');
+
+            $this->_getUpAdsFile($params);
+            $flag = $ads->insertData( $params );
+
+            if( 1 != $flag['code'] ){
+                return json( ['code' => -6, 'data' => '', 'msg' => '添加失败'] );
+            }
+            return json( ['code' => 1, 'data' => "", 'msg' => '添加成功'] );
+        }else{
+            return $this->fetch();
         }
-        $this->display();
+    }
+    //CMS后台关键词修改
+    public function adsedit(){
+            $ads = model('Shop_ads');
+        if (request()->isPost()) {
+            //新增处理
+            $params = input('post.');
+
+            // $has = $keyword->checkName( $params['keyword']);
+            // if ( !empty( $has ) ) {
+            //     return json( ['code' => -5, 'data' => '', 'msg' => '关键字重复'] );
+            // }
+            $this->_getUpAdsFile($params);
+            $flag = $ads->editData( $params );
+
+            if( 1 != $flag['code'] ){
+                return json( ['code' => -6, 'data' => '', 'msg' => '修改失败'] );
+            }
+            return json( ['code' => 1, 'data' => "", 'msg' => '修改成功'] );
+        }else{
+            $id = input('param.id');
+            $this->assign([
+                'item' => $ads->getOneData($id),
+            ]);
+            return $this->fetch();
+        }
     }
 
-    public function adsDel()
+    public function adsdel()
     {
-        $id = $_GET['id']; //必须使用get方法
+        $id = input('param.id'); //必须使用get方法
         $m = model('Shop_ads');
-        if (!id) {
-            $info['status'] = 0;
+        if (!$id) {
+            $info['code'] = 0;
             $info['msg'] = 'ID不能为空!';
-            $this->ajaxReturn($info);
+            return json( $info );
         }
-        $re = $m->delete($id);
+        $re = $m->where('id',$id)->delete();
         if ($re) {
-            $info['status'] = 1;
+            $info['code'] = 1;
             $info['msg'] = '删除成功!';
         } else {
-            $info['status'] = 0;
+            $info['code'] = 0;
             $info['msg'] = '删除失败!';
         }
-        $this->ajaxReturn($info);
+        return json( $info );
     }
 
     //CMS后台商城订单
@@ -2070,94 +1962,92 @@ class Shop extends Base
     //CMS后台标签列表
     public function label()
     {
-        //设置面包导航，主加载器请配置
-        $bread = array(
-            '0' => array(
-                'name' => '商城首页',
-                'url' => U('Admin/Shop/index'),
-            ),
-            '1' => array(
-                'name' => '标签列表',
-                'url' => U('Admin/Shop/label'),
-            ),
-        );
-        $this->assign('breadhtml', $this->getBread($bread));
-        //绑定搜索条件与分页
-        $m = model('Shop_label');
-        $p = $_GET['p'] ? $_GET['p'] : 1;
-        $name = I('name') ? I('name') : '';
-        if ($name) {
-            $map['name'] = array('like', "%$name%");
-            $this->assign("name", $name);
-        }
-        $psize = self::$CMS['set']['pagesize'] ? self::$CMS['set']['pagesize'] : 20;
-        $cache = $m->where($map)->page($p, $psize)->select();
-        $count = $m->where($map)->count();
-        $this->getPage($count, $psize, 'App-loader', '标签列表', 'App-search');
-        $this->assign('cache', $cache);
-        $this->display();
-    }
 
-    //CMS后台标签设置
-    public function labelSet()
-    {
-        $id = I('id');
-        $m = model('Shop_label');
-        //设置面包导航，主加载器请配置
-        $bread = array(
-            '0' => array(
-                'name' => '商城首页',
-                'url' => U('Admin/Shop/index'),
-            ),
-            '1' => array(
-                'name' => '标签列表',
-                'url' => U('Admin/Shop/label'),
-            ),
-            '2' => array(
-                'name' => '标签设置',
-                'url' => $id ? U('Admin/Shop/lebelSet', array('id' => $id)) : U('Admin/Shop/lebelSet'),
-            ),
-        );
-        $this->assign('breadhtml', $this->getBread($bread));
-        //处理POST提交
-        if (IS_POST) {
-            $data = I('post.');
-            $re = $id ? $m->save($data) : $m->add($data);
-            if (FALSE !== $re) {
-                $info['status'] = 1;
-                $info['msg'] = '设置成功！';
-            } else {
-                $info['status'] = 0;
-                $info['msg'] = '设置失败！';
+        if(request()->isAjax()){
+
+            $param = input('param.');
+
+            $limit = $param['pageSize'];
+            $offset = ($param['pageNumber'] - 1) * $limit;
+
+            $where = [];
+            if (isset($param['searchText']) && !empty($param['searchText'])) {
+                $where['name'] = ['like', '%' . $param['searchText'] . '%'];
             }
-            $this->ajaxReturn($info);
-        } else {
-            if ($id) {
-                $cache = $m->where('id=' . $id)->find();
-                $this->assign('cache', $cache);
+            //绑定搜索条件与分页
+            $label = model('Shop_label');
+            $return['total'] = $label->where($where)->count(); //总数据
+            $selectResult = $label->where($where)->limit($offset,$limit)->order('id DESC')->select();
+
+            foreach($selectResult as $key=>$vo){             
+                $operate = [
+                    '编辑' => "javascript:labeledit('".$vo['id']."')",
+                    '删除' => "javascript:labeldel('".$vo['id']."')"
+                ];
+
+                $selectResult[$key]['operate'] = showOperate($operate);
+
             }
-            $this->display();
+            $return['rows'] = $selectResult;
+
+            return json($return);
+        }
+        return $this->fetch();
+    }
+//添加label
+    public function labeladd(){
+        $label = model('Shop_label');
+        if (request()->isPost()) {
+            //新增处理
+            $params = input('post.');
+            $flag = $label->insertData( $params );
+
+            if( 1 != $flag['code'] ){
+                return json( ['code' => -6, 'data' => '', 'msg' => '添加失败'] );
+            }
+            return json( ['code' => 1, 'data' => "", 'msg' => '添加成功'] );
+        }else{
+            return $this->fetch();
         }
     }
+    public function labeledit(){
+        $label = model('Shop_label');
+        if (request()->isPost()) {
+            //新增处理
+            $params = input('post.');
+            $flag = $label->editData( $params );
 
-    public function labelDel()
-    {
-        $id = $_GET['id']; //必须使用get方法
-        $m = model('Shop_label');
-        if (!id) {
-            $info['status'] = 0;
-            $info['msg'] = 'ID不能为空!';
-            $this->ajaxReturn($info);
+            if( 1 != $flag['code'] ){
+                return json( ['code' => -6, 'data' => '', 'msg' => '修改失败'] );
+            }
+            return json( ['code' => 1, 'data' => "", 'msg' => '修改成功'] );
+        }else{
+            $id = input('param.id');         
+            $this->assign([
+                'item' => $label->getOneData($id),
+            ]);
+            return $this->fetch();
         }
-        $re = $m->delete($id);
+    }
+
+    public function labeldel()
+    {
+        $id = input('get.id'); //必须使用get方法
+        $m = model('Shop_label');
+        if (!$id) {
+            $return['code'] = 0;
+            $return['msg'] = 'ID不能为空!';
+            return json($return);
+        }
+        $re = $m->where("id",$id)->delete();
         if ($re) {
-            $info['status'] = 1;
-            $info['msg'] = '删除成功!';
+            $return['code'] = 1;
+            $return['msg'] = '删除成功!';
         } else {
-            $info['status'] = 0;
-            $info['msg'] = '删除失败!';
+            $return['code'] = 0;
+            $return['msg'] = '删除失败!';
         }
-        $this->ajaxReturn($info);
+        return json($return);
     }
 
     /**
@@ -2166,7 +2056,7 @@ class Shop extends Base
      * @param $title   excel的第一行标题,一个数组,如果为空则没有标题
      * @param $filename 下载的文件名
      * @examlpe
-    $stu = M ('User');
+     *$stu = M ('User');
      * $arr = $stu -> select();
      * exportexcel($arr,array('id','账户','密码','昵称'),'文件名!');
      */
@@ -2199,4 +2089,110 @@ class Shop extends Base
 
     }
 
+    
+    /**
+     * 上传图片方法
+     * @param $param
+     */
+    private function _getUpGroupFile(&$param)
+    {
+        // 获取表单上传文件
+        $file = request()->file('icon');
+
+        // 移动到框架应用根目录/public/uploads/ 目录下
+        if( !is_null( $file ) ){
+
+            $info = $file->move(ROOT_PATH . 'public' . DS . 'uploads');
+            if($info){
+                // 成功上传后 获取上传信息
+                $param['icon'] =  '/uploads' . '/' . date('Ymd') . '/' . $info->getFilename();
+            }else{
+                // 上传失败获取错误信息
+                echo $file->getError();
+            }
+        }else{
+            unset( $param['icon'] );
+        }
+
+    }
+
+    /**
+     * 上传图片方法
+     * @param $param
+     */
+    private function _getUpGoodsFile(&$param)
+    {
+        // 获取表单上传文件
+        $files = request()->file();
+        if(is_array($files))
+        {
+            foreach($files as $key=>$file){
+                if( !is_null( $file ) ){
+
+                    $info = $file->move(ROOT_PATH . 'public' . DS . 'uploads');
+                    if($info){
+                        // 成功上传后 获取上传信息
+                        $param[$key] =  '/uploads' . '/' . date('Ymd') . '/' . $info->getFilename();
+                    }else{
+                        // 上传失败获取错误信息
+                        echo $file->getError();
+                    }
+                }else{
+                    unset( $param[$key] );
+                }
+            }
+        }
+        
+    }
+
+    /**
+     * 上传图片方法
+     * @param $param
+     */
+    private function _getUpCateFile(&$param)
+    {
+        // 获取表单上传文件
+        $file = request()->file('icon');
+
+        // 移动到框架应用根目录/public/uploads/ 目录下
+        if( !is_null( $file ) ){
+
+            $info = $file->move(ROOT_PATH . 'public' . DS . 'uploads');
+            if($info){
+                // 成功上传后 获取上传信息
+                $param['icon'] =  '/uploads' . '/' . date('Ymd') . '/' . $info->getFilename();
+            }else{
+                // 上传失败获取错误信息
+                echo $file->getError();
+            }
+        }else{
+            unset( $param['icon'] );
+        }
+
+    }
+     /**
+     * 上传图片方法
+     * @param $param
+     */
+    private function _getUpAdsFile(&$param)
+    {
+        // 获取表单上传文件
+        $file = request()->file('pic');
+
+        // 移动到框架应用根目录/public/uploads/ 目录下
+        if( !is_null( $file ) ){
+
+            $info = $file->move(ROOT_PATH . 'public' . DS . 'uploads');
+            if($info){
+                // 成功上传后 获取上传信息
+                $param['pic'] =  '/uploads' . '/' . date('Ymd') . '/' . $info->getFilename();
+            }else{
+                // 上传失败获取错误信息
+                echo $file->getError();
+            }
+        }else{
+            unset( $param['pic'] );
+        }
+
+    }
 }

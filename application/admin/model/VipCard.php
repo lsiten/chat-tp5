@@ -3,9 +3,9 @@ namespace app\admin\model;
 
 use think\Model;
 
-class ShopAds extends Model
+class VipCard extends Model
 {
-    protected $table = 'lsiten_shop_ads';
+    protected $table = 'lsiten_vip_card';
     /**
      * 根据id获取关键字
      * @param $id

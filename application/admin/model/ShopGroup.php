@@ -3,9 +3,9 @@ namespace app\admin\model;
 
 use think\Model;
 
-class ShopAds extends Model
+class ShopGroup extends Model
 {
-    protected $table = 'lsiten_shop_ads';
+    protected $table = 'lsiten_shop_group';
     /**
      * 根据id获取关键字
      * @param $id

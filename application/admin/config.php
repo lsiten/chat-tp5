@@ -18,7 +18,8 @@ return [
         '__CSS__'    => '/static/admin/css',
         '__JS__'     => '/static/admin/js',
         '__IMG__' => '/static/admin/images',
-        '__COMMON__' => '/static'
+        '__COMMON__' => '/static',
+        '__UPLOAD__' => '/uploads'
     ),
     //微信关键字类型
     'wx_keyword_type'=>[

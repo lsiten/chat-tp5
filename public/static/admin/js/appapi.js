@@ -91,3 +91,4 @@ jQuery.App = {
         });
     }, //App.alert方法结束
 }; //插件结束
+
