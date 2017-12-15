@@ -3,11 +3,9 @@ namespace app\app\controller;
 use think\Controller;
 class Employee extends Controller{
     public function bindVip(){
-        session_start();
         $emp = input('param.employee');
         $eid = input('param.eid');
         $employee = db('employee')->where(array('userpass' => $emp, 'id' => $eid))->find();
-        print_r($_SESSION);
         $vip = db('vip')->where(array('openid' => session('sqopenid')))->find();
         if (!$employee) {
             $this->redirect('/index/index');
