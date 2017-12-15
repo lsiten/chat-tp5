@@ -7,8 +7,6 @@ class Employee extends Controller{
         $eid = input('param.eid');
         $employee = db('employee')->where(array('userpass' => $emp, 'id' => $eid))->find();
         $vip = db('vip')->where(array('openid' => session('sqopenid')))->find();
-        print_r(session('sqopenid'));
-        exit;
         if (!$employee) {
             $this->redirect('/index/index');
         } else if (!$vip) {
