@@ -28,12 +28,17 @@ class Base extends Controller
         }
 
         $this->prefix = Config::get('database.prefix');
+
         //刷新系统全局配置
-        self::$SYS['set'] = $_SESSION['SYS']['set'] = $this->checkSysSet();
+        self::$SYS['set']  = $this->checkSysSet();
+        session("SYS",['set'=>self::$SYS['set']]);
         //刷新CMS全局配置
-        self::$CMS['set'] = $_SESSION['CMS']['set'] = $this->checkSet();
+        self::$CMS['set']  = $this->checkSet();
+        session("CMS",['set'=>self::$CMS['set']]);
+        
         //刷新SHOP全局配置
-        self::$SHOP['set'] = $_SESSION['SHOP']['set'] = $this->checkShopSet();
+        self::$SHOP['set'] = $this->checkShopSet();
+        session("SHOP",['set'=>self::$SHOP['set']]);
         //检测权限
         $control = request()->controller();
         $action = request()->action();
