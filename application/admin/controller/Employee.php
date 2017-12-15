@@ -101,32 +101,46 @@ class Employee extends Base
     // 员工业绩
     public function achievement()
     {
-        //设置面包导航，主加载器请配置
-        $bread = array(
-            '0' => array(
-                'name' => '业绩统计',
-                'url' => U('Admin/Employee/achievement'),
-            ),
-            '1' => array(
-                'name' => '详情',
-            ),
-        );
-        $this->assign('breadhtml', $this->getBread($bread));
-        //绑定搜索条件与分页
-        $m = M('employee');
-        $p = $_GET['p'] ? $_GET['p'] : 1;
-        $search = I('search') ? I('search') : '';
-        if ($search) {
-            $map['username'] = array('like', "%$search%");
-            $this->assign('search', $search);
+   
+    if(request()->isAjax()){
+
+            $param = input('param.');
+
+            $limit = $param['pageSize'];
+            $offset = ($param['pageNumber'] - 1) * $limit;
+
+            $where = [];
+            if (isset($param['searchText']) && !empty($param['searchText'])) {
+                $where['username'] = ['like', '%' . $param['searchText'] . '%'];
+            }
+            //绑定搜索条件与分页
+            $employee = model('Employee');
+            $return['total'] = $employee->where($where)->count(); //总数据
+            $selectResult = $employee->caculateAchievement($where,$offset,$limit,'id DESC');
+
+
+            foreach($selectResult as $key=>$vo){
+
+                if($vo['vipid'] == 0)
+                {
+                    $operate = '<a href="javascript:employeeedit('.$vo['id'].')" class="btn btn-success btn-xs" data-loader="App-loader" data-loadername="员工设置"><i class="fa fa-edit"></i> 编辑</a>';
+                    $operate .= '<a href="javascript:employeeDel('.$vo['id'].')" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> 删除</a>';
+                    $operate .= '<a data-id="'.$vo['id'].'" href="javascript:;" onclick="showQrcode(this);" class="btn btn-info btn-xs"><i class="glyphicon glyphicon-resize-small"></i> 绑定</a>';
+                }
+                else{
+                    $operate = '<a href="javascript:employeeedit('.$vo['id'].')" class="btn btn-success btn-xs" data-loader="App-loader" data-loadername="员工设置"><i class="fa fa-edit"></i> 编辑</a>';
+                    $operate .= '<a href="javascript:employeeDel('.$vo['id'].')" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> 删除</a>';
+                    $operate .= '<a data-id="'.$vo['id'].'" href="javascript:;" onclick="showQrcode(this);" class="btn btn-info btn-xs"><i class="glyphicon glyphicon-resize-small"></i> 重绑</a>';
+                    $operate .= '<a href="javascript:unbindvip('.$vo['id'].')" class="btn btn-warning btn-xs"><i class="glyphicon glyphicon-resize-full"></i> 解绑</a>';      
+                }
+                $selectResult[$key]['operate'] = $operate;
+
+            }
+            $return['rows'] = $selectResult;
+
+            return json($return);
         }
-        $psize = self::$CMS['set']['pagesize'] ? self::$CMS['set']['pagesize'] : 20;
-        $cache = $m->where($map)->page($p, $psize)->select();
-        $cache = D('employee')->caculateAchievement($cache);
-        $count = $m->where($map)->count();
-        $this->getPage($count, $psize, 'App-loader', '员工列表', 'App-search');
-        $this->assign('cache', $cache);
-        $this->display();
+        return $this->fetch();
     }
 
     // 会员业绩
