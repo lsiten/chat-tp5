@@ -28,7 +28,7 @@ class Wx extends Base
         $m = db('Set');
         //处理POST提交
         if (Request::instance()->isPost()) {
-            $data = input('param.');
+            $data = input('post.');
             $this->_getUpFile( $data );  //处理上传图片
             $old = $m->find();
             if ($old) {
