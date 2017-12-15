@@ -6,6 +6,10 @@ use think\Model;
 class VipCard extends Model
 {
     protected $table = 'lsiten_vip_card';
+    protected $autoWriteTimestamp = true;
+    // 定义时间戳字段名
+    protected $createTime = 'ctime';
+    protected $updateTime = 'utime';
     /**
      * 根据id获取关键字
      * @param $id
@@ -21,9 +25,24 @@ class VipCard extends Model
      */
     public function insertData($param)
     {
+        if ($param['usetime'] != '') {
+            $timeArr = explode(" - ", $param['usetime']);
+            $param['stime'] = strtotime($timeArr[0]);
+            $param['etime'] = strtotime($timeArr[1]);
+        }
+        $num = $param['num'];
+        unset($param['usetime']);
+        unset($param['num']);
+        
         try{
-
-            $result =  $this->save($param);
+            $Data = [];
+            for ($i = 0; $i < $num; $i++) {
+                $cardnopwd = $this->getCardNoPwd();
+                $param['cardno'] = $cardnopwd['no'];
+                $param['cardpwd'] = $cardnopwd['pwd'];
+                $Data[] = $param;
+            }
+            $result = $this->saveAll($Data);
             if(false === $result){
                 // 验证失败 输出错误信息
                 return ['code' => -1, 'data' => '', 'msg' => $this->getError()];
@@ -36,27 +55,21 @@ class VipCard extends Model
             return ['code' => -2, 'data' => '', 'msg' => $e->getMessage()];
         }
     }
-
-    /**
-     * 编辑广告数据
-     * @param $param
-     */
-    public function editData($param)
+    private function getCardNoPwd()
     {
-        try{
-
-            $result =  $this->save($param, ['id' => $param['id']]);
-
-            if(false === $result){
-                // 验证失败 输出错误信息
-                return ['code' => 0, 'data' => '', 'msg' => $this->getError()];
-            }else{
-
-                return ['code' => 1, 'data' => '', 'msg' => '编辑用户成功'];
-            }
-        }catch( PDOException $e){
-            return ['code' => 0, 'data' => '', 'msg' => $e->getMessage()];
+        $dict_no = "0123456789";
+        $length_no = 10;
+        $dict_pwd = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        $length_pwd = 10;
+        $card['no'] = "";
+        $card['pwd'] = "";
+        for ($i = 0; $i < $length_no; $i++) {
+            $card['no'] .= $dict_no[rand(0, (strlen($dict_no) - 1))];
         }
+        for ($i = 0; $i < $length_pwd; $i++) {
+            $card['pwd'] .= $dict_pwd[rand(0, (strlen($dict_pwd) - 1))];
+        }
+        return $card;
     }
 
 }

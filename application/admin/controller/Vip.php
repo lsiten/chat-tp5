@@ -1,6 +1,6 @@
 <?php
 namespace app\admin\controller;
-
+use app\admin\model\VipCard;
 class Vip extends Base
 {
 
@@ -864,7 +864,14 @@ class Vip extends Base
             $selectResult = $ads->where($where)->limit($offset,$limit)->order('id DESC')->select();
 
             foreach($selectResult as $key=>$vo){
-                $selectResult[$key]['type_text'] = $vo['type']==1?"充值卡":"代金券";    
+                $selectResult[$key]['type_text'] = $vo['type']==1?"<div id='type".$vo['id']."'>充值卡</div>":"<div id='type".$vo['id']."'>代金券</div>";   
+                $selectResult[$key]['checkbox'] = '<div class="checkbox" style="margin-bottom: 0px; margin-top: 0px;">';
+                $selectResult[$key]['checkbox'] .='<label style="padding-left: 4px;"> <input name="checkvalue" type="checkbox" class="colored-blue App-check" value="'.$vo['id'].'">';
+                $selectResult[$key]['checkbox'] .='<span class="text"></span>';
+                $selectResult[$key]['checkbox'] .='</label> </div>';
+                
+                
+                $selectResult[$key]['money_text'] = "<div id='money".$vo['id']."'>".$vo['money']."</div>";
                 if($vo['stime'])
                 {
                     $selectResult[$key]['time_text'] =date("Y-m-d",$vo['stime'])."-".date("Y-m-d",$vo['etime']);               
@@ -883,13 +890,13 @@ class Vip extends Base
                 switch($vo['status'])
                 {
                     case 0:
-                        $selectResult[$key]['status_text'] = "生成";               
+                        $selectResult[$key]['status_text'] = "<div id='status".$vo['id']."'>生成</div>";               
                     break;
                     case 1:
-                        $selectResult[$key]['status_text'] = "已发卡";                                       
+                        $selectResult[$key]['status_text'] = "<div id='status".$vo['id']."'>已发卡</div>";                                       
                     break;
                     case 2:
-                        $selectResult[$key]['status_text'] = "已使用"; 
+                        $selectResult[$key]['status_text'] = "<div id='status".$vo['id']."'>已使用</div>"; 
                         $selectResult[$key]['usetime_text'] =date("Y-m-d",$vo['usetime']);                                     
                     break;
                 }           
@@ -910,119 +917,69 @@ class Vip extends Base
         return $this->fetch();
     }
 
-    public function cardSet()
-    {
-        $m = M('vip_card');
-        //设置面包导航，主加载器请配置
-        $bread = array(
-            '0' => array(
-                'name' => '会员中心',
-                'url' => U('Admin/Vip/#'),
-            ),
-            '1' => array(
-                'name' => '充值卡列表',
-                'url' => U('Admin/Vip/card'),
-            ),
-            '2' => array(
-                'name' => '充值卡设置',
-                'url' => U('Admin/Vip/cardSet'),
-            ),
-        );
-        $this->assign('breadhtml', $this->getBread($bread));
-        //处理POST提交
-        if (IS_POST) {
-            $data = I('post.');
-            $data['ctime'] = time();
-            if ($data['usetime'] != '') {
-                $timeArr = explode(" - ", $data['usetime']);
-                $data['stime'] = strtotime($timeArr[0]);
-                $data['etime'] = strtotime($timeArr[1]);
-            }
-            $num = $data['num'];
-            unset($data['usetime']);
-            unset($data['num']);
-            for ($i = 0; $i < $num; $i++) {
-                $cardnopwd = $this->getCardNoPwd();
-                $data['cardno'] = $cardnopwd['no'];
-                $data['cardpwd'] = $cardnopwd['pwd'];
-                $r = $m->add($data);
-            }
-            if ($r) {
-                $info['status'] = 1;
-                $info['msg'] = '设置成功！';
-            } else {
-                $info['status'] = 0;
-                $info['msg'] = '设置失败！';
-            }
-            $this->ajaxReturn($info);
-        } else {
-            $this->display();
-        }
+    public function cardadd(){
+        if (request()->isPost()) {
+            $keyword = new VipCard();
+            //新增处理
+            $params = input('post.');
+            $flag = $keyword->insertData( $params );
 
+            if( 1 != $flag['code'] ){
+                return json( ['code' => -6, 'data' => '', 'msg' => '添加失败'] );
+            }
+            return json( ['code' => 1, 'data' => "", 'msg' => '添加成功'] );
+        }else{
+            return $this->fetch();
+        }
     }
 
     public function cardDel()
     {
-        $id = $_GET['id']; //必须使用get方法
-        $m = M('vip_card');
-        if (!id) {
-            $info['status'] = 0;
-            $info['msg'] = 'ID不能为空!';
-            $this->ajaxReturn($info);
+        $id = input('param.id'); //必须使用get方法
+        $m = model('Vip_card');
+        if (!$id) {
+            $return['code'] = 0;
+            $return['msg'] = 'ID不能为空!';
+            return json($return);
         }
-        $re = $m->delete($id);
+        $re = $m->where(['id'=>$id])->delete();
         if ($re) {
-            $info['status'] = 1;
-            $info['msg'] = '删除成功!';
+            $return['code'] = 1;
+            $return['msg'] = '删除成功!';
         } else {
-            $info['status'] = 0;
-            $info['msg'] = '删除失败!';
+            $return['code'] = 0;
+            $return['msg'] = '删除失败!';
         }
-        $this->ajaxReturn($info);
+            return json($return);
     }
 
-    private function getCardNoPwd()
-    {
-        $dict_no = "0123456789";
-        $length_no = 10;
-        $dict_pwd = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-        $length_pwd = 10;
-        $card['no'] = "";
-        $card['pwd'] = "";
-        for ($i = 0; $i < $length_no; $i++) {
-            $card['no'] .= $dict_no[rand(0, (strlen($dict_no) - 1))];
-        }
-        for ($i = 0; $i < $length_pwd; $i++) {
-            $card['pwd'] .= $dict_pwd[rand(0, (strlen($dict_pwd) - 1))];
-        }
-        return $card;
-    }
+
 
     public function sendCard()
     {
-        $post = I('post.');
-        $m = M('vip_card');
+        $post = input('post.');
+        $m = model('Vip_card');
         if ($post['vipid'] == '') {
-            $info['status'] = 0;
-            $info['msg'] = '请输入发送会员ID！';
-            $this->ajaxReturn($info);
+            $return['status'] = 0;
+            $return['msg'] = '请输入发送会员ID！';
+            return json($return);
         }
-        if (!M('vip')->where('id=' . $post['vipid'])->find()) {
-            $info['status'] = 0;
-            $info['msg'] = '该会员不存在！';
-            $this->ajaxReturn($info);
+        if (!db('vip')->where('id=' . $post['vipid'])->find()) {
+            $return['status'] = 0;
+            $return['msg'] = '该会员不存在！';
+            return json($return);
         }
         $data['vipid'] = $post['vipid'];
         $data['status'] = 1;
-        $re = $m->where('id=' . $post['cardid'])->save($data);
+        $re = $m->save($data,['id'=>$post['cardid']]);
         if ($re) {
-            $info['status'] = 1;
-            $info['msg'] = '发送成功!';
+            $return['status'] = 1;
+            $return['msg'] = '发送成功!';
         } else {
-            $info['status'] = 0;
-            $info['msg'] = '发送失败!';
+            $return['status'] = 0;
+            $return['msg'] = '发送失败!';
         }
-        $this->ajaxReturn($info);
+        return json($return);
     }
 
     //CMS后台会员等级列表

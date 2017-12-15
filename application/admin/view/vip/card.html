@@ -11,7 +11,8 @@
     <link href="/static/admin/css/animate.min.css" rel="stylesheet">
     <link href="/static/admin/css/style.min.css?v=4.1.0" rel="stylesheet">
     <link href="/static/admin/css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
-    <style>
+    <link href="/static/admin/css/beyond.min.css" rel="stylesheet">             
+   <style>
         .ibox-title span{cursor: pointer}
         .tab-content{ padding-top:20px;}
     </style>
@@ -43,8 +44,8 @@
         <div class="ibox-content">
             <div class="row">
                             <div class="form-group pull-right">
-                                <button class="btn btn-outline btn-primary addCard" type="button">新增卡券</button>
-                                <button class="btn btn-outline btn-success sendCard" type="button">发送卡券</button>
+                                <button style="color:#fff" class="btn btn-outline btn-primary addCard" type="button">新增卡券</button>
+                                <button style="color:#fff" class="btn btn-outline btn-success sendCard" type="button">发送卡券</button>
                             </div>
                             <!--搜索框开始-->
                             <form id='commentForm' role="form" method="post" class="form-inline">
@@ -65,11 +66,19 @@
                                 <div class="example">
                                     <table id="cusTable" data-height="850">
                                         <thead>
+                                            <th data-field="checkbox">
+                                                <div class="checkbox" style="margin-bottom: 0px; margin-top: 0px;">
+                                                    <label style="padding-left: 4px;"> 
+                                                        <input type="checkbox" class="App-checkall colored-blue">
+                                                        <span class="text"></span>
+                                                    </label>                                    
+                                                </div>
+                                            </th>
                                             <th data-field="id">ID</th>
                                             <th data-field="type_text">类型</th>
                                             <th data-field="cardno">卡券编号</th>
                                             <th data-field="cardpwd">卡券密码</th>
-                                            <th data-field="money">金额</th>
+                                            <th data-field="money_text">金额</th>
                                             <th data-field="time_text">有效期</th>
                                             <th data-field="usemoney_text">使用规则</th>
                                             <th data-field="ctime_text">创建时间</th>
@@ -97,9 +106,37 @@
 <script src="/static/admin/js/plugins/suggest/bootstrap-suggest.min.js"></script>
 <script src="/static/admin/js/plugins/sweetalert/sweetalert.min.js"></script>
 <script src="/static/admin/js/plugins/layer/layer.min.js"></script>
+<script src="/static/admin/js/toastr/toastr.js"></script>
+<script src="/static/admin/js/beyond.min.js"></script>
+<script src="/static/admin/js/appapi.js"></script>
+<script src="/static/admin/js/bootbox/bootbox.js"></script> 
 <script type="text/javascript">
-
-   function initTable() {
+var RootPath = "__COMMON__";
+	$("#cusTable").on('click','.App-check',function(e){
+            if($(e).is(":checked")){
+                $(e).removeAttr("checked");
+            }else{
+                $(e).prop("checked","checked");
+            }  
+    });
+    $("#cusTable").on('click','tr',function(e){
+            var tr = $(e.target).parent('tr');   
+            var c=$(tr).find("input[type=checkbox]");
+            if($(c).is(":checked")){
+                $(c).removeAttr("checked");
+            }else{
+                $(c).prop("checked","checked");
+            } 
+    });
+    //全选
+	$(".example").on('click','.App-checkall',function(){
+        if($(this).is(":checked")){			
+			$('.App-check').prop("checked","checked");
+		}else{
+			$('.App-check').removeAttr("checked");
+		}
+	});
+   function initTable() {    
         //先销毁表格
         $('#cusTable').bootstrapTable('destroy');
         //初始化表格,动态从服务器加载数据
@@ -139,42 +176,63 @@
         //当点击查询按钮的时候执行
         $("#search").bind("click", initTable);
 
-        $(".addAds").click(function(){
+        $(".addCard").click(function(){
             //iframe层
             layer.open({
                 type: 2,
-                title: '新增广告',
+                title: '新增卡券',
                 shadeClose: true,
                 shade: false,
                 maxmin: false, //开启最大化最小化按钮
                 area: ['850px', '460px'],
-                content: "{:url('shop/adsadd')}"
+                content: "{:url('vip/cardadd')}"
             });
         });
 
+        //发送给会员
+	$(".sendCard").on('click', function () {
+		var checks=$(".App-check:checked");
+		if(checks.length==0){
+			$.App.alert('danger','请选择要发送的卡券！');
+			return false;
+		}
+		if(checks.length>1){
+			$.App.alert('danger','单次仅能发送一张卡券！');
+			return false;
+		}
+		var cardid=checks.val();
+		var cardstatus=$('#status'+cardid).text();
+		if(cardstatus!='生成'){
+			$.App.alert('danger','此卡券不能发放！');
+			return false;
+		}
+		if($('#type'+cardid).text()=='充值卡'){
+			$.App.alert('danger','充值卡暂不支持线上发放！');
+			return false;
+		}
+		var carddetail=$('#money'+cardid).text()+"元"+$('#type'+cardid).text()+"　发送给：";
+		
+		
+        bootbox.prompt(carddetail, function (result) {
+            if (result != null) {
+                var data={'cardid':cardid,'vipid':result};
+                var tourl="{:url('/admin/vip/sendcard')}";
+            	$.App.ajax('post',tourl,data,function(){
+                    initTable();
+                });
+            }
+        });
+        
     });
 
+    });
 
-    function adsedit(id){
-        //iframe层
-        layer.open({
-            type: 2,
-            title: '编辑广告',
-            shadeClose: true,
-            shade: false,
-            maxmin: false, //开启最大化最小化按钮
-            area: ['850px', '520px'],
-            content: '/index.php/admin/shop/adsedit/id/'+id
-
-        });
-    }
-
-    function adsDel(id){
+    function cardDel(id){
 
 
-        layer.confirm('确认删除此广告吗?', {icon: 3, title:'提示'}, function(index){
+        layer.confirm('确认删除此卡券吗?', {icon: 3, title:'提示'}, function(index){
             //do something
-            $.getJSON('./adsdel', {'id' : id}, function(res){
+            $.getJSON('./cardDel', {'id' : id}, function(res){
                 if(res.code == 1){
                     layer.alert('删除成功', function(){
                         initTable();

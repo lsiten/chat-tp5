@@ -3,7 +3,7 @@
 // | 员工管理基础类--Admin分组Employee类
 // +----------------------------------------------------------------------
 namespace app\admin\controller;
-
+use app\admin\model\Employee as EmployeeModel;
 class Employee extends Base
 {
 
@@ -13,7 +13,7 @@ class Employee extends Base
     {
         //你可以在此覆盖父类方法
         parent::_initialize();
-        self::$_memployee = D('employee');
+        self::$_memployee = db('employee');
     }
 
     //默认跳转至登陆页面
@@ -25,30 +25,79 @@ class Employee extends Base
     // 员工列表
     public function employeeList()
     {
-        //设置面包导航，主加载器请配置
-        $bread = array(
-            '0' => array(
-                'name' => '员工列表',
-                'url' => U('Admin/Employee/employeeList'),
-            ),
-        );
-        $this->assign('breadhtml', $this->getBread($bread));
-        //绑定搜索条件与分页
-        $m = M('employee');
-        $p = $_GET['p'] ? $_GET['p'] : 1;
-        $search = I('search') ? I('search') : '';
-        if ($search) {
-            $map['username'] = array('like', "%$search%");
-            $this->assign('search', $search);
+        if(request()->isAjax()){
+
+            $param = input('param.');
+
+            $limit = $param['pageSize'];
+            $offset = ($param['pageNumber'] - 1) * $limit;
+
+            $where = [];
+            if (isset($param['searchText']) && !empty($param['searchText'])) {
+                $where['username'] = ['like', '%' . $param['searchText'] . '%'];
+            }
+            //绑定搜索条件与分页
+            $employee = model('Employee');
+            $return['total'] = $employee->where($where)->count(); //总数据
+            $selectResult = $employee->where($where)->limit($offset,$limit)->order('id DESC')->select();
+
+
+            foreach($selectResult as $key=>$vo){
+
+                if($vo['vipid'] == 0)
+                {
+                    $operate = '<a href="javascript:employeeedit('.$vo['id'].')" class="btn btn-success btn-xs" data-loader="App-loader" data-loadername="员工设置"><i class="fa fa-edit"></i> 编辑</a>';
+                    $operate .= '<a href="javascript:employeeDel('.$vo['id'].')" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> 删除</a>';
+                    $operate .= '<a data-id="'.$vo['id'].'" href="javascript:;" onclick="showQrcode(this);" class="btn btn-info btn-xs"><i class="glyphicon glyphicon-resize-small"></i> 绑定</a>';
+                }
+                else{
+                    $operate = '<a href="javascript:employeeedit('.$vo['id'].')" class="btn btn-success btn-xs" data-loader="App-loader" data-loadername="员工设置"><i class="fa fa-edit"></i> 编辑</a>';
+                    $operate .= '<a href="javascript:employeeDel('.$vo['id'].')" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> 删除</a>';
+                    $operate .= '<a data-id="'.$vo['id'].'" href="javascript:;" onclick="showQrcode(this);" class="btn btn-info btn-xs"><i class="glyphicon glyphicon-resize-small"></i> 重绑</a>';
+                    $operate .= '<a href="javascript:unbindvip('.$vo['id'].')" class="btn btn-warning btn-xs"><i class="glyphicon glyphicon-resize-full"></i> 解绑</a>';      
+                }
+                $selectResult[$key]['operate'] = $operate;
+
+            }
+            $return['rows'] = $selectResult;
+
+            return json($return);
         }
-        $psize = self::$CMS['set']['pagesize'] ? self::$CMS['set']['pagesize'] : 20;
-        $cache = $m->where($map)->page($p, $psize)->select();
-        $count = $m->where($map)->count();
-        $this->getPage($count, $psize, 'App-loader', '员工列表', 'App-search');
-        $this->assign('cache', $cache);
-        $this->display();
+        return $this->fetch();
+    }
+    public function employeeadd(){
+         if (request()->isPost()) {
+            $EmployeeModel = new EmployeeModel();
+            //新增处理
+            $params = input('post.');
+            $flag = $EmployeeModel->insertData( $params );
+
+            if( 1 != $flag['code'] ){
+                return json( ['code' => -6, 'data' => '', 'msg' => $flag['msg']] );
+            }
+            return json( ['code' => 1, 'data' => "", 'msg' => '添加成功'] );
+        }else{
+            return $this->fetch();
+        }
     }
 
+    public function employeeedit(){
+        $EmployeeModel = new EmployeeModel();
+        if (request()->isPost()) {
+           //新增处理
+           $params = input('post.');
+           $flag = $EmployeeModel->editData( $params );
+
+           if( 1 != $flag['code'] ){
+               return json( ['code' => -6, 'data' => '', 'msg' => $flag['msg']] );
+           }
+           return json( ['code' => 1, 'data' => "", 'msg' => '修改成功'] );
+       }else{
+           $id = input('param.id');
+           $this->assign('item',$EmployeeModel->getOneData($id));
+           return $this->fetch();
+       }
+   }
     // 员工业绩
     public function achievement()
     {
@@ -130,121 +179,57 @@ class Employee extends Base
         $this->display();
     }
 
-    // 员工设置
-    public function employeeSet()
-    {
-        $id = I('id');
-        $m = M('employee');
-        //设置面包导航，主加载器请配置
-        $bread = array(
-            '0' => array(
-                'name' => '员工列表',
-                'url' => U('Admin/User/userList'),
-            ),
-            '1' => array(
-                'name' => '员工编辑',
-            ),
-        );
-        $this->assign('breadhtml', $this->getBread($bread));
-        //处理POST提交
-        if (IS_POST) {
-            //die('aa');
-            $data = I('post.');
-            // 总权重不能超标
-            $weight = $m->where(array('id' => array('neq', $id)))->sum('weight');
-            if ($weight + $data['weight'] > 100) {
-                $info['status'] = 0;
-                $info['msg'] = '所有员工总权重不可超过100！';
-                $this->ajaxReturn($info);
-            }
-            if ($id) {
-                if ($data['userpass']) {
-                    $data['userpass'] = md5($data['userpass']);
-                } else {
-                    unset($data['userpass']);
-                }
-                $re = $m->save($data);
-                if (FALSE !== $re) {
-                    $info['status'] = 1;
-                    $info['msg'] = '设置成功！';
-                } else {
-                    $info['status'] = 0;
-                    $info['msg'] = '设置失败！';
-                }
-            } else {
-                $data['userpass'] = md5($data['userpass']);
-                $re = $m->add($data);
-                if ($re) {
-                    $info['status'] = 1;
-                    $info['msg'] = '设置成功！';
-                } else {
-                    $info['status'] = 0;
-                    $info['msg'] = '设置失败！';
-                }
-            }
-            $this->ajaxReturn($info);
-        }
-        // $oath = M('User_oath')->where(array('status' => 1))->select();
-        // $this->assign('oath', $oath);
-        //处理编辑界面
-        if ($id) {
-            $cache = $m->where('id=' . $id)->find();
-            $this->assign('cache', $cache);
-        }
-        $this->display();
-    }
-
     // 员工绑定二维码
     public function getqrcode()
     {
-        $employeeid = I('eid');
-        $employee = M('employee')->where(array('id' => $employeeid))->find();
+        $employeeid = input('param.eid');
+        $employee = model('employee')->where(array('id' => $employeeid))->find();
         $url = self::$SYS['set']['wxurl'] . '/App/Employee/bindVip/employee/' . $employee['userpass'] . '/eid/' . $employee['id'];
-        $QR = new \Util\QRcode();
+        $QR = new \wx\QRcode();
         $QR::png($url);
     }
 
     // 解除绑定
     public function unbindVip()
     {
-        $employeeid = $_GET['eid'];
-        $employee = M('employee')->where(array('id' => $employeeid))->find();
+        $employeeid = input('param.eid');
+        $employee = model('Employee')->where(array('id' => $employeeid))->find();
         if ($employee) {
-            $employee['vipid'] = 0;
-            $re = M('employee')->save($employee);
+            $employeeData['vipid'] = 0;
+            $re = model('employee')->save($employeeData,['id'=>$employee->id]);
             if ($re) {
-                $info['status'] = 1;
-                $info['msg'] = '解绑成功!';
+                $return['code'] = 1;
+                $return['msg'] = '解绑成功!';
             } else {
-                $info['status'] = 0;
-                $info['msg'] = '解绑失败!';
+                $return['code'] = 0;
+                $return['msg'] = '解绑失败!';
             }
         } else {
-            $info['status'] = 0;
-            $info['msg'] = '未知数据!';
+            $return['code'] = 0;
+            $return['msg'] = '未知数据!';
         }
-        $this->ajaxReturn($info);
+        return json($return);
     }
 
     // 删除员工
     public function employeeDel()
     {
-        $id = $_GET['id'];//必须使用get方法
-        $m = M('Employee');
+        $id = input('param.id');//必须使用get方法
+        $m = model('Employee');
         if (!$id) {
-            $info['status'] = 0;
-            $info['msg'] = 'ID不能为空!';
-            $this->ajaxReturn($info);
+            $return['code'] = 0;
+            $return['msg'] = 'ID不能为空!';
+            return json($return);
         }
-        $re = $m->delete($id);
+        $re = $m->where("id",$id)->delete();
         if ($re) {
-            $info['status'] = 1;
-            $info['msg'] = '删除成功!';
+            $return['code'] = 1;
+            $return['msg'] = '删除成功!';
         } else {
-            $info['status'] = 0;
-            $info['msg'] = '删除失败!';
+            $return['code'] = 0;
+            $return['msg'] = '删除失败!';
         }
-        $this->ajaxReturn($info);
+        return json($return);
     }
 
     // =====================================================

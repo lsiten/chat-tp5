@@ -311,35 +311,36 @@ class Wx extends Base
     // 微信端推广二维码背景设置
     public function qrcodeBgEmpSet()
     {
-        //设置面包导航，主加载器请配置
-        $bread = array(
-            '0' => array(
-                'name' => '员工二维码背景设置',
-            ),
-        );
-        $this->assign('breadhtml', $this->getBread($bread));
+
+         //设置面包导航，主加载器请配置
         if (Request::instance()->isPost()) {
-            $name = 'QRcode/background/bg_' . time() . '.jpg';
-            if ($_FILES['qrcode']['error'] > 0) {
-                echo $name;
-                echo "<script>parent.replaceFuck();</script>";
-            } else {
-                if (move_uploaded_file($_FILES['qrcode']['tmp_name'], $name)) {
-                    db('autoset')->save(array('id' => 1, 'qrcode_emp_background' => $name));
-                    echo "<script>parent.replaceok();</script>";
-                } else {
-                    echo $name . "asd";
-                    echo "<script>parent.replaceFuck();</script>";
+
+             // 获取表单上传文件
+                $file = request()->file('qrcode');
+        
+                // 移动到框架应用根目录/public/uploads/ 目录下
+                if( !is_null( $file ) ){
+                    $info = $file->move(ROOT_PATH . 'public' . DS . 'uploads');
+                    if($info){
+                        // 成功上传后 获取上传信息
+                        $qrcode =  '/uploads' . '/' . date('Ymd') . '/' . $info->getFilename();
+                        db('autoset')->update(array('id' => 1, 'qrcode_emp_background' => $qrcode));
+                        return json(['code' => 1, 'data' => '', 'msg' => '二维码背景更改成功！']);
+                    }else{
+                        // 上传失败获取错误信息
+                        return json(['code' => -1, 'data' => '', 'msg' => $file->getError()]);                    
+                    }
+                }else{
+                    return json(['code' => -1, 'data' => '', 'msg' => '二维码背景为空！']);
                 }
-            }
-            exit();
+
         }
         $autoset = db('autoset')->find();
         if (!$autoset) {
             echo "系统未配置";
         }
-        $this->assign('img', __ROOT__ . '/' . $autoset['qrcode_emp_background']);
-        return $this->fetch();
+        $this->assign('img', $autoset['qrcode_emp_background']);
+        return $this->fetch(); 
     }
 
     // Admin后台微信自定义菜单设置
