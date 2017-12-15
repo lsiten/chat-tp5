@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>员工绑定</title>
+<style>
+body{
+	margin:0;
+	padding:0;
+	width:100%;
+	background:#000;
+}
+#bodybox{
+	position:relative;
+	margin:0 auto;
+	height:100%;
+	background:url({$img}) no-repeat;
+	background-size:100%;
+	overflow:hidden;
+}
+</style>
+</head>
+
+<body>
+	<div id="bodybox"></div>
+
+	<script>
+    window.onload = function()
+    {
+        document.getElementById("bodybox").style.width = document.documentElement.clientWidth + "px";
+        var width = document.documentElement.clientWidth;
+        var height = document.documentElement.clientHeight;
+        document.getElementById("bodybox").style.height = Math.floor(height) + 'px';
+    }
+    </script>
+
+</body>
+</html>
