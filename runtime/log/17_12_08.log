@@ -1,0 +1,243 @@
+[ 2017-12-08T00:29:30+08:00 ] 172.19.127.20 116.252.174.147 GET /api.php/api/video/videoList?_t=1512664171598&page=0
+[ log ] api.lsiten.cn/api.php/api/video/videoList?_t=1512664171598&page=0 [运行时间：0.025978s][吞吐率：38.49req/s] [内存消耗：3,034.70kb] [文件加载：50]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'video',
+    2 => 'videoList',
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method videoList ] {
+  @@ /var/www/api/chat-tp5/app/api/controller/Video.php 166 - 206
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql:array (
+  'type' => 'mysql',
+  'dsn' => '',
+  'hostname' => '127.0.0.1',
+  'database' => 'laychat',
+  'username' => 'root',
+  'password' => '2012.lei',
+  'hostport' => '3306',
+  'params' => 
+  array (
+  ),
+  'charset' => 'utf8',
+  'prefix' => 'lsiten_',
+  'debug' => true,
+  'deploy' => 0,
+  'rw_separate' => false,
+  'master_num' => 1,
+  'slave_no' => '',
+  'fields_strict' => true,
+  'auto_timestamp' => false,
+  'resultset_type' => 'array',
+  'sql_explain' => false,
+)
+[ info ] [ DB ] CONNECT: mysql:dbname=laychat;host=127.0.0.1;port=3306;charset=utf8
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/var/www/api/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `lsiten_creation` LIMIT 1   [ RunTime:0.000150s ]
+[ sql ] [ SQL ] SELECT creation.id,creation.title,creation.videoid,creation.audio_public_id,creation.video_qiniu_key,creation.video_qiniu_thumb,creation.createAt,creation.updateAt,creation.user,doguser.id AS userdata__id,doguser.phoneNumber AS userdata__phoneNumber,doguser.areaCode AS userdata__areaCode,doguser.verifyCode AS userdata__verifyCode,doguser.accessToken AS userdata__accessToken,doguser.nickname AS userdata__nickname,doguser.sex AS userdata__sex,doguser.breed AS userdata__breed,doguser.age AS userdata__age,doguser.avatar AS userdata__avatar,doguser.createAt AS userdata__createAt,doguser.updateAt AS userdata__updateAt FROM lsiten_creation creation INNER JOIN lsiten_doguser doguser ON creation.user=doguser.id  ORDER BY `createAt`  desc LIMIT 0,5   [ RunTime:0.000310s ]
+[ sql ] [ SQL ] SELECT * FROM `lsiten_videolike` WHERE  `videoid` = '1'  [ RunTime:0.000144s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `lsiten_videolike` WHERE  `userid` = '1'  AND `isLike` = '1' LIMIT 1     [ RunTime:0.000157s ]
+
+[ 2017-12-08T00:29:38+08:00 ] 172.19.127.20 116.252.174.147 GET /api.php/api/video/videoList?_t=1512664180929&page=0&userid=1
+[ log ] api.lsiten.cn/api.php/api/video/videoList?_t=1512664180929&page=0&userid=1 [运行时间：0.025418s][吞吐率：39.34req/s] [内存消耗：3,034.83kb] [文件加载：50]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'video',
+    2 => 'videoList',
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method videoList ] {
+  @@ /var/www/api/chat-tp5/app/api/controller/Video.php 166 - 206
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql:array (
+  'type' => 'mysql',
+  'dsn' => '',
+  'hostname' => '127.0.0.1',
+  'database' => 'laychat',
+  'username' => 'root',
+  'password' => '2012.lei',
+  'hostport' => '3306',
+  'params' => 
+  array (
+  ),
+  'charset' => 'utf8',
+  'prefix' => 'lsiten_',
+  'debug' => true,
+  'deploy' => 0,
+  'rw_separate' => false,
+  'master_num' => 1,
+  'slave_no' => '',
+  'fields_strict' => true,
+  'auto_timestamp' => false,
+  'resultset_type' => 'array',
+  'sql_explain' => false,
+)
+[ info ] [ DB ] CONNECT: mysql:dbname=laychat;host=127.0.0.1;port=3306;charset=utf8
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/var/www/api/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `lsiten_creation` WHERE  `user` = '1' LIMIT 1    [ RunTime:0.000203s ]
+[ sql ] [ SQL ] SELECT creation.id,creation.title,creation.videoid,creation.audio_public_id,creation.video_qiniu_key,creation.video_qiniu_thumb,creation.createAt,creation.updateAt,creation.user,doguser.id AS userdata__id,doguser.phoneNumber AS userdata__phoneNumber,doguser.areaCode AS userdata__areaCode,doguser.verifyCode AS userdata__verifyCode,doguser.accessToken AS userdata__accessToken,doguser.nickname AS userdata__nickname,doguser.sex AS userdata__sex,doguser.breed AS userdata__breed,doguser.age AS userdata__age,doguser.avatar AS userdata__avatar,doguser.createAt AS userdata__createAt,doguser.updateAt AS userdata__updateAt FROM lsiten_creation creation INNER JOIN lsiten_doguser doguser ON creation.user=doguser.id  WHERE  `user` = '1' ORDER BY `createAt`  desc LIMIT 0,5    [ RunTime:0.000305s ]
+[ sql ] [ SQL ] SELECT * FROM `lsiten_videolike` WHERE  `videoid` = '1'  [ RunTime:0.000158s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `lsiten_videolike` WHERE  `userid` = '1'  AND `isLike` = '1' LIMIT 1     [ RunTime:0.000148s ]
+
+[ 2017-12-08T00:29:42+08:00 ] 172.19.127.20 116.252.174.147 GET /api.php/api/video/coment?_t=1512664184205&accessToken=%7Be510261d-5ea3-8345-60b4-0419d3ab0a6f%7D&page=1&videoid=1
+[ log ] api.lsiten.cn/api.php/api/video/coment?_t=1512664184205&accessToken=%7Be510261d-5ea3-8345-60b4-0419d3ab0a6f%7D&page=1&videoid=1 [运行时间：0.022738s][吞吐率：43.98req/s] [内存消耗：2,866.77kb] [文件加载：48]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'video',
+    2 => 'coment',
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method coment ] {
+  @@ /var/www/api/chat-tp5/app/api/controller/Video.php 263 - 302
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ DB ] INIT mysql:array (
+  'type' => 'mysql',
+  'dsn' => '',
+  'hostname' => '127.0.0.1',
+  'database' => 'laychat',
+  'username' => 'root',
+  'password' => '2012.lei',
+  'hostport' => '3306',
+  'params' => 
+  array (
+  ),
+  'charset' => 'utf8',
+  'prefix' => 'lsiten_',
+  'debug' => true,
+  'deploy' => 0,
+  'rw_separate' => false,
+  'master_num' => 1,
+  'slave_no' => '',
+  'fields_strict' => true,
+  'auto_timestamp' => false,
+  'resultset_type' => 'array',
+  'sql_explain' => false,
+)
+[ info ] [ DB ] CONNECT: mysql:dbname=laychat;host=127.0.0.1;port=3306;charset=utf8
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/var/www/api/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+[ sql ] [ SQL ] SELECT * FROM `lsiten_doguser` WHERE  `accessToken` = '{e510261d-5ea3-8345-60b4-0419d3ab0a6f}' LIMIT 1    [ RunTime:0.000280s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `lsiten_videocoment` WHERE  `video` = '1'  AND `reply` = '0' LIMIT 1     [ RunTime:0.000167s ]
+[ sql ] [ SQL ] SELECT * FROM `lsiten_videocoment` WHERE  `video` = '1'  AND `reply` = '0' ORDER BY `createAt`  desc LIMIT 0,10     [ RunTime:0.000161s ]
+
+[ 2017-12-08T09:26:34+08:00 ] 172.19.127.20 116.252.174.147 GET /api.php/api/video/videoList?_t=1512696392768&page=0
+[ log ] api.lsiten.cn/api.php/api/video/videoList?_t=1512696392768&page=0 [运行时间：0.026171s][吞吐率：38.21req/s] [内存消耗：3,034.71kb] [文件加载：50]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'video',
+    2 => 'videoList',
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method videoList ] {
+  @@ /var/www/api/chat-tp5/app/api/controller/Video.php 166 - 206
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql:array (
+  'type' => 'mysql',
+  'dsn' => '',
+  'hostname' => '127.0.0.1',
+  'database' => 'laychat',
+  'username' => 'root',
+  'password' => '2012.lei',
+  'hostport' => '3306',
+  'params' => 
+  array (
+  ),
+  'charset' => 'utf8',
+  'prefix' => 'lsiten_',
+  'debug' => true,
+  'deploy' => 0,
+  'rw_separate' => false,
+  'master_num' => 1,
+  'slave_no' => '',
+  'fields_strict' => true,
+  'auto_timestamp' => false,
+  'resultset_type' => 'array',
+  'sql_explain' => false,
+)
+[ info ] [ DB ] CONNECT: mysql:dbname=laychat;host=127.0.0.1;port=3306;charset=utf8
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/var/www/api/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `lsiten_creation` LIMIT 1   [ RunTime:0.000149s ]
+[ sql ] [ SQL ] SELECT creation.id,creation.title,creation.videoid,creation.audio_public_id,creation.video_qiniu_key,creation.video_qiniu_thumb,creation.createAt,creation.updateAt,creation.user,doguser.id AS userdata__id,doguser.phoneNumber AS userdata__phoneNumber,doguser.areaCode AS userdata__areaCode,doguser.verifyCode AS userdata__verifyCode,doguser.accessToken AS userdata__accessToken,doguser.nickname AS userdata__nickname,doguser.sex AS userdata__sex,doguser.breed AS userdata__breed,doguser.age AS userdata__age,doguser.avatar AS userdata__avatar,doguser.createAt AS userdata__createAt,doguser.updateAt AS userdata__updateAt FROM lsiten_creation creation INNER JOIN lsiten_doguser doguser ON creation.user=doguser.id  ORDER BY `createAt`  desc LIMIT 0,5   [ RunTime:0.000313s ]
+[ sql ] [ SQL ] SELECT * FROM `lsiten_videolike` WHERE  `videoid` = '1'  [ RunTime:0.000158s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `lsiten_videolike` WHERE  `userid` = '1'  AND `isLike` = '1' LIMIT 1     [ RunTime:0.000155s ]
+

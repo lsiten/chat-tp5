@@ -1,0 +1,125 @@
+[ 2017-12-03T15:19:09+08:00 ] 172.19.127.20 116.8.55.189 GET /api.php/index/login/index.html
+[ log ] api.lsiten.cn/api.php/index/login/index.html [运行时间：0.059527s][吞吐率：16.80req/s] [内存消耗：1,428.05kb] [文件加载：33]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'login',
+    2 => 'index',
+  ),
+)
+[ info ] [ LANG ] /var/www/api/chat-tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/var/www/api/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-12-03T15:19:14+08:00 ] 172.19.127.20 116.8.55.189 GET /api.php/index/l
+[ log ] api.lsiten.cn/api.php/index/l [运行时间：0.011896s][吞吐率：84.06req/s] [内存消耗：1,428.04kb] [文件加载：33]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'index',
+    1 => 'l',
+    2 => NULL,
+  ),
+)
+[ info ] [ LANG ] /var/www/api/chat-tp5/thinkphp/lang/zh-cn.php
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/var/www/api/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-12-03T15:19:26+08:00 ] 172.19.127.20 116.8.55.189 GET /api.php/api
+[ log ] api.lsiten.cn/api.php/api [运行时间：0.013162s][吞吐率：75.98req/s] [内存消耗：1,679.91kb] [文件加载：36]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => NULL,
+    2 => NULL,
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method index ] {
+  @@ /var/www/api/chat-tp5/app/api/controller/Index.php 20 - 22
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/var/www/api/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+
+[ 2017-12-03T15:19:33+08:00 ] 172.19.127.20 116.8.55.189 GET /api.php/api/video/videoList
+[ log ] api.lsiten.cn/api.php/api/video/videoList [运行时间：0.027571s][吞吐率：36.27req/s] [内存消耗：3,029.98kb] [文件加载：50]
+[ info ] [ ROUTE ] array (
+  'type' => 'module',
+  'module' => 
+  array (
+    0 => 'api',
+    1 => 'video',
+    2 => 'videoList',
+  ),
+)
+[ info ] [ RUN ] Method [ <user> public method videoList ] {
+  @@ /var/www/api/chat-tp5/app/api/controller/Video.php 166 - 206
+
+  - Parameters [1] {
+    Parameter #0 [ <required> think\Request $request ]
+  }
+}
+
+[ info ] [ SESSION ] INIT array (
+  'id' => '',
+  'var_session_id' => '',
+  'prefix' => 'think',
+  'type' => '',
+  'auto_start' => true,
+)
+[ info ] [ DB ] INIT mysql:array (
+  'type' => 'mysql',
+  'dsn' => '',
+  'hostname' => '127.0.0.1',
+  'database' => 'laychat',
+  'username' => 'root',
+  'password' => '2012.lei',
+  'hostport' => '3306',
+  'params' => 
+  array (
+  ),
+  'charset' => 'utf8',
+  'prefix' => 'lsiten_',
+  'debug' => true,
+  'deploy' => 0,
+  'rw_separate' => false,
+  'master_num' => 1,
+  'slave_no' => '',
+  'fields_strict' => true,
+  'auto_timestamp' => false,
+  'resultset_type' => 'array',
+  'sql_explain' => false,
+)
+[ info ] [ DB ] CONNECT: mysql:dbname=laychat;host=127.0.0.1;port=3306;charset=utf8
+[ info ] [ LOG ] INIT File: array (
+  'path' => '/var/www/api/chat-tp5/public/../runtime/log/',
+  'level' => 
+  array (
+  ),
+)
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `lsiten_creation` LIMIT 1   [ RunTime:0.000160s ]
+[ sql ] [ SQL ] SELECT creation.id,creation.title,creation.videoid,creation.audio_public_id,creation.video_qiniu_key,creation.video_qiniu_thumb,creation.createAt,creation.updateAt,creation.user,doguser.id AS userdata__id,doguser.phoneNumber AS userdata__phoneNumber,doguser.areaCode AS userdata__areaCode,doguser.verifyCode AS userdata__verifyCode,doguser.accessToken AS userdata__accessToken,doguser.nickname AS userdata__nickname,doguser.sex AS userdata__sex,doguser.breed AS userdata__breed,doguser.age AS userdata__age,doguser.avatar AS userdata__avatar,doguser.createAt AS userdata__createAt,doguser.updateAt AS userdata__updateAt FROM lsiten_creation creation INNER JOIN lsiten_doguser doguser ON creation.user=doguser.id  ORDER BY `createAt`  desc LIMIT 0,5   [ RunTime:0.000306s ]
+[ sql ] [ SQL ] SELECT * FROM `lsiten_videolike` WHERE  `videoid` = '1'  [ RunTime:0.000152s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `lsiten_videolike` WHERE  `userid` = null  AND `isLike` = '1' LIMIT 1    [ RunTime:0.000148s ]
+
